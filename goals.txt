@@ -1,0 +1,44 @@
+Prompt / Project Brief
+I want to build a modern e-commerce website specifically focused on ready-made fashion for boys and girls across all age groups. The platform must provide a seamless, mobile-friendly shopping experience with standard e-commerce features and WhatsApp-based checkout. The requirements are as follows:
+
+1. User Authentication & Profile Management
+Secure login and signup using email/mobile + password.
+Social login options (Google) for faster onboarding.
+User profile includes personal information, saved shipping addresses, and shopping history (previously added items, wishlisted items).
+
+2. Fashion Product Catalogue & Discovery
+Fashion-focused structure:
+Categories based on gender (Boys / Girls), age groups (Infants, Kids, Teens, Adults), and clothing types (T-shirts, Dresses, Jeans, Ethnic Wear, Winter Wear, Footwear, Accessories, etc.).
+Seasonal & festival collections (e.g., "Back to School," "Diwali Special," "Winter Fashion").
+Product listing pages with:
+High-quality images (multiple angles), clear price, available sizes, brand, and material details.
+Filters: size, age group, price range, colors, brand, material, discount availability, new arrivals, and bestsellers.
+Sorting: price low-to-high, high-to-low, newest, most popular, best deals.
+Product detail pages include:
+Product images with zoom-in feature.
+Size chart, care instructions, customer reviews, and related styling suggestions ("Pair it with").
+Stock availability & expected delivery time (optional, if implemented later).
+
+3. Wishlist & Cart Functionality
+Logged-in users can add products to wishlist.
+Shopping cart to review multiple products before checkout.
+Direct "Buy Now" option on each product for single-item checkout.
+
+4. WhatsApp Checkout Integration (Core Differentiator)
+On checkout, instead of online payments, redirect users to the seller’s verified WhatsApp profile with a pre-filled professional message draft.
+WhatsApp message auto-fills with:
+Product(s) name, selected sizes, colors, quantity, and itemized total.
+If multiple products → Cart summary with totals.
+Buyer details: name, phone, email (if shared in profile).
+This ensures direct communication between customer and seller for final confirmation, availability check, and payment/shipping discussions.
+
+5. Fashion-Specific Standard Features
+Mobile-first design since fashion buyers shop mostly from mobile.
+Guest browsing, but checkout restricted to registered users.
+implement rolebased Admin/Seller dashboard to:
+Manage product uploads (with sizes, colors, stock levels).
+Organize collections and seasonal highlights.
+Track WhatsApp orders.
+Seasonal promotions & banners (discount offers, festive sales).
+SEO optimization with category-based keywords (e.g., "Kids T-shirts under $20," "Teen Girls Party Wear").
+Analytics integration (Google Analytics, Meta Pixel) to understand user trends.
