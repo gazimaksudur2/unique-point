@@ -44,11 +44,11 @@ const ProductCard = ({ product, className = "" }) => {
 
 	return (
 		<div
-			className={`bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow ${className}`}
+			className={`bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow w-full ${className}`}
 		>
 			<Link to={`/product/${product.id}`} className="block">
 				{/* Product Image */}
-				<div className="relative aspect-square overflow-hidden bg-gray-100">
+				<div className="relative aspect-square overflow-hidden bg-gray-100 rounded-t-lg">
 					<img
 						src={product.images[0]}
 						alt={product.name}
@@ -57,19 +57,19 @@ const ProductCard = ({ product, className = "" }) => {
 					/>
 
 					{/* Badges */}
-					<div className="absolute top-3 left-3 space-y-2">
+					<div className="absolute top-2 left-2 sm:top-3 sm:left-3 space-y-1 sm:space-y-2">
 						{product.isNew && (
-							<span className="bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full">
+							<span className="bg-primary text-white text-xs font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
 								NEW
 							</span>
 						)}
 						{product.isBestseller && (
-							<span className="bg-secondary text-gray-800 text-xs font-bold px-2.5 py-1 rounded-full">
+							<span className="bg-secondary-500 text-white text-xs font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
 								BESTSELLER
 							</span>
 						)}
 						{discountPercentage > 0 && (
-							<span className="bg-coral text-white text-xs font-bold px-2.5 py-1 rounded-full">
+							<span className="bg-coral text-white text-xs font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
 								{discountPercentage}% OFF
 							</span>
 						)}
@@ -78,7 +78,7 @@ const ProductCard = ({ product, className = "" }) => {
 					{/* Wishlist Button */}
 					<button
 						onClick={handleAddToWishlist}
-						className={`absolute top-3 right-3 p-2 rounded-full ${
+						className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-full ${
 							isInWishlist
 								? "bg-coral text-white"
 								: "bg-white text-gray-600 hover:bg-cream hover:text-coral border border-gray-200"
@@ -86,7 +86,7 @@ const ProductCard = ({ product, className = "" }) => {
 						aria-label="Add to wishlist"
 					>
 						<FiHeart
-							className="h-4 w-4"
+							className="h-3 w-3 sm:h-4 sm:w-4"
 							fill={isInWishlist ? "currentColor" : "none"}
 						/>
 					</button>
@@ -104,14 +104,14 @@ const ProductCard = ({ product, className = "" }) => {
 				</div>
 
 				{/* Product Info */}
-				<div className="p-4 space-y-3">
+				<div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
 					{/* Brand */}
 					<p className="text-xs text-gray-500 font-medium uppercase tracking-wide">
 						{product.brand}
 					</p>
 
 					{/* Product Name */}
-					<h3 className="font-medium text-gray-900 line-clamp-2 text-sm leading-relaxed">
+					<h3 className="font-medium text-gray-900 line-clamp-2 text-xs sm:text-sm leading-relaxed">
 						{product.name}
 					</h3>
 

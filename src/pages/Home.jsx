@@ -39,7 +39,6 @@ const Home = () => {
 								</p>
 							</div>
 
-							{/* ml-2 bg-coral hover:bg-coral-dark text-white px-6 py-3 rounded-lg font-semibold text-sm */}
 							<div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
 								<Link
 									to="/boys"
@@ -76,7 +75,9 @@ const Home = () => {
 									</div>
 								</div>
 								<div className="text-center p-2 sm:p-4 bg-coral-50 rounded-lg border border-coral-300">
-									<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">4.9</div>
+									<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+										4.9
+									</div>
 									<div className="text-xs sm:text-sm font-semibold">Rating</div>
 								</div>
 							</div>
@@ -137,24 +138,28 @@ const Home = () => {
 							</p>
 						</div>
 
-						<div className="text-center space-y-4">
-							<div className="w-16 h-16 mx-auto bg-coral rounded-2xl flex items-center justify-center">
-								<FiHeadphones className="h-8 w-8 text-white" />
+						<div className="text-center space-y-2 sm:space-y-4">
+							<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-coral rounded-xl sm:rounded-2xl flex items-center justify-center">
+								<FiHeadphones className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
 							</div>
-							<h3 className="font-semibold text-lg text-gray-900">
+							<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
 								24/7 Support
 							</h3>
-							<p className="text-gray-600">Direct communication via WhatsApp</p>
+							<p className="text-xs sm:text-sm text-gray-600">
+								Direct communication via WhatsApp
+							</p>
 						</div>
 
-						<div className="text-center space-y-4">
-							<div className="w-16 h-16 mx-auto bg-primary-light rounded-2xl flex items-center justify-center">
-								<FiStar className="h-8 w-8 text-gray-700" />
+						<div className="text-center space-y-2 sm:space-y-4">
+							<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-primary-400 rounded-xl sm:rounded-2xl flex items-center justify-center">
+								<FiStar className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
 							</div>
-							<h3 className="font-semibold text-lg text-gray-900">
+							<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
 								Customer Love
 							</h3>
-							<p className="text-gray-600">Rated 4.9/5 by happy parents</p>
+							<p className="text-xs sm:text-sm text-gray-600">
+								Rated 4.9/5 by happy parents
+							</p>
 						</div>
 					</div>
 				</div>

@@ -37,8 +37,13 @@ const Header = () => {
 			<div className="bg-primary text-white text-center py-2 sm:py-2.5">
 				<div className="container mx-auto px-4">
 					<p className="text-xs sm:text-sm font-medium tracking-wide">
-						<span className="hidden sm:inline">🚚 Free shipping on orders over ₹999 • 🔄 Easy returns • 📞 24/7 support</span>
-						<span className="sm:hidden">🚚 Free shipping over ₹999 • 📞 24/7 support</span>
+						<span className="hidden sm:inline">
+							🚚 Free shipping on orders over ₹999 • 🔄 Easy returns • 📞 24/7
+							support
+						</span>
+						<span className="sm:hidden">
+							🚚 Free shipping over ₹999 • 📞 24/7 support
+						</span>
 					</p>
 				</div>
 			</div>
