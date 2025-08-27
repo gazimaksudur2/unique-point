@@ -4,6 +4,10 @@
 
 DaisyUI has been successfully integrated into your project while **preserving your custom design system's precedence**. Your existing components and styling remain completely unchanged.
 
+### 📋 Recent Updates
+- **React Helmet Migration**: Successfully migrated from `react-helmet-async` to `react-helmet` for better compatibility
+- **SEO Functionality**: All SEO features continue to work seamlessly with the new dependency
+
 ## 🎯 How It Works
 
 ### 1. **CSS Layer Architecture**
