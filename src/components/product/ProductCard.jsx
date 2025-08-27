@@ -44,7 +44,7 @@ const ProductCard = ({ product, className = "" }) => {
 
 	return (
 		<div
-			className={`bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden ${className}`}
+			className={`bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow ${className}`}
 		>
 			<Link to={`/product/${product.id}`} className="block">
 				{/* Product Image */}
@@ -52,36 +52,36 @@ const ProductCard = ({ product, className = "" }) => {
 					<img
 						src={product.images[0]}
 						alt={product.name}
-						className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+						className="w-full h-full object-cover"
 						loading="lazy"
 					/>
 
 					{/* Badges */}
-					<div className="absolute top-2 left-2 space-y-1">
+					<div className="absolute top-3 left-3 space-y-2">
 						{product.isNew && (
-							<Badge variant="success" size="sm">
-								New
-							</Badge>
+							<span className="bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full">
+								NEW
+							</span>
 						)}
 						{product.isBestseller && (
-							<Badge variant="warning" size="sm">
-								Bestseller
-							</Badge>
+							<span className="bg-secondary text-gray-800 text-xs font-bold px-2.5 py-1 rounded-full">
+								BESTSELLER
+							</span>
 						)}
 						{discountPercentage > 0 && (
-							<Badge variant="danger" size="sm">
+							<span className="bg-coral text-white text-xs font-bold px-2.5 py-1 rounded-full">
 								{discountPercentage}% OFF
-							</Badge>
+							</span>
 						)}
 					</div>
 
 					{/* Wishlist Button */}
 					<button
 						onClick={handleAddToWishlist}
-						className={`absolute top-2 right-2 p-2 rounded-full transition-colors ${
+						className={`absolute top-3 right-3 p-2 rounded-full ${
 							isInWishlist
-								? "bg-red-500 text-white"
-								: "bg-white text-gray-600 hover:text-red-500"
+								? "bg-coral text-white"
+								: "bg-white text-gray-600 hover:bg-cream hover:text-coral border border-gray-200"
 						}`}
 						aria-label="Add to wishlist"
 					>
@@ -92,23 +92,26 @@ const ProductCard = ({ product, className = "" }) => {
 					</button>
 
 					{/* Quick Add to Cart - Shows on hover */}
-					<div className="absolute bottom-2 left-2 right-2 opacity-0 hover:opacity-100 transition-opacity duration-300">
-						<Button onClick={handleAddToCart} size="sm" className="w-full">
+					<div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+						<button
+							onClick={handleAddToCart}
+							className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center shadow-xl transform hover:scale-105"
+						>
 							<FiShoppingCart className="h-4 w-4 mr-2" />
 							Quick Add
-						</Button>
+						</button>
 					</div>
 				</div>
 
 				{/* Product Info */}
-				<div className="p-4 space-y-2">
+				<div className="p-4 space-y-3">
 					{/* Brand */}
-					<p className="text-xs text-gray-500 uppercase tracking-wide">
+					<p className="text-xs text-gray-500 font-medium uppercase tracking-wide">
 						{product.brand}
 					</p>
 
 					{/* Product Name */}
-					<h3 className="font-medium text-gray-900 line-clamp-2">
+					<h3 className="font-medium text-gray-900 line-clamp-2 text-sm leading-relaxed">
 						{product.name}
 					</h3>
 
@@ -120,7 +123,7 @@ const ProductCard = ({ product, className = "" }) => {
 									key={i}
 									className={`h-3 w-3 ${
 										i < Math.floor(product.rating)
-											? "text-yellow-400 fill-current"
+											? "text-warning-400 fill-current"
 											: "text-gray-300"
 									}`}
 								/>
@@ -137,9 +140,14 @@ const ProductCard = ({ product, className = "" }) => {
 							₹{product.price}
 						</span>
 						{product.originalPrice > product.price && (
-							<span className="text-sm text-gray-500 line-through">
-								₹{product.originalPrice}
-							</span>
+							<>
+								<span className="text-sm text-gray-400 line-through">
+									₹{product.originalPrice}
+								</span>
+								<span className="text-xs bg-secondary-100 text-secondary-700 px-2 py-0.5 rounded-full font-medium border border-secondary-200">
+									Save ₹{product.originalPrice - product.price}
+								</span>
+							</>
 						)}
 					</div>
 
@@ -148,13 +156,13 @@ const ProductCard = ({ product, className = "" }) => {
 						{product.sizes.slice(0, 3).map((size) => (
 							<span
 								key={size}
-								className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded"
+								className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md"
 							>
 								{size}
 							</span>
 						))}
 						{product.sizes.length > 3 && (
-							<span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
+							<span className="px-2 py-1 text-xs bg-gray-800 text-white rounded-md">
 								+{product.sizes.length - 3}
 							</span>
 						)}
@@ -162,10 +170,10 @@ const ProductCard = ({ product, className = "" }) => {
 
 					{/* Stock Status */}
 					{!product.inStock && (
-						<div className="pt-2">
-							<Badge variant="danger" size="sm">
+						<div className="pt-1">
+							<span className="text-xs bg-gray-500 text-white px-2 py-1 rounded-md font-medium">
 								Out of Stock
-							</Badge>
+							</span>
 						</div>
 					)}
 				</div>

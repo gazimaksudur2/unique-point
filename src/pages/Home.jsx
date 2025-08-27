@@ -19,277 +19,295 @@ const getFeaturedProducts = () => {
 
 const Home = () => {
 	return (
-		<div className="space-y-16">
+		<div className="min-h-screen bg-cream">
 			{/* Hero Section */}
-			<section className="relative bg-gradient-to-r from-purple-600 via-pink-600 to-purple-800 text-white">
-				<div className="container mx-auto px-4 py-20">
-					<div className="max-w-3xl">
-						<h1 className="text-4xl md:text-6xl font-bold mb-6">
-							Fashion for Every
-							<span className="block text-yellow-300">Little Star</span>
-						</h1>
-						<p className="text-xl md:text-2xl mb-8 text-purple-100">
-							Discover trendy, comfortable, and affordable fashion for boys and
-							girls across all age groups
-						</p>
-						<div className="flex flex-col sm:flex-row gap-4">
-							<Link
-								to="/boys"
-								className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
-							>
-								Shop Boys
-								<FiArrowRight className="ml-2 h-5 w-5" />
-							</Link>
-							<Link
-								to="/girls"
-								className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors flex items-center justify-center"
-							>
-								Shop Girls
-								<FiArrowRight className="ml-2 h-5 w-5" />
-							</Link>
-						</div>
-					</div>
-				</div>
+			<section className="bg-white">
+				<div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 xl:py-24">
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+						<div className="space-y-6 sm:space-y-8">
+							<div className="space-y-4 sm:space-y-6">
+								<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900">
+									Fashion that grows
+									<span className="block bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+										with your child
+									</span>
+								</h1>
+								<p className="text-lg lg:text-xl leading-relaxed text-gray-600">
+									Discover premium quality, comfortable clothing for boys and
+									girls. From newborns to teens - we create outfits that inspire
+									confidence.
+								</p>
+							</div>
 
-				{/* Hero Image/Graphics - Placeholder */}
-				<div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-purple-500/20 to-transparent hidden lg:block">
-					<div className="w-full h-full flex items-center justify-center">
-						<div className="text-6xl opacity-20">👗👔</div>
+							{/* ml-2 bg-coral hover:bg-coral-dark text-white px-6 py-3 rounded-lg font-semibold text-sm */}
+							<div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+								<Link
+									to="/boys"
+									className="bg-coral hover:bg-coral-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center"
+								>
+									Shop Boys
+									<FiArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+								</Link>
+								<Link
+									to="/girls"
+									className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center"
+								>
+									Shop Girls
+									<FiArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+								</Link>
+							</div>
+
+							{/* Key Features */}
+							<div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 text-gray-800">
+								<div className="text-center p-2 sm:p-4 bg-secondary-50 rounded-lg border border-secondary-300">
+									<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+										1000+
+									</div>
+									<div className="text-xs sm:text-sm text-gray-600 font-semibold">
+										Products
+									</div>
+								</div>
+								<div className="text-center p-2 sm:p-4 bg-primary-50 rounded-lg border border-primary-300">
+									<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+										50K+
+									</div>
+									<div className="text-xs sm:text-sm font-semibold">
+										Happy Families
+									</div>
+								</div>
+								<div className="text-center p-2 sm:p-4 bg-coral-50 rounded-lg border border-coral-300">
+									<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">4.9</div>
+									<div className="text-xs sm:text-sm font-semibold">Rating</div>
+								</div>
+							</div>
+						</div>
+
+						{/* Hero Image/Graphics */}
+						<div className="hidden lg:block">
+							<div className="relative">
+								<div className="bg-white rounded-3xl p-8 shadow-2xl">
+									<div className="text-center space-y-6">
+										<div className="w-32 h-32 mx-auto bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full flex items-center justify-center shadow-lg">
+											<div className="text-6xl">👕</div>
+										</div>
+										<div className="space-y-3">
+											<div className="h-2 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-full"></div>
+											<div className="h-2 bg-gradient-to-r from-primary-300 to-secondary-300 rounded-full w-4/5 mx-auto"></div>
+											<div className="h-2 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full w-3/5 mx-auto"></div>
+										</div>
+										<div className="text-gray-800 font-semibold text-lg">
+											Premium Quality
+										</div>
+									</div>
+								</div>
+								<div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+									NEW
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* Features Section */}
-			<section className="container mx-auto px-4">
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-					<div className="text-center space-y-4">
-						<div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-							<FiTruck className="h-8 w-8 text-purple-600" />
+			<section className="py-8 sm:py-12 lg:py-16 bg-secondary-100">
+				<div className="container mx-auto px-4">
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+						<div className="text-center space-y-2 sm:space-y-4">
+							<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-primary rounded-xl sm:rounded-2xl flex items-center justify-center">
+								<FiTruck className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+							</div>
+							<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
+								Free Shipping
+							</h3>
+							<p className="text-xs sm:text-sm text-gray-600">
+								Free delivery on orders above ₹999
+							</p>
 						</div>
-						<h3 className="font-semibold text-lg">Free Shipping</h3>
-						<p className="text-gray-600">Free delivery on orders above ₹999</p>
-					</div>
 
-					<div className="text-center space-y-4">
-						<div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-							<FiShield className="h-8 w-8 text-green-600" />
+						<div className="text-center space-y-2 sm:space-y-4">
+							<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-secondary-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
+								<FiShield className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+							</div>
+							<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
+								Quality Assured
+							</h3>
+							<p className="text-xs sm:text-sm text-gray-600">
+								Premium quality fabrics and materials
+							</p>
 						</div>
-						<h3 className="font-semibold text-lg">Quality Assured</h3>
-						<p className="text-gray-600">
-							Premium quality fabrics and materials
-						</p>
-					</div>
 
-					<div className="text-center space-y-4">
-						<div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-							<FiHeadphones className="h-8 w-8 text-yellow-600" />
+						<div className="text-center space-y-4">
+							<div className="w-16 h-16 mx-auto bg-coral rounded-2xl flex items-center justify-center">
+								<FiHeadphones className="h-8 w-8 text-white" />
+							</div>
+							<h3 className="font-semibold text-lg text-gray-900">
+								24/7 Support
+							</h3>
+							<p className="text-gray-600">Direct communication via WhatsApp</p>
 						</div>
-						<h3 className="font-semibold text-lg">WhatsApp Support</h3>
-						<p className="text-gray-600">Direct communication via WhatsApp</p>
-					</div>
 
-					<div className="text-center space-y-4">
-						<div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-							<FiStar className="h-8 w-8 text-blue-600" />
+						<div className="text-center space-y-4">
+							<div className="w-16 h-16 mx-auto bg-primary-light rounded-2xl flex items-center justify-center">
+								<FiStar className="h-8 w-8 text-gray-700" />
+							</div>
+							<h3 className="font-semibold text-lg text-gray-900">
+								Customer Love
+							</h3>
+							<p className="text-gray-600">Rated 4.9/5 by happy parents</p>
 						</div>
-						<h3 className="font-semibold text-lg">Customer Love</h3>
-						<p className="text-gray-600">Rated 4.8/5 by happy parents</p>
 					</div>
 				</div>
 			</section>
 
 			{/* Categories Section */}
-			<section className="container mx-auto px-4">
-				<div className="text-center mb-12">
-					<h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-						Shop by Category
-					</h2>
-					<p className="text-gray-600 max-w-2xl mx-auto">
-						Find the perfect outfit for every occasion and age group
-					</p>
-				</div>
-
-				<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-					{/* Category Cards */}
-					<Link
-						to="/boys/infants"
-						className="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-					>
-						<div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-							<span className="text-4xl">👶</span>
-						</div>
-						<div className="p-4 text-center">
-							<h3 className="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
-								Infants
-							</h3>
-							<p className="text-sm text-gray-600">0-2 years</p>
-						</div>
-					</Link>
-
-					<Link
-						to="/boys/kids"
-						className="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-					>
-						<div className="aspect-square bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-							<span className="text-4xl">🧒</span>
-						</div>
-						<div className="p-4 text-center">
-							<h3 className="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
-								Kids
-							</h3>
-							<p className="text-sm text-gray-600">3-8 years</p>
-						</div>
-					</Link>
-
-					<Link
-						to="/boys/teens"
-						className="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-					>
-						<div className="aspect-square bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-							<span className="text-4xl">🧑</span>
-						</div>
-						<div className="p-4 text-center">
-							<h3 className="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
-								Teens
-							</h3>
-							<p className="text-sm text-gray-600">9-16 years</p>
-						</div>
-					</Link>
-
-					<Link
-						to="/boys/adults"
-						className="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-					>
-						<div className="aspect-square bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
-							<span className="text-4xl">👨</span>
-						</div>
-						<div className="p-4 text-center">
-							<h3 className="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
-								Adults
-							</h3>
-							<p className="text-sm text-gray-600">17+ years</p>
-						</div>
-					</Link>
-				</div>
-			</section>
-
-			{/* Featured Collections */}
-			<section className="bg-gray-100 py-16">
+			<section className="py-16 bg-gradient-to-b from-secondary-50 to-white">
 				<div className="container mx-auto px-4">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-							Featured Collections
+						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+							Shop by Age Group
 						</h2>
-						<p className="text-gray-600 max-w-2xl mx-auto">
-							Curated collections for every season and occasion
+						<p className="text-lg text-gray-600 max-w-2xl mx-auto">
+							Find the perfect outfit for every occasion and age group
 						</p>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<div className="bg-white rounded-xl shadow-md overflow-hidden">
-							<div className="h-48 bg-gradient-to-br from-yellow-200 to-orange-300 flex items-center justify-center">
-								<span className="text-6xl">🌟</span>
+					<div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+						{/* Category Cards */}
+						<Link
+							to="/boys/infants"
+							className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+						>
+							<div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+								<span className="text-6xl group-hover:scale-110 transition-transform">
+									👶
+								</span>
 							</div>
-							<div className="p-6">
-								<h3 className="font-bold text-xl mb-2">Festival Special</h3>
-								<p className="text-gray-600 mb-4">
-									Traditional and ethnic wear for festive celebrations
-								</p>
-								<Link
-									to="/collections/festival"
-									className="text-purple-600 font-semibold hover:text-purple-700 flex items-center"
-								>
-									Shop Collection
-									<FiArrowRight className="ml-2 h-4 w-4" />
-								</Link>
+							<div className="p-6 text-center">
+								<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
+									Infants
+								</h3>
+								<p className="text-sm text-gray-500 font-medium">0-2 years</p>
 							</div>
-						</div>
+						</Link>
 
-						<div className="bg-white rounded-xl shadow-md overflow-hidden">
-							<div className="h-48 bg-gradient-to-br from-blue-200 to-cyan-300 flex items-center justify-center">
-								<span className="text-6xl">❄️</span>
+						<Link
+							to="/boys/kids"
+							className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+						>
+							<div className="aspect-square bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+								<span className="text-6xl group-hover:scale-110 transition-transform">
+									🧒
+								</span>
 							</div>
-							<div className="p-6">
-								<h3 className="font-bold text-xl mb-2">Winter Essentials</h3>
-								<p className="text-gray-600 mb-4">
-									Cozy and warm clothing for the winter season
-								</p>
-								<Link
-									to="/collections/winter"
-									className="text-purple-600 font-semibold hover:text-purple-700 flex items-center"
-								>
-									Shop Collection
-									<FiArrowRight className="ml-2 h-4 w-4" />
-								</Link>
+							<div className="p-6 text-center">
+								<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
+									Kids
+								</h3>
+								<p className="text-sm text-gray-500 font-medium">3-8 years</p>
 							</div>
-						</div>
+						</Link>
 
-						<div className="bg-white rounded-xl shadow-md overflow-hidden">
-							<div className="h-48 bg-gradient-to-br from-red-200 to-pink-300 flex items-center justify-center">
-								<span className="text-6xl">🎒</span>
+						<Link
+							to="/boys/teens"
+							className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+						>
+							<div className="aspect-square bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
+								<span className="text-6xl group-hover:scale-110 transition-transform">
+									🧑
+								</span>
 							</div>
-							<div className="p-6">
-								<h3 className="font-bold text-xl mb-2">Back to School</h3>
-								<p className="text-gray-600 mb-4">
-									Comfortable and stylish outfits for school days
-								</p>
-								<Link
-									to="/collections/school"
-									className="text-purple-600 font-semibold hover:text-purple-700 flex items-center"
-								>
-									Shop Collection
-									<FiArrowRight className="ml-2 h-4 w-4" />
-								</Link>
+							<div className="p-6 text-center">
+								<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
+									Teens
+								</h3>
+								<p className="text-sm text-gray-500 font-medium">9-16 years</p>
 							</div>
-						</div>
+						</Link>
+
+						<Link
+							to="/boys/adults"
+							className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+						>
+							<div className="aspect-square bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center">
+								<span className="text-6xl group-hover:scale-110 transition-transform">
+									👨
+								</span>
+							</div>
+							<div className="p-6 text-center">
+								<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
+									Adults
+								</h3>
+								<p className="text-sm text-gray-500 font-medium">17+ years</p>
+							</div>
+						</Link>
 					</div>
 				</div>
 			</section>
 
 			{/* Featured Products */}
-			<section className="container mx-auto px-4">
-				<div className="text-center mb-12">
-					<h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-						Featured Products
-					</h2>
-					<p className="text-gray-600 max-w-2xl mx-auto">
-						Hand-picked favorites that our customers love
-					</p>
-				</div>
+			<section className="py-16 bg-gray-50">
+				<div className="container mx-auto px-4">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+							Featured Products
+						</h2>
+						<p className="text-lg text-gray-600 max-w-2xl mx-auto">
+							Hand-picked favorites that our customers love
+						</p>
+					</div>
 
-				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-					{getFeaturedProducts().map((product) => (
-						<ProductCard key={product.id} product={product} />
-					))}
-				</div>
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+						{getFeaturedProducts().map((product) => (
+							<ProductCard key={product.id} product={product} />
+						))}
+					</div>
 
-				<div className="text-center mt-12">
-					<Link
-						to="/boys"
-						className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors inline-flex items-center"
-					>
-						View All Products
-						<FiArrowRight className="ml-2 h-5 w-5" />
-					</Link>
+					<div className="text-center mt-12">
+						<Link
+							to="/boys"
+							className="group bg-primary-700 hover:bg-primary-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center"
+						>
+							View All Products
+							<FiArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+						</Link>
+					</div>
 				</div>
 			</section>
 
 			{/* CTA Section */}
-			<section className="container mx-auto px-4">
-				<div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 md:p-12 text-white text-center">
-					<h2 className="text-3xl md:text-4xl font-bold mb-4">
-						Ready to Explore?
-					</h2>
-					<p className="text-xl mb-8 text-purple-100">
-						Join thousands of happy families shopping with UniquePoint
-					</p>
-					<Link
-						to="/boys"
-						className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-					>
-						Start Shopping
-						<FiArrowRight className="ml-2 h-5 w-5" />
-					</Link>
+			<section className="py-16 bg-gradient-to-r from-primary-700 to-primary-800">
+				<div className="container mx-auto px-4">
+					<div className="text-center text-white">
+						<h2 className="text-3xl md:text-4xl font-bold mb-6">
+							Ready to Start Shopping?
+						</h2>
+						<p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+							Join thousands of happy families who trust UniquePoint for quality
+							fashion
+						</p>
+
+						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+							<Link
+								to="/boys"
+								className="group bg-white text-primary-700 hover:bg-secondary-50 hover:text-secondary-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center border-2 border-white"
+							>
+								Start Shopping
+								<FiArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+							</Link>
+
+							<div className="flex items-center space-x-6 text-white/90">
+								<div className="text-center">
+									<div className="text-lg font-bold">⭐ 4.9/5</div>
+									<div className="text-sm">Customer Rating</div>
+								</div>
+								<div className="text-center">
+									<div className="text-lg font-bold">📱 WhatsApp</div>
+									<div className="text-sm">Easy Checkout</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>

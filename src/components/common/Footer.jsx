@@ -14,14 +14,14 @@ const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="bg-gray-900 text-white">
+		<footer className="bg-gray-900 text-white border-t border-gray-800">
 			<div className="container mx-auto px-4 py-12">
 				{/* Main Footer Content */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 					{/* Brand Section */}
 					<div className="space-y-4">
 						<div className="flex items-center space-x-2">
-							<div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-2 rounded-lg">
+							<div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-2 rounded-lg shadow-md">
 								<span className="font-bold text-xl">UP</span>
 							</div>
 							<span className="font-bold text-xl">{APP_NAME}</span>
@@ -164,9 +164,9 @@ const Footer = () => {
 								<input
 									type="email"
 									placeholder="Your email"
-									className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+									className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
 								/>
-								<button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors text-sm">
+								<button className="bg-primary-700 text-white px-4 py-2 rounded-md hover:bg-primary-800 transition-colors text-sm shadow-md hover:shadow-lg">
 									Subscribe
 								</button>
 							</div>
@@ -209,7 +209,7 @@ const Footer = () => {
 							Secure payments via WhatsApp
 						</span>
 						<div className="flex space-x-2">
-							<div className="bg-green-600 text-white px-2 py-1 rounded text-xs font-medium">
+							<div className="bg-success-600 text-white px-2 py-1 rounded text-xs font-medium">
 								WhatsApp
 							</div>
 							<div className="bg-gray-700 text-white px-2 py-1 rounded text-xs">

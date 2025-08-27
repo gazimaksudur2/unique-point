@@ -16,14 +16,17 @@ const Button = ({
 		"inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
 	const variants = {
-		primary:
-			"bg-purple-600 hover:bg-purple-700 text-white focus:ring-purple-500",
+		primary: "bg-primary hover:bg-primary-dark text-white focus:ring-primary",
 		secondary:
-			"bg-gray-200 hover:bg-gray-300 text-gray-900 focus:ring-gray-500",
+			"bg-secondary hover:bg-secondary-light text-gray-800 focus:ring-secondary",
+		coral: "bg-coral hover:bg-coral-dark text-white focus:ring-coral",
 		outline:
-			"border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white focus:ring-purple-500",
-		ghost: "text-gray-600 hover:bg-gray-100 focus:ring-gray-500",
-		danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500",
+			"border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary",
+		soft: "bg-cream hover:bg-secondary-light text-gray-700 focus:ring-primary",
+		ghost: "text-gray-700 hover:bg-cream focus:ring-gray-500",
+		success: "bg-primary hover:bg-primary-dark text-white focus:ring-primary",
+		warning: "bg-coral hover:bg-coral-dark text-white focus:ring-coral",
+		danger: "bg-coral hover:bg-coral-dark text-white focus:ring-coral",
 	};
 
 	const sizes = {

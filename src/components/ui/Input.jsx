@@ -11,7 +11,7 @@ const Input = ({
 	...props
 }) => {
 	const baseClasses =
-		"block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 transition-colors";
+		"block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition-colors";
 
 	const sizes = {
 		sm: "px-3 py-2 text-sm",
@@ -23,7 +23,7 @@ const Input = ({
 		baseClasses,
 		sizes[size],
 		{
-			"border-red-500 focus:ring-red-500 focus:border-red-500": error,
+			"border-danger-500 focus:ring-danger-500 focus:border-danger-500": error,
 		},
 		className
 	);
@@ -36,7 +36,7 @@ const Input = ({
 				</label>
 			)}
 			<input type={type} className={classes} {...props} />
-			{error && <p className="text-sm text-red-600">{error}</p>}
+			{error && <p className="text-sm text-danger-600">{error}</p>}
 			{helperText && !error && (
 				<p className="text-sm text-gray-500">{helperText}</p>
 			)}

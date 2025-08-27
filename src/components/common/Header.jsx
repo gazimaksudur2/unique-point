@@ -11,6 +11,7 @@ import {
 } from "react-icons/fi";
 import { useApp } from "../../context/AppContext";
 import { APP_NAME, NAVIGATION_ITEMS } from "../../utils/constants";
+import logo from "../../assets/logo_svg.svg";
 
 const Header = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,15 +32,20 @@ const Header = () => {
 	};
 
 	return (
-		<header className="bg-white shadow-md sticky top-0 z-50">
-			{/* Top Banner - Optional promotional banner */}
-			<div className="bg-purple-600 text-white text-center py-2 text-sm">
-				<p>Free shipping on orders over ₹999! 🚚</p>
+		<header className="border-b border-gray-100 sticky top-0 z-50 shadow-sm bg-white">
+			{/* Top Banner - Professional and sleek */}
+			<div className="bg-primary text-white text-center py-2 sm:py-2.5">
+				<div className="container mx-auto px-4">
+					<p className="text-xs sm:text-sm font-medium tracking-wide">
+						<span className="hidden sm:inline">🚚 Free shipping on orders over ₹999 • 🔄 Easy returns • 📞 24/7 support</span>
+						<span className="sm:hidden">🚚 Free shipping over ₹999 • 📞 24/7 support</span>
+					</p>
+				</div>
 			</div>
 
 			{/* Main Header */}
 			<div className="container mx-auto px-4">
-				<div className="flex items-center justify-between h-16">
+				<div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
 					{/* Mobile Menu Button */}
 					<button
 						onClick={toggleMobileMenu}
@@ -54,25 +60,30 @@ const Header = () => {
 					</button>
 
 					{/* Logo */}
-					<Link to="/" className="flex items-center space-x-2">
-						<div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-2 rounded-lg">
-							<span className="font-bold text-xl">UP</span>
+					<Link to="/" className="flex items-center space-x-2 sm:space-x-3">
+						<div className="bg-primary text-white w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center">
+							<img src={logo} alt="Logo" className="w-5 h-5 sm:w-7 sm:h-7" />
 						</div>
-						<span className="font-bold text-xl text-gray-800 hidden sm:block">
-							{APP_NAME}
-						</span>
+						<div className="hidden sm:block">
+							<span className="font-bold text-lg sm:text-xl lg:text-2xl text-gray-900 tracking-tight">
+								{APP_NAME}
+							</span>
+							<p className="text-xs text-gray-500 font-medium tracking-wide">
+								Premium Fashion Store
+							</p>
+						</div>
 					</Link>
 
 					{/* Desktop Navigation */}
-					<nav className="hidden md:flex items-center space-x-8">
+					<nav className="hidden lg:flex items-center space-x-2">
 						{NAVIGATION_ITEMS.map((item) => (
 							<Link
 								key={item.path}
 								to={item.path}
-								className={`font-medium transition-colors hover:text-purple-600 ${
+								className={`font-medium text-sm px-6 py-3 rounded-lg ${
 									isActiveLink(item.path)
-										? "text-purple-600 border-b-2 border-purple-600 pb-1"
-										: "text-gray-700"
+										? "text-white bg-primary"
+										: "text-gray-700 hover:text-white hover:bg-primary"
 								}`}
 							>
 								{item.name}
@@ -81,25 +92,25 @@ const Header = () => {
 					</nav>
 
 					{/* Right Side Icons */}
-					<div className="flex items-center space-x-4">
+					<div className="flex items-center space-x-2 sm:space-x-3">
 						{/* Search Button */}
 						<button
 							onClick={toggleSearch}
-							className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+							className="p-2 sm:p-3 rounded-lg bg-gray-50 hover:bg-secondary-100 border border-gray-200"
 							aria-label="Search"
 						>
-							<FiSearch className="h-5 w-5 text-gray-600" />
+							<FiSearch className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
 						</button>
 
 						{/* Wishlist */}
 						<Link
 							to="/wishlist"
-							className="p-2 rounded-md hover:bg-gray-100 transition-colors relative"
+							className="p-2 sm:p-3 rounded-lg bg-gray-50 hover:bg-secondary-100 border border-gray-200 relative"
 							aria-label="Wishlist"
 						>
-							<FiHeart className="h-5 w-5 text-gray-600" />
+							<FiHeart className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
 							{wishlistItemsCount > 0 && (
-								<span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+								<span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-coral text-white text-xs font-semibold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center">
 									{wishlistItemsCount}
 								</span>
 							)}
@@ -108,12 +119,12 @@ const Header = () => {
 						{/* Shopping Cart */}
 						<Link
 							to="/cart"
-							className="p-2 rounded-md hover:bg-gray-100 transition-colors relative"
+							className="p-2 sm:p-3 rounded-lg bg-gray-50 hover:bg-secondary-100 border border-gray-200 relative"
 							aria-label="Shopping cart"
 						>
-							<FiShoppingCart className="h-5 w-5 text-gray-600" />
+							<FiShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
 							{cartItemsCount > 0 && (
-								<span className="absolute -top-1 -right-1 bg-purple-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+								<span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-coral text-white text-xs font-semibold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center">
 									{cartItemsCount}
 								</span>
 							)}
@@ -123,18 +134,18 @@ const Header = () => {
 						{isAuthenticated ? (
 							<Link
 								to="/profile"
-								className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+								className="p-3 rounded-xl bg-gray-50 hover:bg-secondary-50 hover:text-secondary-600 transition-all group border border-gray-200"
 								aria-label="Profile"
 							>
-								<FiUser className="h-5 w-5 text-gray-600" />
+								<FiUser className="h-5 w-5 text-gray-600 group-hover:text-secondary-600" />
 							</Link>
 						) : (
 							<Link
 								to="/auth"
-								className="flex items-center space-x-1 bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors"
+								className="ml-2 bg-coral hover:bg-coral-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm"
 							>
-								<FiLogIn className="h-4 w-4" />
-								<span className="hidden sm:block">Login</span>
+								<span className="hidden sm:inline">Sign In</span>
+								<span className="sm:hidden">Login</span>
 							</Link>
 						)}
 					</div>
@@ -142,15 +153,18 @@ const Header = () => {
 
 				{/* Search Bar - Collapsible */}
 				{isSearchOpen && (
-					<div className="py-4 border-t">
+					<div className="py-6 bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
 						<div className="relative">
 							<input
 								type="text"
-								placeholder="Search for fashion items..."
-								className="w-full px-4 py-2 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+								placeholder="Search for products, brands, categories..."
+								className="w-full px-4 py-4 pl-12 pr-24 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all shadow-sm"
 								autoFocus
 							/>
-							<FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+							<FiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+							<button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-primary-700 hover:to-primary-800 transition-all shadow-md">
+								Search
+							</button>
 						</div>
 					</div>
 				)}
@@ -158,16 +172,16 @@ const Header = () => {
 
 			{/* Mobile Navigation Menu */}
 			{isMobileMenuOpen && (
-				<div className="md:hidden bg-white border-t border-gray-200">
-					<nav className="px-4 py-4 space-y-2">
+				<div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
+					<nav className="px-6 py-6 space-y-2">
 						{NAVIGATION_ITEMS.map((item) => (
 							<Link
 								key={item.path}
 								to={item.path}
-								className={`block px-3 py-2 rounded-md font-medium transition-colors ${
+								className={`block px-6 py-4 rounded-xl font-medium transition-all ${
 									isActiveLink(item.path)
-										? "bg-purple-100 text-purple-600"
-										: "text-gray-700 hover:bg-gray-100"
+										? "bg-primary-700 text-white shadow-md"
+										: "text-gray-700 hover:bg-primary-50 hover:text-primary-700"
 								}`}
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
@@ -176,28 +190,38 @@ const Header = () => {
 						))}
 
 						{/* Mobile-only links */}
-						<div className="border-t border-gray-200 pt-4 mt-4 space-y-2">
+						<div className="border-t border-gray-100 pt-6 mt-6 space-y-2">
 							<Link
 								to="/wishlist"
-								className="block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-100"
+								className="flex items-center justify-between px-6 py-4 rounded-xl font-medium text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-all"
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
-								Wishlist ({wishlistItemsCount})
+								<span>Wishlist</span>
+								{wishlistItemsCount > 0 && (
+									<span className="bg-danger-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+										{wishlistItemsCount}
+									</span>
+								)}
 							</Link>
 							<Link
 								to="/cart"
-								className="block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-100"
+								className="flex items-center justify-between px-6 py-4 rounded-xl font-medium text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-all"
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
-								Cart ({cartItemsCount})
+								<span>Shopping Cart</span>
+								{cartItemsCount > 0 && (
+									<span className="bg-primary-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+										{cartItemsCount}
+									</span>
+								)}
 							</Link>
 							{!isAuthenticated && (
 								<Link
 									to="/auth"
-									className="block px-3 py-2 rounded-md font-medium bg-purple-600 text-white hover:bg-purple-700"
+									className="block px-6 py-4 rounded-xl font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 text-center mt-3 shadow-md"
 									onClick={() => setIsMobileMenuOpen(false)}
 								>
-									Login / Sign Up
+									Sign In
 								</Link>
 							)}
 						</div>

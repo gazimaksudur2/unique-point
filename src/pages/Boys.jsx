@@ -83,192 +83,225 @@ const Boys = () => {
 	};
 
 	return (
-		<div className="container mx-auto px-4 py-8">
+		<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">
 			{/* Header */}
-			<div className="mb-8">
-				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-					Boys Fashion
-				</h1>
-				<p className="text-gray-600">
-					Discover trendy and comfortable clothing for boys of all ages
-				</p>
+			<div className="bg-gradient-to-r from-white to-primary-50">
+				<div className="container mx-auto px-4 py-12">
+					<h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+						Boys Collection
+					</h1>
+					<p className="text-lg text-gray-600 max-w-2xl">
+						Premium quality clothing for boys of all ages. From casual wear to
+						special occasions.
+					</p>
+				</div>
 			</div>
 
 			{/* Hero Banner */}
-			<div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-8 mb-8">
-				<div className="max-w-2xl">
-					<h2 className="text-2xl md:text-3xl font-bold mb-4">
-						New Arrivals for Boys
-					</h2>
-					<p className="text-blue-100 mb-6">
-						Explore our latest collection of stylish and comfortable outfits for
-						boys
-					</p>
-					<div className="flex flex-wrap gap-4">
-						<span className="bg-white/20 px-4 py-2 rounded-full text-sm">
-							🎯 Trending Styles
-						</span>
-						<span className="bg-white/20 px-4 py-2 rounded-full text-sm">
-							🏃 Active Wear
-						</span>
-						<span className="bg-white/20 px-4 py-2 rounded-full text-sm">
-							🎓 School Wear
-						</span>
+			<div className="bg-gradient-to-r from-primary-700 to-primary-800 text-white">
+				<div className="container mx-auto px-4 py-16">
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+						<div className="space-y-6">
+							<h2 className="text-3xl md:text-4xl font-bold">
+								New Arrivals & Bestsellers
+							</h2>
+							<p className="text-lg text-white/90">
+								Explore our latest collection of stylish and comfortable outfits
+								designed for active boys
+							</p>
+							<div className="grid grid-cols-2 gap-4">
+								<div className="bg-primary-700 p-6 rounded-xl text-center border border-primary-500 hover:bg-primary-800 transition-colors">
+									<div className="text-3xl mb-3">🎯</div>
+									<div className="font-semibold text-white">
+										Trending Styles
+									</div>
+								</div>
+								<div className="bg-secondary-600 p-6 rounded-xl text-center border border-secondary-500 hover:bg-secondary-700 transition-colors">
+									<div className="text-3xl mb-3">🏃</div>
+									<div className="font-semibold text-white">Active Wear</div>
+								</div>
+							</div>
+						</div>
+						<div className="hidden lg:block">
+							<div className="bg-gradient-to-br from-white via-primary-50 to-secondary-50 rounded-2xl p-12 shadow-2xl border-4 border-primary-200 hover:shadow-3xl transition-all">
+								<div className="text-center space-y-4">
+									<div className="text-8xl">👕</div>
+									<div className="text-primary-700 font-bold text-xl">
+										BOYS COLLECTION
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="flex flex-col lg:flex-row gap-8">
-				{/* Filters Sidebar */}
-				<div className="lg:w-1/4">
-					{/* Mobile Filter Toggle */}
-					<button
-						onClick={() => setShowFilters(!showFilters)}
-						className="lg:hidden w-full bg-white border border-gray-300 rounded-lg px-4 py-3 flex items-center justify-between mb-4"
-					>
-						<span className="flex items-center">
-							<FiFilter className="h-4 w-4 mr-2" />
-							Filters
-						</span>
-						<span className="text-sm text-gray-500">
-							{Object.values(filters).filter(Boolean).length} active
-						</span>
-					</button>
+			<div className="container mx-auto px-4 py-8">
+				<div className="flex flex-col lg:flex-row gap-8">
+					{/* Filters Sidebar */}
+					<div className="lg:w-1/4">
+						{/* Mobile Filter Toggle */}
+						<button
+							onClick={() => setShowFilters(!showFilters)}
+							className="lg:hidden w-full bg-white border border-gray-300 rounded-lg px-6 py-4 flex items-center justify-between mb-6 font-semibold hover:border-primary-300 transition-colors shadow-sm"
+						>
+							<span className="flex items-center">
+								<FiFilter className="h-5 w-5 mr-3 text-primary-700" />
+								FILTERS
+							</span>
+							<span className="bg-primary-700 text-white px-3 py-1 rounded-full text-sm font-bold">
+								{Object.values(filters).filter(Boolean).length}
+							</span>
+						</button>
 
-					{/* Filter Panel */}
-					<div
-						className={`bg-white rounded-lg border border-gray-200 p-6 space-y-6 ${
-							showFilters ? "block" : "hidden lg:block"
-						}`}
-					>
-						<div className="flex items-center justify-between">
-							<h3 className="font-semibold text-gray-900">Filters</h3>
-							<button
-								onClick={clearFilters}
-								className="text-sm text-purple-600 hover:text-purple-700"
-							>
-								Clear All
-							</button>
-						</div>
-
-						{/* Age Group Filter */}
-						<div>
-							<h4 className="font-medium text-gray-900 mb-3">Age Group</h4>
-							<div className="space-y-2">
-								{Object.entries(AGE_GROUPS).map(([key, value]) => (
-									<label key={key} className="flex items-center">
-										<input
-											type="radio"
-											name="ageGroup"
-											value={value}
-											checked={filters.ageGroup === value}
-											onChange={(e) =>
-												handleFilterChange("ageGroup", e.target.value)
-											}
-											className="text-purple-600 focus:ring-purple-500"
-										/>
-										<span className="ml-2 text-sm text-gray-700 capitalize">
-											{key.toLowerCase()}
-										</span>
-									</label>
-								))}
-							</div>
-						</div>
-
-						{/* Clothing Type Filter */}
-						<div>
-							<h4 className="font-medium text-gray-900 mb-3">Clothing Type</h4>
-							<div className="space-y-2">
-								{Object.entries(CLOTHING_TYPES).map(([key, value]) => (
-									<label key={key} className="flex items-center">
-										<input
-											type="radio"
-											name="clothingType"
-											value={value}
-											checked={filters.clothingType === value}
-											onChange={(e) =>
-												handleFilterChange("clothingType", e.target.value)
-											}
-											className="text-purple-600 focus:ring-purple-500"
-										/>
-										<span className="ml-2 text-sm text-gray-700">
-											{key.replace(/([A-Z])/g, " $1").trim()}
-										</span>
-									</label>
-								))}
-							</div>
-						</div>
-
-						{/* Price Range Filter */}
-						<div>
-							<h4 className="font-medium text-gray-900 mb-3">Price Range</h4>
-							<div className="space-y-2">
-								{[
-									{ label: "Under ₹500", value: "0-500" },
-									{ label: "₹500 - ₹1000", value: "500-1000" },
-									{ label: "₹1000 - ₹2000", value: "1000-2000" },
-									{ label: "Above ₹2000", value: "2000" },
-								].map((range) => (
-									<label key={range.value} className="flex items-center">
-										<input
-											type="radio"
-											name="priceRange"
-											value={range.value}
-											checked={filters.priceRange === range.value}
-											onChange={(e) =>
-												handleFilterChange("priceRange", e.target.value)
-											}
-											className="text-purple-600 focus:ring-purple-500"
-										/>
-										<span className="ml-2 text-sm text-gray-700">
-											{range.label}
-										</span>
-									</label>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Products Section */}
-				<div className="lg:w-3/4">
-					{/* Sort and View Options */}
-					<div className="bg-white border border-gray-200 rounded-lg p-4 mb-6">
-						<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-							<div className="flex items-center space-x-4">
-								<span className="text-sm text-gray-700">
-									{filteredProducts.length} products found
-								</span>
-							</div>
-
-							<div className="flex items-center space-x-4">
-								{/* Sort Dropdown */}
-								<select
-									value={filters.sortBy}
-									onChange={(e) => handleFilterChange("sortBy", e.target.value)}
-									className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+						{/* Filter Panel */}
+						<div
+							className={`bg-white rounded-xl border border-gray-200 p-6 space-y-6 shadow-md ${
+								showFilters ? "block" : "hidden lg:block"
+							}`}
+						>
+							<div className="flex items-center justify-between">
+								<h3 className="font-bold text-lg text-gray-900">Filters</h3>
+								<button
+									onClick={clearFilters}
+									className="text-sm bg-danger-100 text-danger-700 px-3 py-1 rounded-md font-medium hover:bg-danger-200 transition-colors"
 								>
-									<option value="newest">Newest First</option>
-									<option value="popularity">Most Popular</option>
-									<option value="price-low">Price: Low to High</option>
-									<option value="price-high">Price: High to Low</option>
-								</select>
+									Clear All
+								</button>
+							</div>
 
-								{/* View Toggle */}
-								<div className="hidden sm:flex items-center space-x-1 border border-gray-300 rounded-lg p-1">
-									<button className="p-2 rounded text-purple-600 bg-purple-100">
-										<FiGrid className="h-4 w-4" />
-									</button>
-									<button className="p-2 rounded text-gray-400 hover:text-gray-600">
-										<FiList className="h-4 w-4" />
-									</button>
+							{/* Age Group Filter */}
+							<div>
+								<h4 className="font-bold text-lg text-primary-800 mb-4">
+									AGE GROUP
+								</h4>
+								<div className="space-y-2">
+									{Object.entries(AGE_GROUPS).map(([key, value]) => (
+										<label key={key} className="flex items-center">
+											<input
+												type="radio"
+												name="ageGroup"
+												value={value}
+												checked={filters.ageGroup === value}
+												onChange={(e) =>
+													handleFilterChange("ageGroup", e.target.value)
+												}
+												className="text-primary-600 focus:ring-primary-500"
+											/>
+											<span className="ml-2 text-sm text-gray-700 capitalize">
+												{key.toLowerCase()}
+											</span>
+										</label>
+									))}
+								</div>
+							</div>
+
+							{/* Clothing Type Filter */}
+							<div>
+								<h4 className="font-bold text-lg text-primary-800 mb-4">
+									CLOTHING TYPE
+								</h4>
+								<div className="space-y-2">
+									{Object.entries(CLOTHING_TYPES).map(([key, value]) => (
+										<label key={key} className="flex items-center">
+											<input
+												type="radio"
+												name="clothingType"
+												value={value}
+												checked={filters.clothingType === value}
+												onChange={(e) =>
+													handleFilterChange("clothingType", e.target.value)
+												}
+												className="text-primary-600 focus:ring-primary-500"
+											/>
+											<span className="ml-2 text-sm text-gray-700">
+												{key.replace(/([A-Z])/g, " $1").trim()}
+											</span>
+										</label>
+									))}
+								</div>
+							</div>
+
+							{/* Price Range Filter */}
+							<div>
+								<h4 className="font-bold text-lg text-primary-800 mb-4">
+									PRICE RANGE
+								</h4>
+								<div className="space-y-2">
+									{[
+										{ label: "Under ₹500", value: "0-500" },
+										{ label: "₹500 - ₹1000", value: "500-1000" },
+										{ label: "₹1000 - ₹2000", value: "1000-2000" },
+										{ label: "Above ₹2000", value: "2000" },
+									].map((range) => (
+										<label key={range.value} className="flex items-center">
+											<input
+												type="radio"
+												name="priceRange"
+												value={range.value}
+												checked={filters.priceRange === range.value}
+												onChange={(e) =>
+													handleFilterChange("priceRange", e.target.value)
+												}
+												className="text-primary-600 focus:ring-primary-500"
+											/>
+											<span className="ml-2 text-sm text-gray-700">
+												{range.label}
+											</span>
+										</label>
+									))}
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{/* Products Grid */}
-					<ProductGrid products={filteredProducts} />
+					{/* Products Section */}
+					<div className="lg:w-3/4">
+						{/* Sort and View Options */}
+						<div className="bg-white border border-gray-200 rounded-xl p-6 mb-8 shadow-md">
+							<div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+								<div className="flex items-center space-x-6">
+									<span className="text-lg font-semibold text-gray-900">
+										{filteredProducts.length} products found
+									</span>
+								</div>
+
+								<div className="flex items-center space-x-6">
+									{/* Sort Dropdown */}
+									<div className="flex items-center space-x-3">
+										<label className="font-semibold text-primary-700">
+											SORT BY:
+										</label>
+										<select
+											value={filters.sortBy}
+											onChange={(e) =>
+												handleFilterChange("sortBy", e.target.value)
+											}
+											className="border-2 border-gray-300 rounded-lg px-4 py-2 font-semibold focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+										>
+											<option value="newest">Newest First</option>
+											<option value="popularity">Most Popular</option>
+											<option value="price-low">Price: Low to High</option>
+											<option value="price-high">Price: High to Low</option>
+										</select>
+									</div>
+
+									{/* View Toggle */}
+									<div className="hidden sm:flex items-center space-x-1 border-2 border-gray-300 rounded-lg p-1">
+										<button className="p-3 rounded text-white bg-primary-700">
+											<FiGrid className="h-5 w-5" />
+										</button>
+										<button className="p-3 rounded text-gray-500 hover:text-primary-700">
+											<FiList className="h-5 w-5" />
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{/* Products Grid */}
+						<ProductGrid products={filteredProducts} />
+					</div>
 				</div>
 			</div>
 		</div>
