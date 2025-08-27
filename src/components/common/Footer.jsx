@@ -9,6 +9,7 @@ import {
 	FiMapPin,
 } from "react-icons/fi";
 import { APP_NAME, APP_TAGLINE } from "../../utils/constants";
+import logo from "../../assets/logo_jpg.jpg";
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
@@ -20,12 +21,29 @@ const Footer = () => {
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 					{/* Brand Section */}
 					<div className="space-y-4">
-						<div className="flex items-center space-x-2">
+						<Link to="/" className="flex items-center space-x-3">
+							<div className="bg-primary text-white w-10 h-10 lg:w-12 lg:h-12 rounded-xl overflow-hidden flex items-center justify-center">
+								<img
+									src={logo}
+									alt="Logo"
+									className="w-full h-full object-cover scale-125"
+								/>
+							</div>
+							<div className="hidden sm:block">
+								<span className="font-bold text-xl lg:text-2xl text-white tracking-tight">
+									{APP_NAME}
+								</span>
+								<p className="text-xs text-gray-500 font-medium">
+									Premium Fashion Store
+								</p>
+							</div>
+						</Link>
+						{/* <div className="flex items-center space-x-2">
 							<div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-2 rounded-lg shadow-md">
 								<span className="font-bold text-xl">UP</span>
 							</div>
 							<span className="font-bold text-xl">{APP_NAME}</span>
-						</div>
+						</div> */}
 						<p className="text-gray-300 text-sm">{APP_TAGLINE}</p>
 						<p className="text-gray-400 text-sm">
 							Your one-stop destination for trendy fashion for boys and girls

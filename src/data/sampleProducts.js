@@ -1,4 +1,11 @@
 // Sample product data for development and testing
+import unicorn from "../assets/cute_unicorn_Tshirt.jpg";
+import superhero from "../assets/superhero_cape_set.jpg";
+import floral from "../assets/floral_summer_dress.jpg";
+import joggers from "../assets/comfortable_joggers.jpg";
+import kurta from "../assets/kurta.jpg";
+import lehenga from "../assets/lehenga.jpg";
+
 export const sampleProducts = [
 	{
 		id: 1,
@@ -10,8 +17,8 @@ export const sampleProducts = [
 		originalPrice: 999,
 		discount: 30,
 		images: [
-			"https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=400",
-			"https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400",
+			unicorn,
+			unicorn,
 		],
 		description:
 			"Adorable unicorn print t-shirt made from 100% organic cotton. Perfect for everyday wear and playtime.",
@@ -37,8 +44,8 @@ export const sampleProducts = [
 		originalPrice: 1599,
 		discount: 19,
 		images: [
-			"https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
-			"https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+			superhero,
+			superhero,
 		],
 		description:
 			"Complete superhero cape set with mask and wristbands. Let your little hero save the day!",
@@ -64,8 +71,8 @@ export const sampleProducts = [
 		originalPrice: 1999,
 		discount: 25,
 		images: [
-			"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400",
-			"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400",
+			floral,
+			floral,
 		],
 		description:
 			"Beautiful floral print summer dress perfect for casual outings and special occasions.",
@@ -91,8 +98,8 @@ export const sampleProducts = [
 		originalPrice: 1199,
 		discount: 25,
 		images: [
-			"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400",
-			"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400",
+			joggers,
+			joggers,
 		],
 		description:
 			"Comfortable and stylish joggers perfect for sports, casual wear, and lounging.",
@@ -118,8 +125,8 @@ export const sampleProducts = [
 		originalPrice: 2299,
 		discount: 22,
 		images: [
-			"https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400",
-			"https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400",
+			kurta,
+			kurta,
 		],
 		description:
 			"Traditional ethnic kurta with matching pajama, perfect for festivals and special occasions.",
@@ -145,8 +152,8 @@ export const sampleProducts = [
 		originalPrice: 3199,
 		discount: 22,
 		images: [
-			"https://images.unsplash.com/photo-1594736797933-d0a9ba7b65bd?w=400",
-			"https://images.unsplash.com/photo-1594736797933-d0a9ba7b65bd?w=400",
+			lehenga,
+			lehenga,
 		],
 		description:
 			"Beautiful princess-style lehenga with intricate embroidery, perfect for weddings and festivals.",
