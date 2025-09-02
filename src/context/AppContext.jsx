@@ -174,11 +174,7 @@ export const AppProvider = ({ children }) => {
 					: [];
 				const userData = persistedUser ? JSON.parse(persistedUser) : null;
 
-				console.log("Loading persisted data:", {
-					cart: cartData,
-					wishlist: wishlistData,
-					user: userData,
-				});
+				// Data loaded successfully from localStorage
 
 				dispatch({
 					type: ACTION_TYPES.LOAD_PERSISTED_DATA,
@@ -215,7 +211,6 @@ export const AppProvider = ({ children }) => {
 		if (!isInitialized) return; // Don't persist during initial load
 
 		try {
-			console.log("Persisting cart:", state.cart);
 			localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(state.cart));
 		} catch (error) {
 			console.error("Error persisting cart:", error);
@@ -227,7 +222,6 @@ export const AppProvider = ({ children }) => {
 		if (!isInitialized) return; // Don't persist during initial load
 
 		try {
-			console.log("Persisting wishlist:", state.wishlist);
 			localStorage.setItem(
 				STORAGE_KEYS.WISHLIST,
 				JSON.stringify(state.wishlist)

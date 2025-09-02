@@ -1,4 +1,4 @@
-/* Import Tailwind with DaisyUI */
+/* Import Tailwind CSS */
 @import "tailwindcss";
 
 /* Custom color palette for this project */
@@ -71,7 +71,7 @@
     @apply bg-coral hover:bg-coral-600 text-white transition-colors;
 }
 
-/* Ensure your custom colors always override DaisyUI */
+/* Custom color variables and utility classes */
 .bg-primary {
     background-color: var(--color-primary) !important;
 }
@@ -112,7 +112,7 @@
     border-color: var(--color-coral) !important;
 }
 
-/* DaisyUI Base Component Fallbacks */
+/* Base Component Styles */
 .btn {
     @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition-colors;
 }
