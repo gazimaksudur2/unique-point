@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect } from "react";
+import React, { createContext, useContext, useReducer, useEffect, useState } from "react";
 import { STORAGE_KEYS } from "../utils/constants";
 
 // Initial state
@@ -23,6 +23,7 @@ export const ACTION_TYPES = {
 	CLEAR_CART: "CLEAR_CART",
 	ADD_TO_WISHLIST: "ADD_TO_WISHLIST",
 	REMOVE_FROM_WISHLIST: "REMOVE_FROM_WISHLIST",
+	TOGGLE_WISHLIST: "TOGGLE_WISHLIST",
 	LOAD_PERSISTED_DATA: "LOAD_PERSISTED_DATA",
 };
 
@@ -113,6 +114,27 @@ function appReducer(state, action) {
 				wishlist: state.wishlist.filter((item) => item.id !== action.payload),
 			};
 
+		case ACTION_TYPES.TOGGLE_WISHLIST:
+			const isCurrentlyInWishlist = state.wishlist.some(
+				(item) => item.id === action.payload.id
+			);
+
+			if (isCurrentlyInWishlist) {
+				// Remove from wishlist
+				return {
+					...state,
+					wishlist: state.wishlist.filter(
+						(item) => item.id !== action.payload.id
+					),
+				};
+			} else {
+				// Add to wishlist
+				return {
+					...state,
+					wishlist: [...state.wishlist, action.payload],
+				};
+			}
+
 		case ACTION_TYPES.LOAD_PERSISTED_DATA:
 			return {
 				...state,
@@ -130,48 +152,87 @@ const AppContext = createContext();
 // Context provider component
 export const AppProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(appReducer, initialState);
+	const [isInitialized, setIsInitialized] = useState(false);
 
 	// Load persisted data on mount
 	useEffect(() => {
-		try {
-			const persistedCart = JSON.parse(
-				localStorage.getItem(STORAGE_KEYS.CART) || "[]"
-			);
-			const persistedWishlist = JSON.parse(
-				localStorage.getItem(STORAGE_KEYS.WISHLIST) || "[]"
-			);
-			const persistedUser = JSON.parse(
-				localStorage.getItem(STORAGE_KEYS.USER) || "null"
-			);
+		const loadPersistedData = () => {
+			try {
+				const persistedCart = localStorage.getItem(STORAGE_KEYS.CART);
+				const persistedWishlist = localStorage.getItem(STORAGE_KEYS.WISHLIST);
+				const persistedUser = localStorage.getItem(STORAGE_KEYS.USER);
 
-			dispatch({
-				type: ACTION_TYPES.LOAD_PERSISTED_DATA,
-				payload: {
-					cart: persistedCart,
-					wishlist: persistedWishlist,
-					user: persistedUser,
-					isAuthenticated: !!persistedUser,
-				},
-			});
-		} catch (error) {
-			console.error("Error loading persisted data:", error);
-		}
+				const cartData = persistedCart ? JSON.parse(persistedCart) : [];
+				const wishlistData = persistedWishlist
+					? JSON.parse(persistedWishlist)
+					: [];
+				const userData = persistedUser ? JSON.parse(persistedUser) : null;
+
+				console.log("Loading persisted data:", {
+					cart: cartData,
+					wishlist: wishlistData,
+					user: userData,
+				});
+
+				dispatch({
+					type: ACTION_TYPES.LOAD_PERSISTED_DATA,
+					payload: {
+						cart: cartData,
+						wishlist: wishlistData,
+						user: userData,
+						isAuthenticated: !!userData,
+					},
+				});
+
+				setIsInitialized(true);
+			} catch (error) {
+				console.error("Error loading persisted data:", error);
+				// Initialize with empty arrays if there's an error
+				dispatch({
+					type: ACTION_TYPES.LOAD_PERSISTED_DATA,
+					payload: {
+						cart: [],
+						wishlist: [],
+						user: null,
+						isAuthenticated: false,
+					},
+				});
+				setIsInitialized(true);
+			}
+		};
+
+		loadPersistedData();
 	}, []);
 
 	// Persist cart to localStorage
 	useEffect(() => {
-		localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(state.cart));
+		try {
+			localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(state.cart));
+		} catch (error) {
+			console.error("Error persisting cart:", error);
+		}
 	}, [state.cart]);
 
 	// Persist wishlist to localStorage
 	useEffect(() => {
-		localStorage.setItem(STORAGE_KEYS.WISHLIST, JSON.stringify(state.wishlist));
+		try {
+			localStorage.setItem(
+				STORAGE_KEYS.WISHLIST,
+				JSON.stringify(state.wishlist)
+			);
+		} catch (error) {
+			console.error("Error persisting wishlist:", error);
+		}
 	}, [state.wishlist]);
 
-	// Persist user to localStorage
+	// Persist user to localStorage (removed since no authentication)
 	useEffect(() => {
 		if (state.user) {
-			localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(state.user));
+			try {
+				localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(state.user));
+			} catch (error) {
+				console.error("Error persisting user:", error);
+			}
 		} else {
 			localStorage.removeItem(STORAGE_KEYS.USER);
 		}
@@ -206,6 +267,8 @@ export const AppProvider = ({ children }) => {
 				type: ACTION_TYPES.REMOVE_FROM_WISHLIST,
 				payload: productId,
 			}),
+		toggleWishlist: (product) =>
+			dispatch({ type: ACTION_TYPES.TOGGLE_WISHLIST, payload: product }),
 	};
 
 	const value = {
@@ -220,6 +283,9 @@ export const AppProvider = ({ children }) => {
 			(total, item) => total + item.price * item.quantity,
 			0
 		),
+		isInWishlist: (productId) =>
+			state.wishlist.some((item) => item.id === productId),
+		isInCart: (productId) => state.cart.some((item) => item.id === productId),
 	};
 
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

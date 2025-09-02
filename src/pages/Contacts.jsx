@@ -59,19 +59,19 @@ const Contacts = () => {
 			contactPoint: [
 				{
 					"@type": "ContactPoint",
-					telephone: "+91-9876543210",
+					telephone: "+880-1903219313",
 					contactType: "customer service",
-					areaServed: "IN",
-					availableLanguage: ["English", "Hindi"],
+					areaServed: "BD",
+					availableLanguage: ["English", "Bengali"],
 				},
 			],
 			address: {
 				"@type": "PostalAddress",
 				streetAddress: "123 Fashion Street, Style District",
-				addressLocality: "Mumbai",
-				addressRegion: "Maharashtra",
-				postalCode: "110001",
-				addressCountry: "IN",
+				addressLocality: "Dhaka",
+				addressRegion: "Dhaka",
+				postalCode: "1000",
+				addressCountry: "BD",
 			},
 		},
 	};
@@ -118,7 +118,7 @@ const Contacts = () => {
 										</div>
 										<div>
 											<h3 className="font-semibold text-gray-900">Phone</h3>
-											<p className="text-gray-600">+91 98765 43210</p>
+											<p className="text-gray-600">+880 190 321 9313</p>
 											<p className="text-sm text-gray-500">Mon-Sat, 9AM-7PM</p>
 										</div>
 									</div>
@@ -145,7 +145,7 @@ const Contacts = () => {
 											<p className="text-gray-600">
 												123 Fashion Street,
 												<br />
-												Style District, Mumbai 110001
+												Style District, Dhaka 1000
 											</p>
 										</div>
 									</div>
@@ -221,7 +221,7 @@ const Contacts = () => {
 									Get instant help with your orders and queries
 								</p>
 								<a
-									href="https://wa.me/+919876543210"
+									href="https://wa.me/+8801903219313"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"

@@ -276,7 +276,7 @@ const FAQ = () => {
 							</p>
 							<div className="flex flex-col sm:flex-row gap-4 justify-center">
 								<a
-									href="https://wa.me/+919876543210"
+									href="https://wa.me/+8801903219313"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center justify-center"
@@ -285,7 +285,7 @@ const FAQ = () => {
 									WhatsApp Support
 								</a>
 								<a
-									href="tel:+919876543210"
+									href="tel:+8801903219313"
 									className="bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
 								>
 									<span className="mr-2">📞</span>

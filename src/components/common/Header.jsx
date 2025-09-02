@@ -6,8 +6,6 @@ import {
 	FiSearch,
 	FiShoppingCart,
 	FiHeart,
-	FiUser,
-	FiLogIn,
 	FiMapPin,
 	FiChevronDown,
 	FiGlobe,
@@ -22,7 +20,7 @@ const Header = () => {
 	const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 	const [selectedLocation, setSelectedLocation] = useState("United States");
 	const [selectedLanguage, setSelectedLanguage] = useState("English (USA)");
-	const { isAuthenticated, cartItemsCount, wishlistItemsCount } = useApp();
+	const { cartItemsCount, wishlistItemsCount } = useApp();
 	const location = useLocation();
 	const userMenuRef = useRef(null);
 
@@ -202,76 +200,21 @@ const Header = () => {
 								</span>
 							</Link>
 
-							{/* My Account */}
-							<div className="relative" ref={userMenuRef}>
-								{isAuthenticated ? (
-									<button
-										onClick={toggleUserMenu}
-										className="flex flex-col items-center p-2 text-gray-700 hover:text-primary-600"
-										aria-label="My Account"
-									>
-										<div className="flex items-center">
-											<FiUser className="h-5 w-5" />
-											<FiChevronDown className="h-3 w-3 ml-1" />
-										</div>
-										<span className="hidden lg:block text-xs mt-1 font-medium">
-											My Account
-										</span>
-									</button>
-								) : (
-									<Link
-										to="/auth"
-										className="flex flex-col items-center p-2 text-gray-700 hover:text-primary-600"
-										aria-label="Sign In"
-									>
-										<FiUser className="h-5 w-5" />
-										<span className="hidden lg:block text-xs mt-1 font-medium">
-											Sign In
-										</span>
-									</Link>
-								)}
-
-								{/* User Dropdown Menu */}
-								{isAuthenticated && isUserMenuOpen && (
-									<div className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
-										<Link
-											to="/profile"
-											className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-											onClick={() => setIsUserMenuOpen(false)}
-										>
-											<FiUser className="h-4 w-4 mr-3" />
-											My Profile
-										</Link>
-										<Link
-											to="/orders"
-											className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-											onClick={() => setIsUserMenuOpen(false)}
-										>
-											<FiPackage className="h-4 w-4 mr-3" />
-											My Orders
-										</Link>
-										<Link
-											to="/settings"
-											className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-											onClick={() => setIsUserMenuOpen(false)}
-										>
-											<FiSettings className="h-4 w-4 mr-3" />
-											Settings
-										</Link>
-										<hr className="my-2" />
-										<button
-											onClick={() => {
-												// Add logout logic here
-												setIsUserMenuOpen(false);
-											}}
-											className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-										>
-											<FiLogOut className="h-4 w-4 mr-3" />
-											Sign Out
-										</button>
-									</div>
-								)}
-							</div>
+							{/* WhatsApp Contact */}
+							<a
+								href="https://wa.me/+8801903219313"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex flex-col items-center p-2 text-gray-700 hover:text-green-600"
+								aria-label="WhatsApp Contact"
+							>
+								<div className="text-green-600">
+									<span className="text-lg">💬</span>
+								</div>
+								<span className="hidden lg:block text-xs mt-1 font-medium">
+									WhatsApp
+								</span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -386,15 +329,15 @@ const Header = () => {
 									</span>
 								)}
 							</Link>
-							{!isAuthenticated && (
-								<Link
-									to="/auth"
-									className="block px-6 py-4 rounded-xl font-semibold bg-primary hover:bg-primary-600 text-white text-center mt-3"
-									onClick={() => setIsMobileMenuOpen(false)}
-								>
-									Sign In
-								</Link>
-							)}
+							<a
+								href="https://wa.me/+8801903219313"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="block px-6 py-4 rounded-xl font-semibold bg-green-600 hover:bg-green-700 text-white text-center mt-3"
+								onClick={() => setIsMobileMenuOpen(false)}
+							>
+								💬 Contact on WhatsApp
+							</a>
 						</div>
 					</nav>
 				</div>

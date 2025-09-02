@@ -5,6 +5,8 @@ import Products from "../pages/Products";
 import Gallery from "../pages/Gallery";
 import FAQ from "../pages/FAQ";
 import Contacts from "../pages/Contacts";
+import Cart from "../pages/Cart";
+import Wishlist from "../pages/Wishlist";
 import DaisyUIExample from "../components/examples/DaisyUIExample";
 import DaisyUITest from "../components/examples/DaisyUITest";
 
@@ -53,7 +55,7 @@ const router = createBrowserRouter([
 		path: "/cart",
 		element: (
 			<Layout>
-				<div>Shopping Cart</div>
+				<Cart />
 			</Layout>
 		),
 	},
@@ -61,7 +63,7 @@ const router = createBrowserRouter([
 		path: "/wishlist",
 		element: (
 			<Layout>
-				<div>Wishlist</div>
+				<Wishlist />
 			</Layout>
 		),
 	},

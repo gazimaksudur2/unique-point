@@ -157,7 +157,7 @@ const Footer = () => {
 						<div className="space-y-3">
 							<div className="flex items-center space-x-3">
 								<FiPhone className="h-4 w-4 text-gray-400" />
-								<span className="text-gray-400 text-sm">+91 12345 67890</span>
+								<span className="text-gray-400 text-sm">+880 190 321 9313</span>
 							</div>
 							<div className="flex items-center space-x-3">
 								<FiMail className="h-4 w-4 text-gray-400" />
@@ -170,7 +170,7 @@ const Footer = () => {
 								<span className="text-gray-400 text-sm">
 									123 Fashion Street,
 									<br />
-									Style District, City 110001
+									Style District, Dhaka 1000
 								</span>
 							</div>
 						</div>

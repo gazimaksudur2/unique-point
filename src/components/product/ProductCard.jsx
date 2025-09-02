@@ -6,9 +6,9 @@ import Badge from "../ui/Badge";
 import Button from "../ui/Button";
 
 const ProductCard = ({ product, className = "" }) => {
-	const { addToCart, addToWishlist, wishlist } = useApp();
+	const { addToCart, toggleWishlist, isInWishlist } = useApp();
 
-	const isInWishlist = wishlist.some((item) => item.id === product.id);
+	const inWishlist = isInWishlist(product.id);
 	const discountPercentage = Math.round(
 		((product.originalPrice - product.price) / product.originalPrice) * 100
 	);
@@ -21,30 +21,36 @@ const ProductCard = ({ product, className = "" }) => {
 			id: product.id,
 			name: product.name,
 			price: product.price,
-			image: product.images[0],
-			size: product.sizes[0], // Default to first available size
-			color: product.colors[0], // Default to first available color
+			originalPrice: product.originalPrice,
+			images: product.images,
+			brand: product.brand,
+			size: product.sizes?.[0] || "One Size", // Default to first available size
+			color: product.colors?.[0] || "Default", // Default to first available color
 			quantity: 1,
 		};
 
 		addToCart(cartItem);
 	};
 
-	const handleAddToWishlist = (e) => {
+	const handleToggleWishlist = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
 
-		addToWishlist({
+		toggleWishlist({
 			id: product.id,
 			name: product.name,
 			price: product.price,
-			image: product.images[0],
+			originalPrice: product.originalPrice,
+			images: product.images,
+			brand: product.brand,
+			sizes: product.sizes,
+			colors: product.colors,
 		});
 	};
 
 	return (
 		<div
-			className={`bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow w-full ${className}`}
+			className={`bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow w-full group ${className}`}
 		>
 			<Link to={`/product/${product.id}`} className="block">
 				{/* Product Image */}
@@ -75,19 +81,21 @@ const ProductCard = ({ product, className = "" }) => {
 						)}
 					</div>
 
-					{/* Wishlist Button */}
+					{/* Wishlist Toggle Button */}
 					<button
-						onClick={handleAddToWishlist}
-						className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-full ${
-							isInWishlist
-								? "bg-coral text-white"
-								: "bg-white text-gray-600 hover:bg-cream hover:text-coral border border-gray-200"
+						onClick={handleToggleWishlist}
+						className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-full transition-all duration-200 ${
+							inWishlist
+								? "bg-coral text-white shadow-lg scale-110"
+								: "bg-white text-gray-600 hover:bg-coral hover:text-white border border-gray-200 hover:border-coral"
 						}`}
-						aria-label="Add to wishlist"
+						aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
+						title={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
 					>
 						<FiHeart
-							className="h-3 w-3 sm:h-4 sm:w-4"
-							fill={isInWishlist ? "currentColor" : "none"}
+							className={`h-3 w-3 sm:h-4 sm:w-4 transition-all duration-200 ${
+								inWishlist ? "fill-current" : ""
+							}`}
 						/>
 					</button>
 
@@ -152,21 +160,23 @@ const ProductCard = ({ product, className = "" }) => {
 					</div>
 
 					{/* Available Sizes */}
-					<div className="flex flex-wrap gap-1">
-						{product.sizes.slice(0, 3).map((size) => (
-							<span
-								key={size}
-								className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md"
-							>
-								{size}
-							</span>
-						))}
-						{product.sizes.length > 3 && (
-							<span className="px-2 py-1 text-xs bg-gray-800 text-white rounded-md">
-								+{product.sizes.length - 3}
-							</span>
-						)}
-					</div>
+					{product.sizes && product.sizes.length > 0 && (
+						<div className="flex flex-wrap gap-1">
+							{product.sizes.slice(0, 3).map((size) => (
+								<span
+									key={size}
+									className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md"
+								>
+									{size}
+								</span>
+							))}
+							{product.sizes.length > 3 && (
+								<span className="px-2 py-1 text-xs bg-gray-800 text-white rounded-md">
+									+{product.sizes.length - 3}
+								</span>
+							)}
+						</div>
+					)}
 
 					{/* Stock Status */}
 					{!product.inStock && (
