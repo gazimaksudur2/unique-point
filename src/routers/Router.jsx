@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/common/Layout";
 import Home from "../pages/Home";
-import Boys from "../pages/Boys";
+import Products from "../pages/Products";
+import Gallery from "../pages/Gallery";
+import FAQ from "../pages/FAQ";
+import Contacts from "../pages/Contacts";
 import DaisyUIExample from "../components/examples/DaisyUIExample";
 import DaisyUITest from "../components/examples/DaisyUITest";
 
@@ -15,34 +18,34 @@ const router = createBrowserRouter([
 		),
 	},
 	{
-		path: "/boys",
+		path: "/products",
 		element: (
 			<Layout>
-				<Boys />
+				<Products />
 			</Layout>
 		),
 	},
 	{
-		path: "/girls",
+		path: "/gallery",
 		element: (
 			<Layout>
-				<div>Girls Collection</div>
+				<Gallery />
 			</Layout>
 		),
 	},
 	{
-		path: "/collections",
+		path: "/faq",
 		element: (
 			<Layout>
-				<div>Collections</div>
+				<FAQ />
 			</Layout>
 		),
 	},
 	{
-		path: "/sale",
+		path: "/contacts",
 		element: (
 			<Layout>
-				<div>Sale Items</div>
+				<Contacts />
 			</Layout>
 		),
 	},

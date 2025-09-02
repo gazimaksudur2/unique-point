@@ -46,7 +46,7 @@ const Footer = () => {
 						</div> */}
 						<p className="text-gray-300 text-sm">{APP_TAGLINE}</p>
 						<p className="text-gray-400 text-sm">
-							Your one-stop destination for trendy fashion for boys and girls
+							Your one-stop destination for trendy fashion for kids and teens
 							across all age groups. Shop the latest styles with our unique
 							WhatsApp checkout experience.
 						</p>
@@ -82,28 +82,28 @@ const Footer = () => {
 						<h3 className="font-semibold text-lg">Quick Links</h3>
 						<div className="space-y-2">
 							<Link
-								to="/boys"
+								to="/products"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
-								Boys Fashion
+								All Products
 							</Link>
 							<Link
-								to="/girls"
+								to="/gallery"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
-								Girls Fashion
+								Gallery
 							</Link>
 							<Link
-								to="/collections"
+								to="/faq"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
-								Collections
+								FAQ
 							</Link>
 							<Link
-								to="/sale"
+								to="/contacts"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
-								Sale Items
+								Contact Us
 							</Link>
 							<Link
 								to="/size-guide"
@@ -119,7 +119,7 @@ const Footer = () => {
 						<h3 className="font-semibold text-lg">Customer Service</h3>
 						<div className="space-y-2">
 							<Link
-								to="/contact"
+								to="/contacts"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
 								Contact Us

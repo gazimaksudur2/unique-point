@@ -1,12 +1,13 @@
 import React, { useState, useMemo } from "react";
 import { FiFilter, FiGrid, FiList } from "react-icons/fi";
 import ProductGrid from "../components/product/ProductGrid";
-import { getProductsByCategory } from "../data/sampleProducts";
+import { sampleProducts } from "../data/sampleProducts";
 import SEO from "../components/common/SEO";
 import { AGE_GROUPS, CLOTHING_TYPES } from "../utils/constants";
 
-const Boys = () => {
+const Products = () => {
 	const [filters, setFilters] = useState({
+		category: "",
 		ageGroup: "",
 		clothingType: "",
 		priceRange: "",
@@ -14,12 +15,19 @@ const Boys = () => {
 	});
 	const [showFilters, setShowFilters] = useState(false);
 
-	// Get all boys products
-	const boysProducts = getProductsByCategory("boys");
+	// Get all products
+	const allProducts = sampleProducts;
 
 	// Apply filters
 	const filteredProducts = useMemo(() => {
-		let filtered = [...boysProducts];
+		let filtered = [...allProducts];
+
+		// Filter by category
+		if (filters.category) {
+			filtered = filtered.filter(
+				(product) => product.category === filters.category
+			);
+		}
 
 		// Filter by age group
 		if (filters.ageGroup) {
@@ -65,7 +73,7 @@ const Boys = () => {
 		}
 
 		return filtered;
-	}, [boysProducts, filters]);
+	}, [allProducts, filters]);
 
 	const handleFilterChange = (key, value) => {
 		setFilters((prev) => ({
@@ -76,6 +84,7 @@ const Boys = () => {
 
 	const clearFilters = () => {
 		setFilters({
+			category: "",
 			ageGroup: "",
 			clothingType: "",
 			priceRange: "",
@@ -83,22 +92,22 @@ const Boys = () => {
 		});
 	};
 
-	// Structured data for Boys category
+	// Structured data for Products page
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "CollectionPage",
-		name: "Boys Fashion Collection",
+		name: "All Products - Fashion Collection",
 		description:
-			"Premium boys clothing collection featuring casual wear, formal wear, activewear and accessories for ages 0-16",
-		url: "https://unique-point.com/boys",
+			"Premium fashion collection featuring clothing and accessories for all ages",
+		url: "https://unique-point.com/products",
 		mainEntity: {
 			"@type": "ItemList",
-			numberOfItems: boysProducts.length,
-			itemListElement: boysProducts.slice(0, 5).map((product, index) => ({
+			numberOfItems: allProducts.length,
+			itemListElement: allProducts.slice(0, 5).map((product, index) => ({
 				"@type": "Product",
 				position: index + 1,
 				name: product.name,
-				description: product.description || "Premium boys clothing",
+				description: product.description || "Premium fashion product",
 				brand: {
 					"@type": "Brand",
 					name: product.brand,
@@ -116,13 +125,13 @@ const Boys = () => {
 	return (
 		<>
 			<SEO
-				title="Boys Fashion Collection - Premium Kids Clothing"
-				description="Shop premium boys clothing at Unique Point. Discover casual wear, formal wear, activewear and accessories for boys aged 0-16. Free shipping over ₹999 with easy returns."
-				keywords="boys clothing, boys fashion, kids wear, casual wear for boys, formal wear boys, activewear boys, boys accessories, premium kids clothing"
+				title="All Products - Premium Fashion Collection"
+				description="Shop our complete collection of premium fashion products. Discover clothing and accessories for all ages with free shipping over ₹999 and easy returns."
+				keywords="fashion products, clothing, accessories, premium fashion, kids wear, teens wear, ethnic wear, casual wear"
 				ogType="website"
-				ogUrl="https://unique-point.com/boys"
+				ogUrl="https://unique-point.com/products"
 				structured={structuredData}
-				canonical="https://unique-point.com/boys"
+				canonical="https://unique-point.com/products"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">
@@ -130,11 +139,11 @@ const Boys = () => {
 				<div className="bg-gradient-to-r from-white to-primary-50">
 					<div className="container mx-auto px-4 py-12">
 						<h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-							Boys Collection
+							All Products
 						</h1>
 						<p className="text-lg text-gray-600 max-w-2xl">
-							Premium quality clothing for boys of all ages. From casual wear to
-							special occasions.
+							Discover our complete collection of premium fashion products for
+							all ages. From casual wear to special occasions.
 						</p>
 					</div>
 				</div>
@@ -145,31 +154,31 @@ const Boys = () => {
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 							<div className="space-y-6">
 								<h2 className="text-3xl md:text-4xl font-bold">
-									New Arrivals & Bestsellers
+									Complete Fashion Collection
 								</h2>
 								<p className="text-lg text-white/90">
-									Explore our latest collection of stylish and comfortable
-									outfits designed for active boys
+									Explore our entire range of stylish and comfortable products
+									designed for everyone
 								</p>
 								<div className="grid grid-cols-2 gap-4">
 									<div className="bg-primary-700 p-6 rounded-xl text-center border border-primary-500 hover:bg-primary-800 transition-colors">
-										<div className="text-3xl mb-3">🎯</div>
+										<div className="text-3xl mb-3">👶</div>
 										<div className="font-semibold text-white">
-											Trending Styles
+											Kids Collection
 										</div>
 									</div>
 									<div className="bg-secondary-600 p-6 rounded-xl text-center border border-secondary-500 hover:bg-secondary-700 transition-colors">
-										<div className="text-3xl mb-3">🏃</div>
-										<div className="font-semibold text-white">Active Wear</div>
+										<div className="text-3xl mb-3">👗</div>
+										<div className="font-semibold text-white">Teen Fashion</div>
 									</div>
 								</div>
 							</div>
 							<div className="hidden lg:block">
 								<div className="bg-gradient-to-br from-white via-primary-50 to-secondary-50 rounded-2xl p-12 shadow-2xl border-4 border-primary-200 hover:shadow-3xl transition-all">
 									<div className="text-center space-y-4">
-										<div className="text-8xl">👕</div>
+										<div className="text-8xl">🛍️</div>
 										<div className="text-primary-700 font-bold text-xl">
-											BOYS COLLECTION
+											ALL PRODUCTS
 										</div>
 									</div>
 								</div>
@@ -210,6 +219,35 @@ const Boys = () => {
 									>
 										Clear All
 									</button>
+								</div>
+
+								{/* Category Filter */}
+								<div>
+									<h4 className="font-bold text-lg text-primary-800 mb-4">
+										CATEGORY
+									</h4>
+									<div className="space-y-2">
+										{[
+											{ label: "Boys", value: "boys" },
+											{ label: "Girls", value: "girls" },
+										].map((category) => (
+											<label key={category.value} className="flex items-center">
+												<input
+													type="radio"
+													name="category"
+													value={category.value}
+													checked={filters.category === category.value}
+													onChange={(e) =>
+														handleFilterChange("category", e.target.value)
+													}
+													className="text-primary-600 focus:ring-primary-500"
+												/>
+												<span className="ml-2 text-sm text-gray-700">
+													{category.label}
+												</span>
+											</label>
+										))}
+									</div>
 								</div>
 
 								{/* Age Group Filter */}
@@ -351,4 +389,4 @@ const Boys = () => {
 	);
 };
 
-export default Boys;
+export default Products;

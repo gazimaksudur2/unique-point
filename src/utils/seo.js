@@ -73,7 +73,7 @@ export const generateOrganizationStructuredData = () => {
 		"@type": "Organization",
 		name: "Unique Point",
 		description:
-			"Premium kids fashion store offering high-quality clothing for boys and girls",
+			"Premium kids fashion store offering high-quality clothing for kids and teens",
 		url: "https://unique-point.com",
 		logo: "https://unique-point.com/logo.png",
 		contactPoint: {
@@ -110,11 +110,11 @@ export const generateBreadcrumbStructuredData = (breadcrumbs) => {
 // Common SEO titles and descriptions
 export const SEO_CONTENT = {
 	HOME: {
-		title: "Premium Kids Fashion Store - Boys & Girls Clothing",
+		title: "Premium Kids Fashion Store - Quality Clothing for All Ages",
 		description:
-			"Shop premium kids fashion at Unique Point. High-quality clothing for boys and girls, ages 0-16. Free shipping over ₹999, easy returns, and 24/7 support. New arrivals daily!",
+			"Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ₹999, easy returns, and 24/7 support. New arrivals daily!",
 		keywords:
-			"kids fashion, children clothing, boys clothes, girls clothes, premium kids wear, online shopping, free shipping, toddler clothes, baby clothes",
+			"kids fashion, children clothing, premium kids wear, teens fashion, online shopping, free shipping, toddler clothes, baby clothes",
 	},
 	BOYS: {
 		title: "Boys Fashion Collection - Premium Kids Clothing",

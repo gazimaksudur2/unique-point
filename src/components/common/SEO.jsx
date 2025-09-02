@@ -16,10 +16,10 @@ const SEO = ({
 }) => {
 	const siteTitle = title ? `${title} | ${APP_NAME}` : APP_NAME;
 	const defaultDescription =
-		"Premium kids fashion store - Shop high-quality clothing for boys and girls. Free shipping over ₹999, easy returns, and 24/7 support.";
+		"Premium kids fashion store - Shop high-quality clothing for kids and teens. Free shipping over ₹999, easy returns, and 24/7 support.";
 	const siteDescription = description || defaultDescription;
 	const defaultKeywords =
-		"kids fashion, children clothing, boys clothes, girls clothes, premium kids wear, online shopping";
+		"kids fashion, children clothing, premium kids wear, teens fashion, online shopping";
 	const siteKeywords = keywords || defaultKeywords;
 	const defaultOgImage = "/og-image.jpg"; // You can add a default OG image to public folder
 	const siteOgImage = ogImage || defaultOgImage;

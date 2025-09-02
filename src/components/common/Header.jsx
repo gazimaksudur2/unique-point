@@ -137,8 +137,8 @@ const Header = () => {
 								<div className="flex">
 									<select className="bg-gray-50 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
 										<option>All categories</option>
-										<option>Boys</option>
-										<option>Girls</option>
+										<option>Kids</option>
+										<option>Teens</option>
 										<option>Accessories</option>
 									</select>
 									<input
@@ -307,10 +307,10 @@ const Header = () => {
 									New Arrivals
 								</Link>
 								<Link
-									to="/sale"
+									to="/products"
 									className="text-coral-600 font-medium hover:text-coral-700"
 								>
-									Sale
+									All Products
 								</Link>
 							</div> */}
 						</nav>
@@ -324,8 +324,8 @@ const Header = () => {
 							<div className="flex">
 								<select className="bg-white border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
 									<option>All</option>
-									<option>Boys</option>
-									<option>Girls</option>
+									<option>Kids</option>
+									<option>Teens</option>
 								</select>
 								<input
 									type="text"

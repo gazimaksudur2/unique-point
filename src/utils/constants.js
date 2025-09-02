@@ -5,10 +5,10 @@ export const APP_TAGLINE = "Where Fashion Meets Innovation";
 // Navigation constants
 export const NAVIGATION_ITEMS = [
 	{ name: "Home", path: "/" },
-	{ name: "Boys", path: "/boys" },
-	{ name: "Girls", path: "/girls" },
-	{ name: "Collections", path: "/collections" },
-	{ name: "Sale", path: "/sale" },
+	{ name: "Products", path: "/products" },
+	{ name: "Gallery", path: "/gallery" },
+	{ name: "FAQ", path: "/faq" },
+	{ name: "Contacts", path: "/contacts" },
 ];
 
 // Category constants
@@ -35,7 +35,7 @@ export const CLOTHING_TYPES = {
 };
 
 // WhatsApp constants
-export const WHATSAPP_NUMBER = "+1234567890"; // Replace with actual number
+export const WHATSAPP_NUMBER = "+8801903219313"; // Replace with actual number
 export const WHATSAPP_MESSAGE_TEMPLATE = {
 	ORDER: "Hi! I'm interested in ordering the following items from UniquePoint:",
 	INQUIRY: "Hi! I have a question about this product from UniquePoint:",

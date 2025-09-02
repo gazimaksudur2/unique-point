@@ -26,7 +26,7 @@ const Home = () => {
 		name: "Unique Point - Premium Kids Fashion",
 		url: "https://unique-point.com",
 		description:
-			"Premium kids fashion store offering high-quality clothing for boys and girls with free shipping over ₹999",
+			"Premium kids fashion store offering high-quality clothing for kids and teens with free shipping over ₹999",
 		potentialAction: {
 			"@type": "SearchAction",
 			target: "https://unique-point.com/search?q={search_term_string}",
@@ -42,9 +42,9 @@ const Home = () => {
 	return (
 		<>
 			<SEO
-				title="Premium Kids Fashion Store - Boys & Girls Clothing"
-				description="Shop premium kids fashion at Unique Point. High-quality clothing for boys and girls, ages 0-16. Free shipping over ₹999, easy returns, and 24/7 support. New arrivals daily!"
-				keywords="kids fashion, children clothing, boys clothes, girls clothes, premium kids wear, online shopping, free shipping, toddler clothes, baby clothes"
+				title="Premium Kids Fashion Store - Quality Clothing for All Ages"
+				description="Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ₹999, easy returns, and 24/7 support. New arrivals daily!"
+				keywords="kids fashion, children clothing, premium kids wear, teens fashion, online shopping, free shipping, toddler clothes, baby clothes"
 				ogType="website"
 				ogUrl="https://unique-point.com"
 				structured={structuredData}
@@ -65,25 +65,25 @@ const Home = () => {
 										</span>
 									</h1>
 									<p className="text-lg lg:text-xl leading-relaxed text-gray-600">
-										Discover premium quality, comfortable clothing for boys and
-										girls. From newborns to teens - we create outfits that
-										inspire confidence.
+										Discover premium quality, comfortable clothing for kids of
+										all ages. From newborns to teens - we create outfits that
+										inspire confidence and comfort.
 									</p>
 								</div>
 
 								<div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
 									<Link
-										to="/boys"
+										to="/products"
 										className="bg-coral hover:bg-coral-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center"
 									>
-										Shop Boys
+										Shop Products
 										<FiArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
 									</Link>
 									<Link
-										to="/girls"
+										to="/gallery"
 										className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center"
 									>
-										Shop Girls
+										View Gallery
 										<FiArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
 									</Link>
 								</div>
@@ -214,7 +214,7 @@ const Home = () => {
 						<div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
 							{/* Category Cards */}
 							<Link
-								to="/boys/infants"
+								to="/products?ageGroup=infants"
 								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
 							>
 								<div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
@@ -231,7 +231,7 @@ const Home = () => {
 							</Link>
 
 							<Link
-								to="/boys/kids"
+								to="/products?ageGroup=kids"
 								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
 							>
 								<div className="aspect-square bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
@@ -248,7 +248,7 @@ const Home = () => {
 							</Link>
 
 							<Link
-								to="/boys/teens"
+								to="/products?ageGroup=teens"
 								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
 							>
 								<div className="aspect-square bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
@@ -267,7 +267,7 @@ const Home = () => {
 							</Link>
 
 							<Link
-								to="/boys/adults"
+								to="/products?ageGroup=adults"
 								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
 							>
 								<div className="aspect-square bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center">
@@ -306,7 +306,7 @@ const Home = () => {
 
 						<div className="text-center mt-12">
 							<Link
-								to="/boys"
+								to="/products"
 								className="group bg-primary-700 hover:bg-primary-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center"
 							>
 								View All Products
@@ -330,7 +330,7 @@ const Home = () => {
 
 							<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 								<Link
-									to="/boys"
+									to="/products"
 									className="group bg-white text-primary-700 hover:bg-secondary-50 hover:text-secondary-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center border-2 border-white"
 								>
 									Start Shopping
