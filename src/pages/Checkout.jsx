@@ -8,6 +8,7 @@ import {
 	FiPhone,
 	FiMail,
 	FiShoppingBag,
+	FiCheckCircle,
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
 import SEO from "../components/common/SEO";
@@ -16,7 +17,6 @@ import {
 	getDivisions,
 	getDistrictsByDivision,
 	getUpazilasByDistrict,
-	getUnionsByUpazila,
 	getLocationNames,
 } from "../data/bangladeshGeoData";
 
@@ -36,7 +36,6 @@ const Checkout = () => {
 		division: "",
 		district: "",
 		upazila: "",
-		union: "",
 		streetAddress: "",
 
 		// Payment Method
@@ -50,11 +49,11 @@ const Checkout = () => {
 	const [divisions] = useState(getDivisions());
 	const [districts, setDistricts] = useState([]);
 	const [upazilas, setUpazilas] = useState([]);
-	const [unions, setUnions] = useState([]);
 
 	// Form validation
 	const [errors, setErrors] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [showSuccessModal, setShowSuccessModal] = useState(false);
 
 	// Redirect if cart is empty
 	useEffect(() => {
@@ -72,10 +71,8 @@ const Checkout = () => {
 				...prev,
 				district: "",
 				upazila: "",
-				union: "",
 			}));
 			setUpazilas([]);
-			setUnions([]);
 		}
 	}, [formData.division]);
 
@@ -83,18 +80,9 @@ const Checkout = () => {
 		if (formData.district) {
 			const newUpazilas = getUpazilasByDistrict(formData.district);
 			setUpazilas(newUpazilas);
-			setFormData((prev) => ({ ...prev, upazila: "", union: "" }));
-			setUnions([]);
+			setFormData((prev) => ({ ...prev, upazila: "" }));
 		}
 	}, [formData.district]);
-
-	useEffect(() => {
-		if (formData.upazila) {
-			const newUnions = getUnionsByUpazila(formData.upazila);
-			setUnions(newUnions);
-			setFormData((prev) => ({ ...prev, union: "" }));
-		}
-	}, [formData.upazila]);
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
@@ -123,7 +111,6 @@ const Checkout = () => {
 		if (!formData.division) newErrors.division = "Division is required";
 		if (!formData.district) newErrors.district = "District is required";
 		if (!formData.upazila) newErrors.upazila = "Upazila is required";
-		if (!formData.union) newErrors.union = "Union is required";
 		if (!formData.paymentMethod)
 			newErrors.paymentMethod = "Payment method is required";
 
@@ -132,12 +119,14 @@ const Checkout = () => {
 			newErrors.email = "Please enter a valid email address";
 		}
 
-		// Phone validation (Bangladesh format)
-		if (
-			formData.phone &&
-			!/^(\+880|880|0)?[13-9]\d{8}$/.test(formData.phone.replace(/\s/g, ""))
-		) {
-			newErrors.phone = "Please enter a valid Bangladesh phone number";
+		// Phone validation (Bangladesh format) - supports 01XXXXXXXX, 8801XXXXXXXX, +8801XXXXXXXX
+		if (formData.phone) {
+			const phoneRegex = /^(?:\+?88)?01[3-9]\d{8}$/;
+			const cleanPhone = formData.phone.replace(/\s/g, "");
+			if (!phoneRegex.test(cleanPhone)) {
+				newErrors.phone =
+					"Please enter a valid Bangladesh phone number (01XXXXXXXX, 8801XXXXXXXX, or +8801XXXXXXXX)";
+			}
 		}
 
 		setErrors(newErrors);
@@ -148,8 +137,7 @@ const Checkout = () => {
 		const locationNames = getLocationNames(
 			formData.division,
 			formData.district,
-			formData.upazila,
-			formData.union
+			formData.upazila
 		);
 
 		let message = "🛍️ *New Order from UniquePoint Website*\n\n";
@@ -167,7 +155,6 @@ const Checkout = () => {
 			message += `Division: ${locationNames.division}\n`;
 			message += `District: ${locationNames.district}\n`;
 			message += `Upazila: ${locationNames.upazila}\n`;
-			message += `Union: ${locationNames.union}\n`;
 		}
 		if (formData.streetAddress) {
 			message += `Street/House: ${formData.streetAddress}\n`;
@@ -224,11 +211,17 @@ const Checkout = () => {
 			// Clear cart after successful order
 			clearCart();
 
+			// Show success modal
+			setShowSuccessModal(true);
+
 			// Open WhatsApp
 			window.open(whatsappUrl, "_blank");
 
-			// Redirect to success page or home
-			navigate("/order-success");
+			// Redirect to success page after a delay
+			setTimeout(() => {
+				setShowSuccessModal(false);
+				navigate("/order-success");
+			}, 3000);
 		} catch (error) {
 			console.error("Error processing order:", error);
 		} finally {
@@ -350,7 +343,7 @@ const Checkout = () => {
 												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
 													errors.phone ? "border-red-500" : "border-gray-300"
 												}`}
-												placeholder="01XXXXXXXXX"
+												placeholder="01XXXXXXXX or +8801XXXXXXXX"
 											/>
 											{errors.phone && (
 												<p className="text-red-500 text-sm mt-1">
@@ -471,38 +464,11 @@ const Checkout = () => {
 												</p>
 											)}
 										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Union *
-											</label>
-											<select
-												name="union"
-												value={formData.union}
-												onChange={handleInputChange}
-												disabled={!formData.upazila}
-												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.union ? "border-red-500" : "border-gray-300"
-												} ${!formData.upazila ? "bg-gray-100" : ""}`}
-											>
-												<option value="">Select Union</option>
-												{unions.map((union) => (
-													<option key={union.value} value={union.value}>
-														{union.label}
-													</option>
-												))}
-											</select>
-											{errors.union && (
-												<p className="text-red-500 text-sm mt-1">
-													{errors.union}
-												</p>
-											)}
-										</div>
 									</div>
 
 									<div className="mt-4">
 										<label className="block text-sm font-medium text-gray-700 mb-2">
-											Street Address / House No. (Optional)
+											Street Address / House No. (Optional for more detailed address)
 										</label>
 										<input
 											type="text"
@@ -667,6 +633,49 @@ const Checkout = () => {
 					</div>
 				</div>
 			</div>
+
+			{/* Success Modal */}
+			{showSuccessModal && (
+				<div className="fixed inset-0 z-50 overflow-y-auto">
+					<div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+						{/* Background overlay */}
+						<div
+							className="fixed inset-0 transition-opacity"
+							aria-hidden="true"
+						>
+							<div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+						</div>
+
+						{/* Modal content */}
+						<div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+							<div className="sm:flex sm:items-start">
+								<div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+									<FiCheckCircle className="h-6 w-6 text-green-600" />
+								</div>
+								<div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+									<h3 className="text-lg leading-6 font-medium text-gray-900">
+										Order Placed Successfully!
+									</h3>
+									<div className="mt-2">
+										<p className="text-sm text-gray-500">
+											Your order has been placed and sent to our WhatsApp. We'll
+											contact you shortly to confirm your order details.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+								<div className="flex items-center justify-center">
+									<div className="animate-spin rounded-full h-5 w-5 border-b-2 border-green-600"></div>
+									<span className="ml-2 text-sm text-gray-600">
+										Redirecting...
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 		</>
 	);
 };
