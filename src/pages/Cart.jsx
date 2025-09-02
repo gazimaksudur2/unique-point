@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
 	FiMinus,
 	FiPlus,
@@ -10,9 +10,9 @@ import {
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
 import SEO from "../components/common/SEO";
-import { WHATSAPP_NUMBER } from "../utils/constants";
 
 const Cart = () => {
+	const navigate = useNavigate();
 	const {
 		cart,
 		cartTotal,
@@ -49,35 +49,8 @@ const Cart = () => {
 		return wishlist.some((item) => item.id === productId);
 	};
 
-	const generateWhatsAppMessage = () => {
-		let message = "🛍️ *Order Request from UniquePoint Website*\n\n";
-		message +=
-			"Hello! I would like to place an order for the following items:\n\n";
-
-		cart.forEach((item, index) => {
-			message += `${index + 1}. *${item.name}*\n`;
-			message += `   Brand: ${item.brand}\n`;
-			message += `   Price: ₹${item.price}\n`;
-			if (item.size) message += `   Size: ${item.size}\n`;
-			if (item.color) message += `   Color: ${item.color}\n`;
-			message += `   Quantity: ${item.quantity}\n`;
-			message += `   Subtotal: ₹${item.price * item.quantity}\n\n`;
-		});
-
-		message += `💰 *Total Amount: ₹${cartTotal}*\n\n`;
-		message += "📍 Please let me know:\n";
-		message += "• Delivery address\n";
-		message += "• Preferred delivery date\n";
-		message += "• Any special instructions\n\n";
-		message += "Thank you! 😊";
-
-		return encodeURIComponent(message);
-	};
-
-	const handleWhatsAppCheckout = () => {
-		const message = generateWhatsAppMessage();
-		const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-		window.open(whatsappUrl, "_blank");
+	const handleProceedToCheckout = () => {
+		navigate("/checkout");
 	};
 
 	if (cart.length === 0) {
@@ -317,18 +290,17 @@ const Cart = () => {
 									</div>
 								</div>
 
-								{/* WhatsApp Checkout Button */}
+								{/* Proceed to Checkout Button */}
 								<button
-									onClick={handleWhatsAppCheckout}
-									className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+									onClick={handleProceedToCheckout}
+									className="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
 								>
-									<span className="text-lg">💬</span>
-									Checkout via WhatsApp
+									<FiShoppingBag className="h-5 w-5" />
+									Proceed to Checkout
 								</button>
 
 								<p className="text-sm text-gray-500 text-center mt-4">
-									You'll be redirected to WhatsApp to complete your order with
-									our team.
+									Enter your shipping details and complete your order
 								</p>
 
 								{/* Continue Shopping */}

@@ -7,6 +7,8 @@ import FAQ from "../pages/FAQ";
 import Contacts from "../pages/Contacts";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
+import Checkout from "../pages/Checkout";
+import OrderSuccess from "../pages/OrderSuccess";
 
 const router = createBrowserRouter([
 	{
@@ -62,6 +64,22 @@ const router = createBrowserRouter([
 		element: (
 			<Layout>
 				<Wishlist />
+			</Layout>
+		),
+	},
+	{
+		path: "/checkout",
+		element: (
+			<Layout>
+				<Checkout />
+			</Layout>
+		),
+	},
+	{
+		path: "/order-success",
+		element: (
+			<Layout>
+				<OrderSuccess />
 			</Layout>
 		),
 	},
