@@ -90,12 +90,12 @@ const Header = () => {
 			{/* Main Header */}
 			<div className="bg-white border-b border-gray-100">
 				<div className="container mx-auto px-4">
-					<div className="flex items-center justify-between h-16 lg:h-20">
+					<div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
 						{/* Logo */}
 						<div className="flex items-center">
 							<button
 								onClick={toggleMobileMenu}
-								className="lg:hidden p-2 rounded-md hover:bg-gray-100 mr-3"
+								className="lg:hidden p-1 sm:p-2 rounded-md hover:bg-gray-100 mr-2 sm:mr-3"
 								aria-label="Toggle mobile menu"
 							>
 								{isMobileMenuOpen ? (
@@ -105,8 +105,8 @@ const Header = () => {
 								)}
 							</button>
 
-							<Link to="/" className="flex items-center space-x-3">
-								<div className="bg-primary text-white w-10 h-10 lg:w-12 lg:h-12 rounded-xl">
+							<Link to="/" className="flex items-center space-x-2 sm:space-x-3">
+								<div className="bg-primary text-white w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl">
 									{/* <img
 										src={logo}
 										alt="Logo"
@@ -119,18 +119,18 @@ const Header = () => {
 									/>
 								</div>
 								<div className="hidden sm:block">
-									<span className="font-bold text-xl lg:text-2xl text-gray-900 tracking-tight">
+									<span className="font-bold text-lg sm:text-xl lg:text-2xl text-gray-900 tracking-tight">
 										{APP_NAME}
 									</span>
-									<p className="text-xs text-gray-500 font-medium">
+									<p className="text-xs sm:text-sm text-gray-500 font-medium">
 										Premium Fashion Store
 									</p>
 								</div>
 							</Link>
 						</div>
 
-						{/* Search Bar - Desktop */}
-						<div className="hidden sm:flex flex-1 max-w-2xl mx-8">
+						{/* Search Bar - Desktop & Tablet */}
+						<div className="hidden md:flex flex-1 max-w-2xl mx-4 lg:mx-8">
 							<div className="relative w-full">
 								<div className="flex">
 									<select className="bg-gray-50 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
@@ -153,10 +153,10 @@ const Header = () => {
 
 						{/* Right Side Actions */}
 						<div className="flex items-center space-x-1 sm:space-x-3">
-							{/* Mobile Search Button */}
+							{/* Mobile & Tablet Search Button */}
 							<button
 								onClick={toggleSearch}
-								className="sm:hidden p-2 text-gray-600 hover:text-primary-600"
+								className="md:hidden p-2 text-gray-600 hover:text-primary-600"
 								aria-label="Search"
 							>
 								<FiSearch className="h-5 w-5" />
@@ -260,9 +260,9 @@ const Header = () => {
 					</div>
 				</div>
 
-				{/* Mobile Search Bar - Collapsible */}
+				{/* Mobile & Tablet Search Bar - Collapsible */}
 				{isSearchOpen && (
-					<div className="sm:hidden py-4 bg-gray-50 border-t border-gray-200">
+					<div className="md:hidden py-4 bg-gray-50 border-t border-gray-200">
 						<div className="container mx-auto px-4">
 							<div className="flex">
 								<select className="bg-white border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">

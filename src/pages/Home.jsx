@@ -54,34 +54,34 @@ const Home = () => {
 			<div className="min-h-screen bg-cream">
 				{/* Hero Section */}
 				<section id="hero" className="bg-white">
-					<div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 xl:py-24">
-						<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-							<div className="space-y-6 sm:space-y-8">
-								<div className="space-y-4 sm:space-y-6">
-									<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900">
+					<div className="container mx-auto px-4 py-6 sm:py-8 md:py-12 lg:py-16 xl:py-24">
+						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+							<div className="space-y-4 sm:space-y-6 md:space-y-8">
+								<div className="space-y-3 sm:space-y-4 md:space-y-6">
+									<h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight text-gray-900">
 										Fashion that grows
 										<span className="block bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
 											with your child
 										</span>
 									</h1>
-									<p className="text-lg lg:text-xl leading-relaxed text-gray-600">
+									<p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-gray-600">
 										Discover premium quality, comfortable clothing for kids of
 										all ages. From newborns to teens - we create outfits that
 										inspire confidence and comfort.
 									</p>
 								</div>
 
-								<div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+								<div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
 									<Link
 										to="/products"
-										className="bg-coral hover:bg-coral-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center"
+										className="bg-coral hover:bg-coral-600 text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center transition-all"
 									>
 										Shop Products
 										<FiArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
 									</Link>
 									<Link
 										to="/gallery"
-										className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center"
+										className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center transition-all"
 									>
 										View Gallery
 										<FiArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
@@ -89,25 +89,25 @@ const Home = () => {
 								</div>
 
 								{/* Key Features */}
-								<div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 text-gray-800">
-									<div className="text-center p-2 sm:p-4 bg-secondary-50 rounded-lg border border-secondary-300">
-										<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+								<div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-3 sm:pt-4 text-gray-800">
+									<div className="text-center p-2 sm:p-3 md:p-4 bg-secondary-50 rounded-lg border border-secondary-300">
+										<div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
 											1000+
 										</div>
 										<div className="text-xs sm:text-sm text-gray-600 font-semibold">
 											Products
 										</div>
 									</div>
-									<div className="text-center p-2 sm:p-4 bg-primary-50 rounded-lg border border-primary-300">
-										<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+									<div className="text-center p-2 sm:p-3 md:p-4 bg-primary-50 rounded-lg border border-primary-300">
+										<div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
 											50K+
 										</div>
 										<div className="text-xs sm:text-sm font-semibold">
 											Happy Families
 										</div>
 									</div>
-									<div className="text-center p-2 sm:p-4 bg-coral-50 rounded-lg border border-coral-300">
-										<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+									<div className="text-center p-2 sm:p-3 md:p-4 bg-coral-50 rounded-lg border border-coral-300">
+										<div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
 											4.9
 										</div>
 										<div className="text-xs sm:text-sm font-semibold">
@@ -147,13 +147,13 @@ const Home = () => {
 				{/* Features Section */}
 				<section
 					id="features"
-					className="py-8 sm:py-12 lg:py-16 bg-secondary-100"
+					className="py-6 sm:py-8 md:py-12 lg:py-16 bg-secondary-100"
 				>
 					<div className="container mx-auto px-4">
-						<div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-							<div className="text-center space-y-2 sm:space-y-4">
-								<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-primary rounded-xl sm:rounded-2xl flex items-center justify-center">
-									<FiTruck className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+						<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+							<div className="text-center space-y-2 sm:space-y-3 md:space-y-4">
+								<div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center">
+									<FiTruck className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
 									Free Shipping
@@ -163,9 +163,9 @@ const Home = () => {
 								</p>
 							</div>
 
-							<div className="text-center space-y-2 sm:space-y-4">
-								<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-secondary-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
-									<FiShield className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+							<div className="text-center space-y-2 sm:space-y-3 md:space-y-4">
+								<div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-secondary-500 rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center">
+									<FiShield className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
 									Quality Assured
@@ -175,9 +175,9 @@ const Home = () => {
 								</p>
 							</div>
 
-							<div className="text-center space-y-2 sm:space-y-4">
-								<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-coral rounded-xl sm:rounded-2xl flex items-center justify-center">
-									<FiHeadphones className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+							<div className="text-center space-y-2 sm:space-y-3 md:space-y-4">
+								<div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-coral rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center">
+									<FiHeadphones className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
 									24/7 Support
@@ -187,9 +187,9 @@ const Home = () => {
 								</p>
 							</div>
 
-							<div className="text-center space-y-2 sm:space-y-4">
-								<div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-primary-400 rounded-xl sm:rounded-2xl flex items-center justify-center">
-									<FiStar className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+							<div className="text-center space-y-2 sm:space-y-3 md:space-y-4">
+								<div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary-400 rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center">
+									<FiStar className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
 									Customer Love
@@ -205,23 +205,23 @@ const Home = () => {
 				{/* Categories Section */}
 				<section
 					id="categories"
-					className="py-16 bg-gradient-to-b from-secondary-50 to-white"
+					className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-secondary-50 to-white"
 				>
 					<div className="container mx-auto px-4">
-						<div className="text-center mb-12">
-							<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+						<div className="text-center mb-6 sm:mb-8 md:mb-12">
+							<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
 								Shop by Age Group
 							</h2>
-							<p className="text-lg text-gray-600 max-w-2xl mx-auto">
+							<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
 								Find the perfect outfit for every occasion and age group
 							</p>
 						</div>
 
-						<div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+						<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
 							{/* Category Cards */}
 							<Link
 								to="/products?ageGroup=infants"
-								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+								className="group bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
 							>
 								<div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
 									<span className="text-6xl group-hover:scale-110 transition-transform">
