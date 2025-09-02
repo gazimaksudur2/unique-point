@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, useEffect, useState } from "react";
+import React, {
+	createContext,
+	useContext,
+	useReducer,
+	useEffect,
+	useState,
+} from "react";
 import { STORAGE_KEYS } from "../utils/constants";
 
 // Initial state
@@ -206,16 +212,22 @@ export const AppProvider = ({ children }) => {
 
 	// Persist cart to localStorage
 	useEffect(() => {
+		if (!isInitialized) return; // Don't persist during initial load
+
 		try {
+			console.log("Persisting cart:", state.cart);
 			localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(state.cart));
 		} catch (error) {
 			console.error("Error persisting cart:", error);
 		}
-	}, [state.cart]);
+	}, [state.cart, isInitialized]);
 
 	// Persist wishlist to localStorage
 	useEffect(() => {
+		if (!isInitialized) return; // Don't persist during initial load
+
 		try {
+			console.log("Persisting wishlist:", state.wishlist);
 			localStorage.setItem(
 				STORAGE_KEYS.WISHLIST,
 				JSON.stringify(state.wishlist)
@@ -223,7 +235,7 @@ export const AppProvider = ({ children }) => {
 		} catch (error) {
 			console.error("Error persisting wishlist:", error);
 		}
-	}, [state.wishlist]);
+	}, [state.wishlist, isInitialized]);
 
 	// Persist user to localStorage (removed since no authentication)
 	useEffect(() => {

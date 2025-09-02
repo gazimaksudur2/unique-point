@@ -7,6 +7,7 @@ import FAQ from "../pages/FAQ";
 import Contacts from "../pages/Contacts";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
+import TestLocalStorage from "../pages/TestLocalStorage";
 import DaisyUIExample from "../components/examples/DaisyUIExample";
 import DaisyUITest from "../components/examples/DaisyUITest";
 
@@ -96,6 +97,14 @@ const router = createBrowserRouter([
 		element: (
 			<Layout>
 				<DaisyUITest />
+			</Layout>
+		),
+	},
+	{
+		path: "/test-localstorage",
+		element: (
+			<Layout>
+				<TestLocalStorage />
 			</Layout>
 		),
 	},
