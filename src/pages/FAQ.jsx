@@ -183,7 +183,7 @@ const FAQ = () => {
 
 				<div className="container mx-auto px-4 py-12">
 					{/* Search and Filter Section */}
-					<div className="bg-white rounded-xl shadow-md p-6 mb-8">
+					<div id="search" className="bg-white rounded-xl shadow-md p-6 mb-8">
 						{/* Search Bar */}
 						<div className="relative mb-6">
 							<FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -268,7 +268,10 @@ const FAQ = () => {
 					)}
 
 					{/* Contact Section */}
-					<div className="bg-gradient-to-r from-primary-700 to-primary-800 rounded-xl p-8 text-white mt-12">
+					<div
+						id="contact"
+						className="bg-gradient-to-r from-primary-700 to-primary-800 rounded-xl p-8 text-white mt-12"
+					>
 						<div className="text-center">
 							<h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
 							<p className="text-lg mb-6 opacity-90">

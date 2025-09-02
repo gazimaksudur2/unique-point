@@ -53,7 +53,7 @@ const Home = () => {
 
 			<div className="min-h-screen bg-cream">
 				{/* Hero Section */}
-				<section className="bg-white">
+				<section id="hero" className="bg-white">
 					<div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 xl:py-24">
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
 							<div className="space-y-6 sm:space-y-8">
@@ -145,7 +145,10 @@ const Home = () => {
 				</section>
 
 				{/* Features Section */}
-				<section className="py-8 sm:py-12 lg:py-16 bg-secondary-100">
+				<section
+					id="features"
+					className="py-8 sm:py-12 lg:py-16 bg-secondary-100"
+				>
 					<div className="container mx-auto px-4">
 						<div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
 							<div className="text-center space-y-2 sm:space-y-4">
@@ -200,7 +203,10 @@ const Home = () => {
 				</section>
 
 				{/* Categories Section */}
-				<section className="py-16 bg-gradient-to-b from-secondary-50 to-white">
+				<section
+					id="categories"
+					className="py-16 bg-gradient-to-b from-secondary-50 to-white"
+				>
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-12">
 							<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -287,7 +293,7 @@ const Home = () => {
 				</section>
 
 				{/* Featured Products */}
-				<section className="py-16 bg-gray-50">
+				<section id="products" className="py-16 bg-gray-50">
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-12">
 							<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -317,7 +323,10 @@ const Home = () => {
 				</section>
 
 				{/* CTA Section */}
-				<section className="py-16 bg-gradient-to-r from-primary-700 to-primary-800">
+				<section
+					id="cta"
+					className="py-16 bg-gradient-to-r from-primary-700 to-primary-800"
+				>
 					<div className="container mx-auto px-4">
 						<div className="text-center text-white">
 							<h2 className="text-3xl md:text-4xl font-bold mb-6">

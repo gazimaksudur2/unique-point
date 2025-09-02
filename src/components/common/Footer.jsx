@@ -88,16 +88,40 @@ const Footer = () => {
 								All Products
 							</Link>
 							<Link
+								to="/#products"
+								className="block text-gray-400 hover:text-white transition-colors text-sm"
+							>
+								Featured Products
+							</Link>
+							<Link
+								to="/#categories"
+								className="block text-gray-400 hover:text-white transition-colors text-sm"
+							>
+								Shop by Age
+							</Link>
+							<Link
 								to="/gallery"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
 								Gallery
 							</Link>
 							<Link
+								to="/products#filters"
+								className="block text-gray-400 hover:text-white transition-colors text-sm"
+							>
+								Product Filters
+							</Link>
+							<Link
 								to="/faq"
 								className="block text-gray-400 hover:text-white transition-colors text-sm"
 							>
 								FAQ
+							</Link>
+							<Link
+								to="/faq#contact"
+								className="block text-gray-400 hover:text-white transition-colors text-sm"
+							>
+								Help & Support
 							</Link>
 							<Link
 								to="/contacts"

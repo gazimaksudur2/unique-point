@@ -98,7 +98,7 @@ const Gallery = () => {
 				</div>
 
 				{/* Category Filter */}
-				<div className="bg-white border-b border-gray-200">
+				<div id="filters" className="bg-white border-b border-gray-200">
 					<div className="container mx-auto px-4 py-6">
 						<div className="flex flex-wrap gap-2">
 							{categories.map((category) => (
@@ -119,7 +119,7 @@ const Gallery = () => {
 				</div>
 
 				{/* Gallery Grid */}
-				<div className="container mx-auto px-4 py-12">
+				<div id="gallery" className="container mx-auto px-4 py-12">
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 						{filteredImages.map((image, index) => (
 							<div

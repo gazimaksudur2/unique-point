@@ -149,7 +149,10 @@ const Products = () => {
 				</div>
 
 				{/* Hero Banner */}
-				<div className="bg-gradient-to-r from-primary-700 to-primary-800 text-white">
+				<div
+					id="banner"
+					className="bg-gradient-to-r from-primary-700 to-primary-800 text-white"
+				>
 					<div className="container mx-auto px-4 py-16">
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 							<div className="space-y-6">
@@ -190,7 +193,7 @@ const Products = () => {
 				<div className="container mx-auto px-4 py-8">
 					<div className="flex flex-col lg:flex-row gap-8">
 						{/* Filters Sidebar */}
-						<div className="lg:w-1/4">
+						<div id="filters" className="lg:w-1/4">
 							{/* Mobile Filter Toggle */}
 							<button
 								onClick={() => setShowFilters(!showFilters)}
