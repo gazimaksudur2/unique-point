@@ -61,7 +61,7 @@ const Footer = () => {
 								<FiInstagram className="h-5 w-5" />
 							</a>
 							<a
-								href="#"
+								href="https://www.facebook.com/uniquepointNG"
 								className="text-gray-400 hover:text-white transition-colors"
 								aria-label="Facebook"
 							>
@@ -188,15 +188,15 @@ const Footer = () => {
 							<div className="flex items-center space-x-3">
 								<FiMail className="h-4 w-4 text-gray-400" />
 								<span className="text-gray-400 text-sm">
-									hello@uniquepoint.com
+									mdrobiulislam0404@gmail.com
 								</span>
 							</div>
 							<div className="flex items-start space-x-3">
 								<FiMapPin className="h-4 w-4 text-gray-400 mt-1" />
 								<span className="text-gray-400 text-sm">
-									123 Fashion Street,
+									Sign Board, Narayanganj,
 									<br />
-									Style District, Dhaka 1000
+									Bangladesh
 								</span>
 							</div>
 						</div>

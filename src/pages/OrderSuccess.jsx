@@ -138,10 +138,10 @@ const OrderSuccess = () => {
 									</a>{" "}
 									or email{" "}
 									<a
-										href="mailto:hello@uniquepoint.com"
+										href="mailto:mdrobiulislam0404@gmail.com"
 										className="text-primary-600 hover:text-primary-700 font-medium"
 									>
-										hello@uniquepoint.com
+										mdrobiulislam0404@gmail.com
 									</a>
 								</p>
 							</div>

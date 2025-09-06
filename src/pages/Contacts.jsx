@@ -67,10 +67,9 @@ const Contacts = () => {
 			],
 			address: {
 				"@type": "PostalAddress",
-				streetAddress: "123 Fashion Street, Style District",
-				addressLocality: "Dhaka",
+				streetAddress: "Sign Board",
+				addressLocality: "Narayanganj",
 				addressRegion: "Dhaka",
-				postalCode: "1000",
 				addressCountry: "BD",
 			},
 		},
@@ -129,7 +128,9 @@ const Contacts = () => {
 										</div>
 										<div>
 											<h3 className="font-semibold text-gray-900">Email</h3>
-											<p className="text-gray-600">hello@uniquepoint.com</p>
+											<p className="text-gray-600">
+												mdrobiulislam0404@gmail.com
+											</p>
 											<p className="text-sm text-gray-500">
 												We'll respond within 24 hours
 											</p>
@@ -143,9 +144,9 @@ const Contacts = () => {
 										<div>
 											<h3 className="font-semibold text-gray-900">Address</h3>
 											<p className="text-gray-600">
-												123 Fashion Street,
+												Sign Board, Narayanganj,
 												<br />
-												Style District, Dhaka 1000
+												Bangladesh
 											</p>
 										</div>
 									</div>
@@ -196,7 +197,7 @@ const Contacts = () => {
 										<FiInstagram className="h-5 w-5" />
 									</a>
 									<a
-										href="#"
+										href="https://www.facebook.com/uniquepointNG"
 										className="bg-blue-100 p-3 rounded-lg text-blue-700 hover:bg-blue-200 transition-colors"
 										aria-label="Facebook"
 									>
@@ -383,7 +384,7 @@ const Contacts = () => {
 									Interactive Map Coming Soon
 									<br />
 									<span className="text-sm">
-										123 Fashion Street, Style District, Mumbai 110001
+										Sign Board, Narayanganj, Bangladesh
 									</span>
 								</p>
 							</div>

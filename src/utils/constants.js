@@ -29,6 +29,13 @@ export const DELIVERY_CHARGES = {
 	DHAKA: 60,
 	OUTSIDE_DHAKA: 120,
 };
+// Contact information
+export const CONTACT_INFO = {
+	PHONE: "+8801876658343",
+	EMAIL: "mdrobiulislam0404@gmail.com",
+	ADDRESS: "Sign Board, Narayanganj, Bangladesh",
+};
+
 // WhatsApp constants
 export const WHATSAPP_NUMBER = "+8801876658343"; // Replace with actual number
 export const WHATSAPP_MESSAGE_TEMPLATE = {
