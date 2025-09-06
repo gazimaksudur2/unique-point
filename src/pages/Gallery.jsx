@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import SEO from "../components/common/SEO";
-import productsData from "../data/products.json";
-
+import products from "../data/products";
 const Gallery = () => {
 	const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 	const [selectedCategory, setSelectedCategory] = useState("all");
 
 	// Get all product images for gallery
-	const allImages = sampleProducts.flatMap((product, productIndex) =>
+	const allImages = products.flatMap((product, productIndex) =>
 		product.images.map((image, imageIndex) => ({
 			src: image,
 			alt: product.name,
@@ -22,7 +21,14 @@ const Gallery = () => {
 	const filteredImages =
 		selectedCategory === "all"
 			? allImages
-			: allImages.filter((image) => image.category === selectedCategory);
+			: allImages.filter((image) => {
+					if (selectedCategory === "Combo") {
+						return image.productName.includes("Combo");
+					} else if (selectedCategory === "Single") {
+						return image.productName.includes("Single");
+					}
+					return image.category === selectedCategory;
+			  });
 
 	const openLightbox = (index) => {
 		setSelectedImageIndex(index);
@@ -46,8 +52,9 @@ const Gallery = () => {
 
 	const categories = [
 		{ name: "All", value: "all" },
-		{ name: "Boys", value: "boys" },
-		{ name: "Girls", value: "girls" },
+		{ name: "Mens", value: "Mens" },
+		{ name: "Combo", value: "Combo" },
+		{ name: "Single", value: "Single" },
 	];
 
 	// Structured data for Gallery page
@@ -160,7 +167,7 @@ const Gallery = () => {
 							{/* Close Button */}
 							<button
 								onClick={closeLightbox}
-								className="absolute top-4 right-4 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all"
+								className="absolute top-4 right-4 z-10 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
 							>
 								<FiX className="h-6 w-6" />
 							</button>
@@ -168,13 +175,13 @@ const Gallery = () => {
 							{/* Navigation Buttons */}
 							<button
 								onClick={prevImage}
-								className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all"
+								className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all"
 							>
 								<FiChevronLeft className="h-6 w-6" />
 							</button>
 							<button
 								onClick={nextImage}
-								className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all"
+								className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all"
 							>
 								<FiChevronRight className="h-6 w-6" />
 							</button>

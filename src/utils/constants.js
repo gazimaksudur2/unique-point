@@ -13,29 +13,24 @@ export const NAVIGATION_ITEMS = [
 
 // Category constants
 export const CATEGORIES = {
-	BOYS: "boys",
-	GIRLS: "girls",
+	MENS: "Mens",
 };
 
 export const AGE_GROUPS = {
-	INFANTS: "infants",
-	KIDS: "kids",
-	TEENS: "teens",
-	ADULTS: "adults",
+	ADULTS: "Adult",
 };
 
 export const CLOTHING_TYPES = {
-	TSHIRTS: "t-shirts",
-	DRESSES: "dresses",
-	JEANS: "jeans",
-	ETHNIC: "ethnic-wear",
-	WINTER: "winter-wear",
-	FOOTWEAR: "footwear",
-	ACCESSORIES: "accessories",
+	POLO_TSHIRTS: "polo-tshirts",
 };
 
+// Delivery charges
+export const DELIVERY_CHARGES = {
+	DHAKA: 60,
+	OUTSIDE_DHAKA: 120,
+};
 // WhatsApp constants
-export const WHATSAPP_NUMBER = "+8801903219313"; // Replace with actual number
+export const WHATSAPP_NUMBER = "+8801876658343"; // Replace with actual number
 export const WHATSAPP_MESSAGE_TEMPLATE = {
 	ORDER: "Hi! I'm interested in ordering the following items from UniquePoint:",
 	INQUIRY: "Hi! I have a question about this product from UniquePoint:",

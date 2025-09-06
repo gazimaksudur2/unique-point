@@ -56,7 +56,7 @@ const OrderSuccess = () => {
 									If the WhatsApp window didn't open, please contact us directly
 									at{" "}
 									<a
-										href="https://wa.me/+8801903219313"
+										href="https://wa.me/+8801876658343"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="font-medium underline"
@@ -116,7 +116,7 @@ const OrderSuccess = () => {
 								</Link>
 
 								<a
-									href="https://wa.me/+8801903219313"
+									href="https://wa.me/+8801876658343"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2"
@@ -131,7 +131,7 @@ const OrderSuccess = () => {
 								<p className="text-sm text-gray-500">
 									Need help? Contact us at{" "}
 									<a
-										href="tel:+8801903219313"
+										href="tel:+8801876658343"
 										className="text-primary-600 hover:text-primary-700 font-medium"
 									>
 										+880 190 321 9313

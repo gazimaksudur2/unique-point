@@ -12,7 +12,7 @@ import {
 	FiRotateCcw,
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
-import { sampleProducts } from "../data/sampleProducts";
+import products from "../data/products";
 import SEO from "../components/common/SEO";
 import ProductCard from "../components/product/ProductCard";
 
@@ -22,7 +22,7 @@ const ProductDetail = () => {
 	const { addToCart, toggleWishlist, isInWishlist } = useApp();
 
 	// Find product by ID
-	const product = sampleProducts.find((p) => p.id === parseInt(id));
+	const product = products.find((p) => p.id === parseInt(id));
 
 	// Component state
 	const [selectedImage, setSelectedImage] = useState(0);
@@ -57,7 +57,7 @@ const ProductDetail = () => {
 	);
 
 	// Get related products (same category, excluding current product)
-	const relatedProducts = sampleProducts
+	const relatedProducts = products
 		.filter((p) => p.category === product.category && p.id !== product.id)
 		.slice(0, 4);
 
@@ -244,14 +244,16 @@ const ProductDetail = () => {
 											<FiStar
 												key={i}
 												className={`h-4 w-4 ${
-													i < 4
+													i < Math.floor(product.rating || 4.5)
 														? "text-yellow-400 fill-current"
 														: "text-gray-300"
 												}`}
 											/>
 										))}
 									</div>
-									<span className="text-sm text-gray-600">(127 reviews)</span>
+									<span className="text-sm text-gray-600">
+										({product.reviewCount || 0} reviews)
+									</span>
 								</div>
 
 								{/* Price */}
@@ -401,19 +403,35 @@ const ProductDetail = () => {
 								<div className="flex items-center space-x-3">
 									<FiTruck className="h-5 w-5 text-green-600" />
 									<span className="text-sm text-gray-700">
-										Free delivery on orders above ৳999
+										{product.shipping?.deliveryCharges?.dhaka
+											? `Delivery: ৳${product.shipping.deliveryCharges.dhaka} (Dhaka), ৳${product.shipping.deliveryCharges.outsideDhaka} (Outside)`
+											: "Free delivery on orders above ৳999"}
 									</span>
 								</div>
 								<div className="flex items-center space-x-3">
 									<FiRotateCcw className="h-5 w-5 text-blue-600" />
 									<span className="text-sm text-gray-700">
-										15-day easy returns
+										{product.returnPolicy?.returnWindowDays
+											? `${product.returnPolicy.returnWindowDays}-day easy returns`
+											: "15-day easy returns"}
 									</span>
 								</div>
 								<div className="flex items-center space-x-3">
 									<FiShield className="h-5 w-5 text-purple-600" />
-									<span className="text-sm text-gray-700">Quality assured</span>
+									<span className="text-sm text-gray-700">
+										{product.warranty?.washGuarantee
+											? "Wash guarantee included"
+											: "Quality assured"}
+									</span>
 								</div>
+								{product.offer?.launchPromo && (
+									<div className="flex items-center space-x-3">
+										<FiCheck className="h-5 w-5 text-orange-600" />
+										<span className="text-sm text-gray-700 font-medium">
+											{product.offer.promoNote}
+										</span>
+									</div>
+								)}
 							</div>
 						</div>
 					</div>
@@ -435,6 +453,26 @@ const ProductDetail = () => {
 										<p className="text-gray-700 leading-relaxed">
 											{product.description}
 										</p>
+
+										{/* Highlights */}
+										{product.highlights && product.highlights.length > 0 && (
+											<div className="mt-6">
+												<h4 className="text-md font-semibold text-gray-900 mb-3">
+													Key Features
+												</h4>
+												<ul className="space-y-2">
+													{product.highlights.map((highlight, index) => (
+														<li
+															key={index}
+															className="flex items-start space-x-2"
+														>
+															<FiCheck className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+															<span className="text-gray-700">{highlight}</span>
+														</li>
+													))}
+												</ul>
+											</div>
+										)}
 									</div>
 
 									{/* Specifications */}
@@ -463,14 +501,62 @@ const ProductDetail = () => {
 													{product.ageGroup}
 												</span>
 											</div>
+											<div className="flex justify-between py-2 border-b border-gray-100">
+												<span className="text-gray-600">Gender</span>
+												<span className="font-medium capitalize">
+													{product.gender}
+												</span>
+											</div>
+											<div className="flex justify-between py-2 border-b border-gray-100">
+												<span className="text-gray-600">Style</span>
+												<span className="font-medium capitalize">
+													{product.style}
+												</span>
+											</div>
+											<div className="flex justify-between py-2 border-b border-gray-100">
+												<span className="text-gray-600">Fit</span>
+												<span className="font-medium capitalize">
+													{product.fit}
+												</span>
+											</div>
+											<div className="flex justify-between py-2 border-b border-gray-100">
+												<span className="text-gray-600">Season</span>
+												<span className="font-medium capitalize">
+													{product.season}
+												</span>
+											</div>
+											<div className="flex justify-between py-2 border-b border-gray-100">
+												<span className="text-gray-600">Origin</span>
+												<span className="font-medium">
+													{product.countryOfOrigin}
+												</span>
+											</div>
+											{product.fabricDetails && (
+												<div className="pt-2">
+													<span className="text-gray-600">Fabric Details:</span>
+													<div className="text-sm text-gray-700 mt-1 space-y-1">
+														<div>Type: {product.fabricDetails.type}</div>
+														<div>GSM: {product.fabricDetails.gsm}</div>
+														<div>Stretch: {product.fabricDetails.stretch}</div>
+														<div>
+															Breathability:{" "}
+															{product.fabricDetails.breathability}
+														</div>
+													</div>
+												</div>
+											)}
 											{product.careInstructions && (
 												<div className="pt-2">
 													<span className="text-gray-600">
 														Care Instructions:
 													</span>
-													<p className="text-sm text-gray-700 mt-1">
-														{product.careInstructions}
-													</p>
+													<ul className="text-sm text-gray-700 mt-1 list-disc list-inside space-y-1">
+														{product.careInstructions.map(
+															(instruction, index) => (
+																<li key={index}>{instruction}</li>
+															)
+														)}
+													</ul>
 												</div>
 											)}
 										</div>

@@ -271,22 +271,19 @@ const Cart = () => {
 										<span className="font-semibold">৳{cartTotal}</span>
 									</div>
 									<div className="flex justify-between">
-										<span className="text-gray-600">Shipping</span>
-										<span className="font-semibold text-green-600">
-											{cartTotal >= 999 ? "FREE" : "৳99"}
+										<span className="text-gray-600">Delivery Charge</span>
+										<span className="font-semibold text-blue-600">
+											Calculated at checkout
 										</span>
 									</div>
-									{cartTotal < 999 && (
-										<div className="text-sm text-gray-500 bg-yellow-50 p-3 rounded-lg">
-											Add ৳{999 - cartTotal} more for FREE shipping!
-										</div>
-									)}
+									<div className="text-sm text-gray-500 bg-blue-50 p-3 rounded-lg">
+										Delivery charges will be calculated based on your preferred
+										shipping address
+									</div>
 									<hr />
 									<div className="flex justify-between text-lg font-bold">
-										<span>Total</span>
-										<span className="text-primary-700">
-											৳{cartTotal < 999 ? cartTotal + 99 : cartTotal}
-										</span>
+										<span>Subtotal</span>
+										<span className="text-primary-700">৳{cartTotal}</span>
 									</div>
 								</div>
 
@@ -300,7 +297,8 @@ const Cart = () => {
 								</button>
 
 								<p className="text-sm text-gray-500 text-center mt-4">
-									Enter your shipping details and complete your order
+									Enter your shipping details and delivery charges will be
+									calculated automatically
 								</p>
 
 								{/* Continue Shopping */}

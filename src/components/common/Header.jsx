@@ -202,7 +202,7 @@ const Header = () => {
 
 							{/* WhatsApp Contact */}
 							<a
-								href="https://wa.me/+8801903219313"
+								href="https://wa.me/+8801876658343"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex flex-col items-center p-2 text-gray-700 hover:text-green-600"
@@ -330,7 +330,7 @@ const Header = () => {
 								)}
 							</Link>
 							<a
-								href="https://wa.me/+8801903219313"
+								href="https://wa.me/+8801876658343"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="block px-6 py-4 rounded-xl font-semibold bg-green-600 hover:bg-green-700 text-white text-center mt-3"

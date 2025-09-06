@@ -221,7 +221,7 @@ const Contacts = () => {
 									Get instant help with your orders and queries
 								</p>
 								<a
-									href="https://wa.me/+8801903219313"
+									href="https://wa.me/+8801876658343"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"

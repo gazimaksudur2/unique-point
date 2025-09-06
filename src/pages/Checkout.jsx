@@ -55,6 +55,9 @@ const Checkout = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [showSuccessModal, setShowSuccessModal] = useState(false);
 
+	// Delivery charge calculation
+	const [deliveryCharge, setDeliveryCharge] = useState(0);
+
 	// Redirect if cart is empty
 	useEffect(() => {
 		if (cart.length === 0) {
@@ -81,6 +84,15 @@ const Checkout = () => {
 			const newUpazilas = getUpazilasByDistrict(formData.district);
 			setUpazilas(newUpazilas);
 			setFormData((prev) => ({ ...prev, upazila: "" }));
+
+			// Calculate delivery charge based on district
+			if (formData.district.toLowerCase() === "dhaka") {
+				setDeliveryCharge(60);
+			} else {
+				setDeliveryCharge(120);
+			}
+		} else {
+			setDeliveryCharge(0);
 		}
 	}, [formData.district]);
 
@@ -177,9 +189,10 @@ const Checkout = () => {
 		message += "💳 *Payment Information:*\n";
 		message += `Payment Method: ${formData.paymentMethod}\n`;
 		message += `Subtotal: ৳${cartTotal}\n`;
-		const shippingCost = cartTotal >= 999 ? 0 : 99;
-		if (shippingCost > 0) message += `Shipping: ৳${shippingCost}\n`;
-		message += `*Total Amount: ৳${cartTotal + shippingCost}*\n\n`;
+		if (deliveryCharge > 0) {
+			message += `Delivery Charge: ৳${deliveryCharge}\n`;
+		}
+		message += `*Total Amount: ৳${cartTotal + deliveryCharge}*\n\n`;
 
 		// Additional Notes
 		if (formData.orderNotes) {
@@ -611,21 +624,27 @@ const Checkout = () => {
 										<span>৳{cartTotal}</span>
 									</div>
 									<div className="flex justify-between">
-										<span>Shipping</span>
-										<span className={cartTotal >= 999 ? "text-green-600" : ""}>
-											{cartTotal >= 999 ? "FREE" : "৳99"}
+										<span>Delivery Charge</span>
+										<span
+											className={deliveryCharge === 0 ? "text-gray-400" : ""}
+										>
+											{deliveryCharge === 0
+												? "Select District"
+												: `৳${deliveryCharge}`}
 										</span>
 									</div>
-									{cartTotal < 999 && (
-										<div className="text-sm text-yellow-600 bg-yellow-50 p-2 rounded">
-											Add ৳{999 - cartTotal} more for FREE shipping!
+									{deliveryCharge > 0 && (
+										<div className="text-sm text-blue-600 bg-blue-50 p-2 rounded">
+											{formData.district.toLowerCase() === "dhaka"
+												? "Dhaka delivery: ৳60"
+												: "Outside Dhaka delivery: ৳120"}
 										</div>
 									)}
 									<hr />
 									<div className="flex justify-between text-lg font-bold">
 										<span>Total</span>
 										<span className="text-primary-700">
-											৳{cartTotal < 999 ? cartTotal + 99 : cartTotal}
+											৳{cartTotal + deliveryCharge}
 										</span>
 									</div>
 								</div>

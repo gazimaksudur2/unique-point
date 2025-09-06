@@ -8,12 +8,12 @@ import {
 	FiHeadphones,
 } from "react-icons/fi";
 import ProductCard from "../components/product/ProductCard";
-import { sampleProducts } from "../data/sampleProducts";
+import products from "../data/products";
 import SEO from "../components/common/SEO";
 
 // Get featured products (bestsellers and new products)
 const getFeaturedProducts = () => {
-	return sampleProducts
+	return products
 		.filter((product) => product.isBestseller || product.isNew)
 		.slice(0, 4);
 };

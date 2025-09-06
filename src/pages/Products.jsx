@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { FiFilter, FiGrid, FiList } from "react-icons/fi";
 import ProductGrid from "../components/product/ProductGrid";
-import { sampleProducts } from "../data/sampleProducts";
+import products from "../data/products";
 import SEO from "../components/common/SEO";
 import { AGE_GROUPS, CLOTHING_TYPES } from "../utils/constants";
 
@@ -16,7 +16,7 @@ const Products = () => {
 	const [showFilters, setShowFilters] = useState(false);
 
 	// Get all products
-	const allProducts = sampleProducts;
+	const allProducts = products;
 
 	// Apply filters
 	const filteredProducts = useMemo(() => {
@@ -230,10 +230,7 @@ const Products = () => {
 										CATEGORY
 									</h4>
 									<div className="space-y-2">
-										{[
-											{ label: "Boys", value: "boys" },
-											{ label: "Girls", value: "girls" },
-										].map((category) => (
+										{[{ label: "Mens", value: "Mens" }].map((category) => (
 											<label key={category.value} className="flex items-center">
 												<input
 													type="radio"
@@ -259,20 +256,20 @@ const Products = () => {
 										AGE GROUP
 									</h4>
 									<div className="space-y-2">
-										{Object.entries(AGE_GROUPS).map(([key, value]) => (
-											<label key={key} className="flex items-center">
+										{[{ label: "Adult", value: "Adult" }].map((ageGroup) => (
+											<label key={ageGroup.value} className="flex items-center">
 												<input
 													type="radio"
 													name="ageGroup"
-													value={value}
-													checked={filters.ageGroup === value}
+													value={ageGroup.value}
+													checked={filters.ageGroup === ageGroup.value}
 													onChange={(e) =>
 														handleFilterChange("ageGroup", e.target.value)
 													}
 													className="text-primary-600 focus:ring-primary-500"
 												/>
-												<span className="ml-2 text-sm text-gray-700 capitalize">
-													{key.toLowerCase()}
+												<span className="ml-2 text-sm text-gray-700">
+													{ageGroup.label}
 												</span>
 											</label>
 										))}
@@ -285,23 +282,30 @@ const Products = () => {
 										CLOTHING TYPE
 									</h4>
 									<div className="space-y-2">
-										{Object.entries(CLOTHING_TYPES).map(([key, value]) => (
-											<label key={key} className="flex items-center">
-												<input
-													type="radio"
-													name="clothingType"
-													value={value}
-													checked={filters.clothingType === value}
-													onChange={(e) =>
-														handleFilterChange("clothingType", e.target.value)
-													}
-													className="text-primary-600 focus:ring-primary-500"
-												/>
-												<span className="ml-2 text-sm text-gray-700">
-													{key.replace(/([A-Z])/g, " $1").trim()}
-												</span>
-											</label>
-										))}
+										{[{ label: "Polo T-Shirts", value: "polo-tshirts" }].map(
+											(clothingType) => (
+												<label
+													key={clothingType.value}
+													className="flex items-center"
+												>
+													<input
+														type="radio"
+														name="clothingType"
+														value={clothingType.value}
+														checked={
+															filters.clothingType === clothingType.value
+														}
+														onChange={(e) =>
+															handleFilterChange("clothingType", e.target.value)
+														}
+														className="text-primary-600 focus:ring-primary-500"
+													/>
+													<span className="ml-2 text-sm text-gray-700">
+														{clothingType.label}
+													</span>
+												</label>
+											)
+										)}
 									</div>
 								</div>
 

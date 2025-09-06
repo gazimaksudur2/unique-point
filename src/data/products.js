@@ -1,4 +1,4 @@
-[
+const products = [
     {
         "id": 2001,
         "name": "Premium VENTAGE Color Polo T-Shirt (4 PCS Combo)",
@@ -435,3 +435,5 @@
         ]
     }
 ]
+
+export default products;
