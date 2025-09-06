@@ -4,13 +4,16 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AppProvider } from "./context/AppContext";
+import ErrorBoundary from "./components/common/ErrorBoundary";
 import router from "./routers/Router";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<HelmetProvider>
 			<AppProvider>
-				<RouterProvider router={router} />
+				<ErrorBoundary>
+					<RouterProvider router={router} />
+				</ErrorBoundary>
 			</AppProvider>
 		</HelmetProvider>
 	</StrictMode>

@@ -12,6 +12,9 @@ import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import Checkout from "../pages/Checkout";
 import OrderSuccess from "../pages/OrderSuccess";
+import NotFound from "../pages/NotFound";
+import ServerError from "../pages/ServerError";
+import ForbiddenError from "../pages/ForbiddenError";
 
 const router = createBrowserRouter([
 	{
@@ -109,6 +112,24 @@ const router = createBrowserRouter([
 				<OrderSuccess />
 			</Layout>
 		),
+	},
+	// Error pages
+	{
+		path: "/404",
+		element: <NotFound />,
+	},
+	{
+		path: "/500",
+		element: <ServerError />,
+	},
+	{
+		path: "/403",
+		element: <ForbiddenError />,
+	},
+	// Catch-all route for 404
+	{
+		path: "*",
+		element: <NotFound />,
 	},
 ]);
 
