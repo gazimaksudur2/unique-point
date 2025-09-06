@@ -80,7 +80,7 @@ const Header = () => {
 								</button>
 							</div>
 							<div className="text-coral-600 font-medium">
-								🚚 Free shipping over ₹999
+								🚚 Free shipping over ৳999
 							</div>
 						</div>
 					</div>

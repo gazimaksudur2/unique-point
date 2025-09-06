@@ -16,7 +16,7 @@ const SEO = ({
 }) => {
 	const siteTitle = title ? `${title} | ${APP_NAME}` : APP_NAME;
 	const defaultDescription =
-		"Premium kids fashion store - Shop high-quality clothing for kids and teens. Free shipping over ₹999, easy returns, and 24/7 support.";
+		"Premium kids fashion store - Shop high-quality clothing for kids and teens. Free shipping over ৳999, easy returns, and 24/7 support.";
 	const siteDescription = description || defaultDescription;
 	const defaultKeywords =
 		"kids fashion, children clothing, premium kids wear, teens fashion, online shopping";

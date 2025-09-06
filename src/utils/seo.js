@@ -112,28 +112,28 @@ export const SEO_CONTENT = {
 	HOME: {
 		title: "Premium Kids Fashion Store - Quality Clothing for All Ages",
 		description:
-			"Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ₹999, easy returns, and 24/7 support. New arrivals daily!",
+			"Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ৳999, easy returns, and 24/7 support. New arrivals daily!",
 		keywords:
 			"kids fashion, children clothing, premium kids wear, teens fashion, online shopping, free shipping, toddler clothes, baby clothes",
 	},
 	BOYS: {
 		title: "Boys Fashion Collection - Premium Kids Clothing",
 		description:
-			"Shop premium boys clothing at Unique Point. Discover casual wear, formal wear, activewear and accessories for boys aged 0-16. Free shipping over ₹999 with easy returns.",
+			"Shop premium boys clothing at Unique Point. Discover casual wear, formal wear, activewear and accessories for boys aged 0-16. Free shipping over ৳999 with easy returns.",
 		keywords:
 			"boys clothing, boys fashion, kids wear, casual wear for boys, formal wear boys, activewear boys, boys accessories, premium kids clothing",
 	},
 	GIRLS: {
 		title: "Girls Fashion Collection - Premium Kids Clothing",
 		description:
-			"Shop premium girls clothing at Unique Point. Beautiful dresses, casual wear, formal wear and accessories for girls aged 0-16. Free shipping over ₹999 with easy returns.",
+			"Shop premium girls clothing at Unique Point. Beautiful dresses, casual wear, formal wear and accessories for girls aged 0-16. Free shipping over ৳999 with easy returns.",
 		keywords:
 			"girls clothing, girls fashion, kids wear, girls dresses, casual wear for girls, formal wear girls, girls accessories, premium kids clothing",
 	},
 	CART: {
 		title: "Shopping Cart - Unique Point",
 		description:
-			"Review your selected items and proceed to checkout. Secure payment options and free shipping over ₹999.",
+			"Review your selected items and proceed to checkout. Secure payment options and free shipping over ৳999.",
 		keywords: "shopping cart, checkout, secure payment, kids fashion",
 	},
 	WISHLIST: {

@@ -126,7 +126,7 @@ const Products = () => {
 		<>
 			<SEO
 				title="All Products - Premium Fashion Collection"
-				description="Shop our complete collection of premium fashion products. Discover clothing and accessories for all ages with free shipping over ₹999 and easy returns."
+				description="Shop our complete collection of premium fashion products. Discover clothing and accessories for all ages with free shipping over ৳999 and easy returns."
 				keywords="fashion products, clothing, accessories, premium fashion, kids wear, teens wear, ethnic wear, casual wear"
 				ogType="website"
 				ogUrl="https://unique-point.com/products"
@@ -312,10 +312,10 @@ const Products = () => {
 									</h4>
 									<div className="space-y-2">
 										{[
-											{ label: "Under ₹500", value: "0-500" },
-											{ label: "₹500 - ₹1000", value: "500-1000" },
-											{ label: "₹1000 - ₹2000", value: "1000-2000" },
-											{ label: "Above ₹2000", value: "2000" },
+											{ label: "Under ৳500", value: "0-500" },
+											{ label: "৳500 - ৳1000", value: "500-1000" },
+											{ label: "৳1000 - ৳2000", value: "1000-2000" },
+											{ label: "Above ৳2000", value: "2000" },
 										].map((range) => (
 											<label key={range.value} className="flex items-center">
 												<input

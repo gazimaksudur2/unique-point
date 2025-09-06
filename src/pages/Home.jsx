@@ -26,7 +26,7 @@ const Home = () => {
 		name: "Unique Point - Premium Kids Fashion",
 		url: "https://unique-point.com",
 		description:
-			"Premium kids fashion store offering high-quality clothing for kids and teens with free shipping over ₹999",
+			"Premium kids fashion store offering high-quality clothing for kids and teens with free shipping over ৳999",
 		potentialAction: {
 			"@type": "SearchAction",
 			target: "https://unique-point.com/search?q={search_term_string}",
@@ -43,7 +43,7 @@ const Home = () => {
 		<>
 			<SEO
 				title="Premium Kids Fashion Store - Quality Clothing for All Ages"
-				description="Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ₹999, easy returns, and 24/7 support. New arrivals daily!"
+				description="Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ৳999, easy returns, and 24/7 support. New arrivals daily!"
 				keywords="kids fashion, children clothing, premium kids wear, teens fashion, online shopping, free shipping, toddler clothes, baby clothes"
 				ogType="website"
 				ogUrl="https://unique-point.com"
@@ -159,7 +159,7 @@ const Home = () => {
 									Free Shipping
 								</h3>
 								<p className="text-xs sm:text-sm text-gray-600">
-									Free delivery on orders above ₹999
+									Free delivery on orders above ৳999
 								</p>
 							</div>
 

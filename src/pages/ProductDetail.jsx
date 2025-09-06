@@ -119,7 +119,7 @@ const ProductDetail = () => {
 		<>
 			<SEO
 				title={`${product.name} - ${product.brand} | UniquePoint`}
-				description={`${product.description} Available in multiple sizes and colors. Price: ₹${product.price}. Free shipping over ₹999.`}
+				description={`${product.description} Available in multiple sizes and colors. Price: ৳${product.price}. Free shipping over ৳999.`}
 				keywords={`${product.name}, ${product.brand}, ${product.category}, ${
 					product.ageGroup
 				}, ${product.tags?.join(", ")}, kids fashion, premium clothing`}
@@ -257,11 +257,11 @@ const ProductDetail = () => {
 								{/* Price */}
 								<div className="flex items-center space-x-3">
 									<span className="text-2xl sm:text-3xl font-bold text-primary-700">
-										₹{product.price}
+										৳{product.price}
 									</span>
 									{product.originalPrice > product.price && (
 										<span className="text-lg text-gray-500 line-through">
-											₹{product.originalPrice}
+											৳{product.originalPrice}
 										</span>
 									)}
 								</div>
@@ -401,7 +401,7 @@ const ProductDetail = () => {
 								<div className="flex items-center space-x-3">
 									<FiTruck className="h-5 w-5 text-green-600" />
 									<span className="text-sm text-gray-700">
-										Free delivery on orders above ₹999
+										Free delivery on orders above ৳999
 									</span>
 								</div>
 								<div className="flex items-center space-x-3">

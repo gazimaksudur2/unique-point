@@ -145,15 +145,15 @@ const ProductCard = ({ product, className = "" }) => {
 					{/* Price */}
 					<div className="flex items-center space-x-2">
 						<span className="text-lg font-bold text-gray-900">
-							₹{product.price}
+							৳{product.price}
 						</span>
 						{product.originalPrice > product.price && (
 							<>
 								<span className="text-sm text-gray-400 line-through">
-									₹{product.originalPrice}
+									৳{product.originalPrice}
 								</span>
 								<span className="text-xs bg-secondary-100 text-secondary-700 px-2 py-0.5 rounded-full font-medium border border-secondary-200">
-									Save ₹{product.originalPrice - product.price}
+									Save ৳{product.originalPrice - product.price}
 								</span>
 							</>
 						)}

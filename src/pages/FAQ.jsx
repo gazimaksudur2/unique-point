@@ -26,7 +26,7 @@ const FAQ = () => {
 			category: "Shipping",
 			question: "What are your shipping charges?",
 			answer:
-				"We offer free shipping on orders above ₹999. For orders below ₹999, shipping charges of ₹99 apply across India.",
+				"We offer free shipping on orders above ৳999. For orders below ৳999, shipping charges of ৳99 apply across India.",
 		},
 		{
 			id: 4,

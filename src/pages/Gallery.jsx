@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import SEO from "../components/common/SEO";
-import { sampleProducts } from "../data/sampleProducts";
+import productsData from "../data/products.json";
 
 const Gallery = () => {
 	const [selectedImageIndex, setSelectedImageIndex] = useState(null);

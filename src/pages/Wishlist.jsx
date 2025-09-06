@@ -240,11 +240,11 @@ const Wishlist = () => {
 									{/* Price */}
 									<div className="flex items-center gap-2">
 										<span className="text-lg font-bold text-gray-900">
-											₹{item.price}
+											৳{item.price}
 										</span>
 										{item.originalPrice && item.originalPrice > item.price && (
 											<span className="text-sm text-gray-500 line-through">
-												₹{item.originalPrice}
+												৳{item.originalPrice}
 											</span>
 										)}
 									</div>

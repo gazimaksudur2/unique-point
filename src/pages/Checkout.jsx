@@ -166,20 +166,20 @@ const Checkout = () => {
 		cart.forEach((item, index) => {
 			message += `${index + 1}. *${item.name}*\n`;
 			message += `   Brand: ${item.brand}\n`;
-			message += `   Price: ₹${item.price}\n`;
+			message += `   Price: ৳${item.price}\n`;
 			if (item.size) message += `   Size: ${item.size}\n`;
 			if (item.color) message += `   Color: ${item.color}\n`;
 			message += `   Quantity: ${item.quantity}\n`;
-			message += `   Subtotal: ₹${item.price * item.quantity}\n\n`;
+			message += `   Subtotal: ৳${item.price * item.quantity}\n\n`;
 		});
 
 		// Payment & Total
 		message += "💳 *Payment Information:*\n";
 		message += `Payment Method: ${formData.paymentMethod}\n`;
-		message += `Subtotal: ₹${cartTotal}\n`;
+		message += `Subtotal: ৳${cartTotal}\n`;
 		const shippingCost = cartTotal >= 999 ? 0 : 99;
-		if (shippingCost > 0) message += `Shipping: ₹${shippingCost}\n`;
-		message += `*Total Amount: ₹${cartTotal + shippingCost}*\n\n`;
+		if (shippingCost > 0) message += `Shipping: ৳${shippingCost}\n`;
+		message += `*Total Amount: ৳${cartTotal + shippingCost}*\n\n`;
 
 		// Additional Notes
 		if (formData.orderNotes) {
@@ -468,7 +468,8 @@ const Checkout = () => {
 
 									<div className="mt-4">
 										<label className="block text-sm font-medium text-gray-700 mb-2">
-											Street Address / House No. (Optional for more detailed address)
+											Street Address / House No. (Optional for more detailed
+											address)
 										</label>
 										<input
 											type="text"
@@ -595,7 +596,7 @@ const Checkout = () => {
 														Qty: {item.quantity}
 													</span>
 													<span className="font-semibold">
-														₹{item.price * item.quantity}
+														৳{item.price * item.quantity}
 													</span>
 												</div>
 											</div>
@@ -607,24 +608,24 @@ const Checkout = () => {
 								<div className="space-y-2 pt-4 border-t">
 									<div className="flex justify-between">
 										<span>Subtotal</span>
-										<span>₹{cartTotal}</span>
+										<span>৳{cartTotal}</span>
 									</div>
 									<div className="flex justify-between">
 										<span>Shipping</span>
 										<span className={cartTotal >= 999 ? "text-green-600" : ""}>
-											{cartTotal >= 999 ? "FREE" : "₹99"}
+											{cartTotal >= 999 ? "FREE" : "৳99"}
 										</span>
 									</div>
 									{cartTotal < 999 && (
 										<div className="text-sm text-yellow-600 bg-yellow-50 p-2 rounded">
-											Add ₹{999 - cartTotal} more for FREE shipping!
+											Add ৳{999 - cartTotal} more for FREE shipping!
 										</div>
 									)}
 									<hr />
 									<div className="flex justify-between text-lg font-bold">
 										<span>Total</span>
 										<span className="text-primary-700">
-											₹{cartTotal < 999 ? cartTotal + 99 : cartTotal}
+											৳{cartTotal < 999 ? cartTotal + 99 : cartTotal}
 										</span>
 									</div>
 								</div>
