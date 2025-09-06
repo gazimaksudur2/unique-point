@@ -36,6 +36,14 @@ export const CONTACT_INFO = {
 	ADDRESS: "Sign Board, Narayanganj, Bangladesh",
 };
 
+// Developer information
+export const DEVELOPER_INFO = {
+	NAME: "Gazi Maksudur Rahman",
+	LINKEDIN: "https://www.linkedin.com/in/gazimaksudur",
+	GITHUB: "https://github.com/gazimaksudur2",
+	TAGLINE: "Built with Care & Precision",
+};
+
 // WhatsApp constants
 export const WHATSAPP_NUMBER = "+8801876658343"; // Replace with actual number
 export const WHATSAPP_MESSAGE_TEMPLATE = {
