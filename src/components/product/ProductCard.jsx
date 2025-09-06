@@ -50,7 +50,7 @@ const ProductCard = ({ product, className = "" }) => {
 
 	return (
 		<div
-			className={`bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow w-full group ${className}`}
+			className={`min-w- bg-white border border-gray-200 hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow group ${className}`}
 		>
 			<Link to={`/product/${product.id}`} className="block">
 				{/* Product Image */}

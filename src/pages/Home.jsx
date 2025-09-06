@@ -24,12 +24,12 @@ const Home = () => {
 		"@context": "https://schema.org",
 		"@type": "WebSite",
 		name: "UniquePoint - Premium Polo T-Shirts",
-		url: "https://unique-point.com",
+		url: "https://uniquepointbd.com",
 		description:
 			"Premium VENTAGE Color Polo T-Shirts for Men. 100% Organic PK Fabric, 170 GSM. Cash on Delivery, Nationwide Delivery in Bangladesh.",
 		potentialAction: {
 			"@type": "SearchAction",
-			target: "https://unique-point.com/search?q={search_term_string}",
+			target: "https://uniquepointbd.com/search?q={search_term_string}",
 			"query-input": "required name=search_term_string",
 		},
 		sameAs: [
@@ -46,9 +46,9 @@ const Home = () => {
 				description="Premium VENTAGE Color Polo T-Shirts for Men. 100% Organic PK Fabric, 170 GSM thickness. Cash on Delivery, Nationwide Delivery. Combo packages and single pieces available."
 				keywords="polo t-shirts, mens fashion, premium clothing, VENTAGE, organic fabric, cash on delivery, Bangladesh, combo packages"
 				ogType="website"
-				ogUrl="https://unique-point.com"
+				ogUrl="https://uniquepointbd.com"
 				structured={structuredData}
-				canonical="https://unique-point.com"
+				canonical="https://uniquepointbd.com"
 			/>
 
 			<div className="min-h-screen bg-cream">

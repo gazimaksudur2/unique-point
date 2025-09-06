@@ -103,7 +103,7 @@ const ProductDetail = () => {
 		},
 		offers: {
 			"@type": "Offer",
-			url: `https://unique-point.com/product/${product.id}`,
+			url: `https://uniquepointbd.com/product/${product.id}`,
 			priceCurrency: "BDT",
 			price: product.price,
 			availability: "https://schema.org/InStock",
@@ -124,10 +124,10 @@ const ProductDetail = () => {
 					product.ageGroup
 				}, ${product.tags?.join(", ")}, kids fashion, premium clothing`}
 				ogType="product"
-				ogUrl={`https://unique-point.com/product/${product.id}`}
+				ogUrl={`https://uniquepointbd.com/product/${product.id}`}
 				ogImage={product.images[0]}
 				structured={structuredData}
-				canonical={`https://unique-point.com/product/${product.id}`}
+				canonical={`https://uniquepointbd.com/product/${product.id}`}
 			/>
 
 			<div className="min-h-screen bg-gray-50">

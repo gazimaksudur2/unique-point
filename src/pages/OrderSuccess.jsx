@@ -15,7 +15,7 @@ const OrderSuccess = () => {
 				title="Order Placed Successfully - UniquePoint"
 				description="Your order has been successfully placed and sent to our WhatsApp. We'll contact you shortly to confirm your order."
 				keywords="order success, order confirmation, WhatsApp order"
-				canonical="https://unique-point.com/order-success"
+				canonical="https://uniquepointbd.com/order-success"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50 flex items-center justify-center">

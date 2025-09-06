@@ -12,14 +12,14 @@ const FAQ = () => {
 			category: "Ordering",
 			question: "How do I place an order?",
 			answer:
-				"Browse our VENTAGE polo t-shirts, add items to your cart, and proceed to checkout. Fill in your shipping details and payment method. The system will generate a WhatsApp message with your order details. Send this message to our WhatsApp number (+8801876658343) to complete your order.",
+				"Browse our VENTAGE polo t-shirts, add items to your cart, and proceed to checkout. Fill in your shipping details and payment method. The system will generate a WhatsApp message with your order details. Send this message to our WhatsApp number (+8801711105888) to complete your order.",
 		},
 		{
 			id: 2,
 			category: "Ordering",
 			question: "Can I modify or cancel my order?",
 			answer:
-				"Yes, you can modify or cancel your order before it's processed. Contact us immediately through WhatsApp (+8801876658343) with your order details. Changes are only possible before we start processing your order.",
+				"Yes, you can modify or cancel your order before it's processed. Contact us immediately through WhatsApp (+8801711105888) with your order details. Changes are only possible before we start processing your order.",
 		},
 		{
 			id: 3,
@@ -138,7 +138,7 @@ const FAQ = () => {
 			category: "Business",
 			question: "Do you offer wholesale prices?",
 			answer:
-				"Yes, we offer special wholesale prices for bulk orders. Contact us through WhatsApp (+8801876658343) to discuss wholesale pricing and minimum order quantities.",
+				"Yes, we offer special wholesale prices for bulk orders. Contact us through WhatsApp (+8801711105888) to discuss wholesale pricing and minimum order quantities.",
 		},
 		{
 			id: 20,
@@ -198,9 +198,9 @@ const FAQ = () => {
 				description="Find answers to common questions about our VENTAGE polo t-shirts, ordering process, delivery charges, return policy, and Cash on Delivery. Get help with sizing, care instructions, and more."
 				keywords="FAQ, VENTAGE polo t-shirts, delivery charges, return policy, cash on delivery, sizing guide, care instructions, Bangladesh, UniquePoint"
 				ogType="website"
-				ogUrl="https://unique-point.com/faq"
+				ogUrl="https://uniquepointbd.com/faq"
 				structured={structuredData}
-				canonical="https://unique-point.com/faq"
+				canonical="https://uniquepointbd.com/faq"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">
@@ -211,7 +211,9 @@ const FAQ = () => {
 							Frequently Asked Questions
 						</h1>
 						<p className="text-lg text-gray-600 max-w-2xl">
-							Find answers to common questions about our VENTAGE polo t-shirts, ordering process, delivery charges, and more. Can't find what you're looking for? Contact our support team via WhatsApp.
+							Find answers to common questions about our VENTAGE polo t-shirts,
+							ordering process, delivery charges, and more. Can't find what
+							you're looking for? Contact our support team via WhatsApp.
 						</p>
 					</div>
 				</div>

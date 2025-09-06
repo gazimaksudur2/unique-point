@@ -77,7 +77,7 @@ const Wishlist = () => {
 					title="Wishlist - UniquePoint"
 					description="Save your favorite products to your wishlist for later purchase."
 					keywords="wishlist, favorites, saved items, online shopping"
-					canonical="https://unique-point.com/wishlist"
+					canonical="https://uniquepointbd.com/wishlist"
 				/>
 
 				<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">
@@ -113,7 +113,7 @@ const Wishlist = () => {
 				title={`Wishlist (${wishlistItemsCount} items) - UniquePoint`}
 				description="Save your favorite products to your wishlist for later purchase."
 				keywords="wishlist, favorites, saved items, online shopping"
-				canonical="https://unique-point.com/wishlist"
+				canonical="https://uniquepointbd.com/wishlist"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">

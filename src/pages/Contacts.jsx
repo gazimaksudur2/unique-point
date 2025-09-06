@@ -55,7 +55,7 @@ const Contacts = () => {
 		mainEntity: {
 			"@type": "Organization",
 			name: "UniquePoint",
-			url: "https://unique-point.com",
+			url: "https://uniquepointbd.com",
 			contactPoint: [
 				{
 					"@type": "ContactPoint",
@@ -82,9 +82,9 @@ const Contacts = () => {
 				description="Get in touch with UniquePoint customer support. Find our contact information, business hours, and send us a message. We're here to help with your fashion needs."
 				keywords="contact us, customer support, help, phone number, email, address, customer service"
 				ogType="website"
-				ogUrl="https://unique-point.com/contacts"
+				ogUrl="https://uniquepointbd.com/contacts"
 				structured={structuredData}
-				canonical="https://unique-point.com/contacts"
+				canonical="https://uniquepointbd.com/contacts"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">

@@ -7,6 +7,7 @@ export const NAVIGATION_ITEMS = [
 	{ name: "Home", path: "/" },
 	{ name: "Products", path: "/products" },
 	{ name: "Gallery", path: "/gallery" },
+	// { name: "Blog", path: "/blog" },
 	{ name: "FAQ", path: "/faq" },
 	{ name: "Contacts", path: "/contacts" },
 ];
@@ -39,6 +40,7 @@ export const CONTACT_INFO = {
 // Developer information
 export const DEVELOPER_INFO = {
 	NAME: "Gazi Maksudur Rahman",
+	EMAIL: "gazimaksudur2@gmail.com",
 	LINKEDIN: "https://www.linkedin.com/in/gazimaksudur",
 	GITHUB: "https://github.com/gazimaksudur2",
 	TAGLINE: "Built with Care & Precision",

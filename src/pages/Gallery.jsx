@@ -64,7 +64,7 @@ const Gallery = () => {
 		name: "Fashion Gallery - UniquePoint",
 		description:
 			"Browse our fashion gallery showcasing premium clothing collections",
-		url: "https://unique-point.com/gallery",
+		url: "https://uniquepointbd.com/gallery",
 		mainEntity: {
 			"@type": "ItemList",
 			numberOfItems: allImages.length,
@@ -85,9 +85,9 @@ const Gallery = () => {
 				description="Browse our fashion gallery featuring premium clothing and accessories. View high-quality images of our latest collections for kids and teens."
 				keywords="fashion gallery, clothing images, product showcase, kids fashion, teens fashion, premium clothing gallery"
 				ogType="website"
-				ogUrl="https://unique-point.com/gallery"
+				ogUrl="https://uniquepointbd.com/gallery"
 				structured={structuredData}
-				canonical="https://unique-point.com/gallery"
+				canonical="https://uniquepointbd.com/gallery"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">

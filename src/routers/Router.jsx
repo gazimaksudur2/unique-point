@@ -6,6 +6,8 @@ import ProductDetail from "../pages/ProductDetail";
 import Gallery from "../pages/Gallery";
 import FAQ from "../pages/FAQ";
 import Contacts from "../pages/Contacts";
+import SizeGuide from "../pages/SizeGuide";
+import Blog from "../pages/Blog";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import Checkout from "../pages/Checkout";
@@ -57,6 +59,22 @@ const router = createBrowserRouter([
 		element: (
 			<Layout>
 				<Contacts />
+			</Layout>
+		),
+	},
+	{
+		path: "/size-guide",
+		element: (
+			<Layout>
+				<SizeGuide />
+			</Layout>
+		),
+	},
+	{
+		path: "/blog",
+		element: (
+			<Layout>
+				<Blog />
 			</Layout>
 		),
 	},

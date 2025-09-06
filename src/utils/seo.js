@@ -41,7 +41,7 @@ export const generateCategoryStructuredData = (categoryName, products) => {
 		"@type": "CollectionPage",
 		name: `${categoryName} Fashion Collection`,
 		description: `Premium ${categoryName.toLowerCase()} clothing collection featuring casual wear, formal wear, activewear and accessories`,
-		url: `https://unique-point.com/${categoryName.toLowerCase()}`,
+		url: `https://uniquepointbd.com/${categoryName.toLowerCase()}`,
 		mainEntity: {
 			"@type": "ItemList",
 			numberOfItems: products.length,
@@ -74,8 +74,8 @@ export const generateOrganizationStructuredData = () => {
 		name: "Unique Point",
 		description:
 			"Premium kids fashion store offering high-quality clothing for kids and teens",
-		url: "https://unique-point.com",
-		logo: "https://unique-point.com/logo.png",
+		url: "https://uniquepointbd.com",
+		logo: "https://uniquepointbd.com/logo.png",
 		contactPoint: {
 			"@type": "ContactPoint",
 			telephone: "+91-XXXXXXXXXX",

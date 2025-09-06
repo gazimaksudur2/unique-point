@@ -60,7 +60,7 @@ const Cart = () => {
 					title="Shopping Cart - UniquePoint"
 					description="Review and manage items in your shopping cart before checkout via WhatsApp."
 					keywords="shopping cart, checkout, online shopping, WhatsApp checkout"
-					canonical="https://unique-point.com/cart"
+					canonical="https://uniquepointbd.com/cart"
 				/>
 
 				<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">
@@ -96,7 +96,7 @@ const Cart = () => {
 				title={`Shopping Cart (${cartItemsCount} items) - UniquePoint`}
 				description="Review and manage items in your shopping cart before checkout via WhatsApp."
 				keywords="shopping cart, checkout, online shopping, WhatsApp checkout"
-				canonical="https://unique-point.com/cart"
+				canonical="https://uniquepointbd.com/cart"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">

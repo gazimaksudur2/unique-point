@@ -99,7 +99,7 @@ const Products = () => {
 		name: "All Products - Fashion Collection",
 		description:
 			"Premium fashion collection featuring clothing and accessories for all ages",
-		url: "https://unique-point.com/products",
+		url: "https://uniquepointbd.com/products",
 		mainEntity: {
 			"@type": "ItemList",
 			numberOfItems: allProducts.length,
@@ -129,9 +129,9 @@ const Products = () => {
 				description="Shop our complete collection of premium fashion products. Discover clothing and accessories for all ages with free shipping over ৳999 and easy returns."
 				keywords="fashion products, clothing, accessories, premium fashion, kids wear, teens wear, ethnic wear, casual wear"
 				ogType="website"
-				ogUrl="https://unique-point.com/products"
+				ogUrl="https://uniquepointbd.com/products"
 				structured={structuredData}
-				canonical="https://unique-point.com/products"
+				canonical="https://uniquepointbd.com/products"
 			/>
 
 			<div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50 to-secondary-50">
