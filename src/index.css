@@ -1,6 +1,24 @@
 /* Import Tailwind CSS */
 @import "tailwindcss";
 
+/* Custom utilities */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Gallery card enhancements */
+.gallery-card-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.gallery-card-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+}
+
 /* Custom color palette for this project */
 @theme {
     /* Primary - Sage Green Scale */

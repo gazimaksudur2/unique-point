@@ -61,7 +61,7 @@ const OrderSuccess = () => {
 										rel="noopener noreferrer"
 										className="font-medium underline"
 									>
-										+880 190 321 9313
+										+880 187 665 8343
 									</a>
 								</p>
 							</div>
@@ -134,7 +134,7 @@ const OrderSuccess = () => {
 										href="tel:+8801876658343"
 										className="text-primary-600 hover:text-primary-700 font-medium"
 									>
-										+880 190 321 9313
+										+880 187 665 8343
 									</a>{" "}
 									or email{" "}
 									<a

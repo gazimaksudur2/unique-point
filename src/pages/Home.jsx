@@ -23,10 +23,10 @@ const Home = () => {
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "WebSite",
-		name: "Unique Point - Premium Kids Fashion",
+		name: "UniquePoint - Premium Polo T-Shirts",
 		url: "https://unique-point.com",
 		description:
-			"Premium kids fashion store offering high-quality clothing for kids and teens with free shipping over ৳999",
+			"Premium VENTAGE Color Polo T-Shirts for Men. 100% Organic PK Fabric, 170 GSM. Cash on Delivery, Nationwide Delivery in Bangladesh.",
 		potentialAction: {
 			"@type": "SearchAction",
 			target: "https://unique-point.com/search?q={search_term_string}",
@@ -42,9 +42,9 @@ const Home = () => {
 	return (
 		<>
 			<SEO
-				title="Premium Kids Fashion Store - Quality Clothing for All Ages"
-				description="Shop premium kids fashion at Unique Point. High-quality clothing for kids and teens, ages 0-16. Free shipping over ৳999, easy returns, and 24/7 support. New arrivals daily!"
-				keywords="kids fashion, children clothing, premium kids wear, teens fashion, online shopping, free shipping, toddler clothes, baby clothes"
+				title="Premium Polo T-Shirts - UniquePoint Bangladesh"
+				description="Premium VENTAGE Color Polo T-Shirts for Men. 100% Organic PK Fabric, 170 GSM thickness. Cash on Delivery, Nationwide Delivery. Combo packages and single pieces available."
+				keywords="polo t-shirts, mens fashion, premium clothing, VENTAGE, organic fabric, cash on delivery, Bangladesh, combo packages"
 				ogType="website"
 				ogUrl="https://unique-point.com"
 				structured={structuredData}
@@ -59,15 +59,16 @@ const Home = () => {
 							<div className="space-y-4 sm:space-y-6 md:space-y-8">
 								<div className="space-y-3 sm:space-y-4 md:space-y-6">
 									<h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight text-gray-900">
-										Fashion that grows
+										Premium VENTAGE
 										<span className="block bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-											with your child
+											Polo T-Shirts
 										</span>
 									</h1>
 									<p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-gray-600">
-										Discover premium quality, comfortable clothing for kids of
-										all ages. From newborns to teens - we create outfits that
-										inspire confidence and comfort.
+										Discover premium quality polo t-shirts made with 100%
+										Organic PK Fabric. Perfect for men who value comfort, style,
+										and durability. Available in combo packages and single
+										pieces.
 									</p>
 								</div>
 
@@ -92,26 +93,26 @@ const Home = () => {
 								<div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-3 sm:pt-4 text-gray-800">
 									<div className="text-center p-2 sm:p-3 md:p-4 bg-secondary-50 rounded-lg border border-secondary-300">
 										<div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
-											1000+
+											100%
 										</div>
 										<div className="text-xs sm:text-sm text-gray-600 font-semibold">
-											Products
+											Organic PK
 										</div>
 									</div>
 									<div className="text-center p-2 sm:p-3 md:p-4 bg-primary-50 rounded-lg border border-primary-300">
 										<div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
-											50K+
+											170 GSM
 										</div>
 										<div className="text-xs sm:text-sm font-semibold">
-											Happy Families
+											Premium Quality
 										</div>
 									</div>
 									<div className="text-center p-2 sm:p-3 md:p-4 bg-coral-50 rounded-lg border border-coral-300">
 										<div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
-											4.9
+											COD
 										</div>
 										<div className="text-xs sm:text-sm font-semibold">
-											Rating
+											Cash on Delivery
 										</div>
 									</div>
 								</div>
@@ -123,7 +124,7 @@ const Home = () => {
 									<div className="bg-white rounded-3xl p-8 shadow-2xl">
 										<div className="text-center space-y-6">
 											<div className="w-32 h-32 mx-auto bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full flex items-center justify-center shadow-lg">
-												<div className="text-6xl">👕</div>
+												<div className="text-6xl">👔</div>
 											</div>
 											<div className="space-y-3">
 												<div className="h-2 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-full"></div>
@@ -131,7 +132,7 @@ const Home = () => {
 												<div className="h-2 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full w-3/5 mx-auto"></div>
 											</div>
 											<div className="text-gray-800 font-semibold text-lg">
-												Premium Quality
+												VENTAGE Collection
 											</div>
 										</div>
 									</div>
@@ -156,10 +157,10 @@ const Home = () => {
 									<FiTruck className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
-									Free Shipping
+									Nationwide Delivery
 								</h3>
 								<p className="text-xs sm:text-sm text-gray-600">
-									Free delivery on orders above ৳999
+									Cash on delivery across Bangladesh
 								</p>
 							</div>
 
@@ -168,10 +169,10 @@ const Home = () => {
 									<FiShield className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
-									Quality Assured
+									Premium Quality
 								</h3>
 								<p className="text-xs sm:text-sm text-gray-600">
-									Premium quality fabrics and materials
+									100% Organic PK Fabric, 170 GSM
 								</p>
 							</div>
 
@@ -180,7 +181,7 @@ const Home = () => {
 									<FiHeadphones className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
-									24/7 Support
+									WhatsApp Support
 								</h3>
 								<p className="text-xs sm:text-sm text-gray-600">
 									Direct communication via WhatsApp
@@ -192,102 +193,131 @@ const Home = () => {
 									<FiStar className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
 								</div>
 								<h3 className="font-semibold text-sm sm:text-base lg:text-lg text-gray-900">
-									Customer Love
+									Wash Guarantee
 								</h3>
 								<p className="text-xs sm:text-sm text-gray-600">
-									Rated 4.9/5 by happy parents
+									Long-lasting color & quality
 								</p>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				{/* Categories Section */}
+				{/* Product Highlights Section */}
 				<section
-					id="categories"
+					id="highlights"
 					className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-secondary-50 to-white"
 				>
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-6 sm:mb-8 md:mb-12">
 							<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-								Shop by Age Group
+								Why Choose VENTAGE Polo T-Shirts?
 							</h2>
 							<p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-								Find the perfect outfit for every occasion and age group
+								Premium quality polo t-shirts designed for comfort, style, and
+								durability
 							</p>
 						</div>
 
-						<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-							{/* Category Cards */}
-							<Link
-								to="/products?ageGroup=infants"
-								className="group bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
-							>
-								<div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-									<span className="text-6xl group-hover:scale-110 transition-transform">
-										👶
-									</span>
-								</div>
-								<div className="p-6 text-center">
-									<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
-										Infants
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+							{/* Combo Package Highlight */}
+							<div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+								<div className="text-center mb-4">
+									<div className="text-4xl mb-3">📦</div>
+									<h3 className="text-xl font-bold text-gray-900 mb-2">
+										Combo Package
 									</h3>
-									<p className="text-sm text-gray-500 font-medium">0-2 years</p>
+									<p className="text-gray-600">4 PCS Premium Polo T-Shirts</p>
 								</div>
-							</Link>
+								<div className="space-y-2 text-sm text-gray-700">
+									<div className="flex justify-between">
+										<span>Price:</span>
+										<span className="font-semibold">৳1,050</span>
+									</div>
+									<div className="flex justify-between">
+										<span>Original:</span>
+										<span className="line-through text-gray-500">৳1,650</span>
+									</div>
+									<div className="flex justify-between text-green-600 font-semibold">
+										<span>Save:</span>
+										<span>৳600</span>
+									</div>
+								</div>
+								<Link
+									to="/products"
+									className="block w-full mt-4 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg transition-colors"
+								>
+									View Combo
+								</Link>
+							</div>
 
-							<Link
-								to="/products?ageGroup=kids"
-								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
-							>
-								<div className="aspect-square bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-									<span className="text-6xl group-hover:scale-110 transition-transform">
-										🧒
-									</span>
-								</div>
-								<div className="p-6 text-center">
-									<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
-										Kids
+							{/* Single Piece Highlight */}
+							<div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+								<div className="text-center mb-4">
+									<div className="text-4xl mb-3">👔</div>
+									<h3 className="text-xl font-bold text-gray-900 mb-2">
+										Single Piece
 									</h3>
-									<p className="text-sm text-gray-500 font-medium">3-8 years</p>
+									<p className="text-gray-600">Individual Polo T-Shirt</p>
 								</div>
-							</Link>
+								<div className="space-y-2 text-sm text-gray-700">
+									<div className="flex justify-between">
+										<span>Price:</span>
+										<span className="font-semibold">৳350</span>
+									</div>
+									<div className="flex justify-between">
+										<span>Original:</span>
+										<span className="line-through text-gray-500">৳450</span>
+									</div>
+									<div className="flex justify-between text-green-600 font-semibold">
+										<span>Save:</span>
+										<span>৳100</span>
+									</div>
+								</div>
+								<Link
+									to="/products"
+									className="block w-full mt-4 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg transition-colors"
+								>
+									View Single
+								</Link>
+							</div>
 
-							<Link
-								to="/products?ageGroup=teens"
-								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
-							>
-								<div className="aspect-square bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
-									<span className="text-6xl group-hover:scale-110 transition-transform">
-										🧑
-									</span>
-								</div>
-								<div className="p-6 text-center">
-									<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
-										Teens
+							{/* Quality Features */}
+							<div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+								<div className="text-center mb-4">
+									<div className="text-4xl mb-3">⭐</div>
+									<h3 className="text-xl font-bold text-gray-900 mb-2">
+										Premium Features
 									</h3>
-									<p className="text-sm text-gray-500 font-medium">
-										9-16 years
+									<p className="text-gray-600">
+										Quality that speaks for itself
 									</p>
 								</div>
-							</Link>
-
-							<Link
-								to="/products?ageGroup=adults"
-								className="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
-							>
-								<div className="aspect-square bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center">
-									<span className="text-6xl group-hover:scale-110 transition-transform">
-										👨
-									</span>
+								<div className="space-y-2 text-sm text-gray-700">
+									<div className="flex items-center">
+										<span className="text-green-600 mr-2">✓</span>
+										<span>100% Organic PK Fabric</span>
+									</div>
+									<div className="flex items-center">
+										<span className="text-green-600 mr-2">✓</span>
+										<span>170 GSM Premium Quality</span>
+									</div>
+									<div className="flex items-center">
+										<span className="text-green-600 mr-2">✓</span>
+										<span>Wash Guarantee</span>
+									</div>
+									<div className="flex items-center">
+										<span className="text-green-600 mr-2">✓</span>
+										<span>4 Color Variants</span>
+									</div>
 								</div>
-								<div className="p-6 text-center">
-									<h3 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
-										Adults
-									</h3>
-									<p className="text-sm text-gray-500 font-medium">17+ years</p>
-								</div>
-							</Link>
+								<Link
+									to="/gallery"
+									className="block w-full mt-4 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg transition-colors"
+								>
+									View Gallery
+								</Link>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -330,11 +360,11 @@ const Home = () => {
 					<div className="container mx-auto px-4">
 						<div className="text-center text-white">
 							<h2 className="text-3xl md:text-4xl font-bold mb-6">
-								Ready to Start Shopping?
+								Ready to Experience Premium Quality?
 							</h2>
 							<p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-								Join thousands of happy families who trust UniquePoint for
-								quality fashion
+								Join satisfied customers who trust UniquePoint for premium
+								VENTAGE polo t-shirts
 							</p>
 
 							<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -342,13 +372,13 @@ const Home = () => {
 									to="/products"
 									className="group bg-white text-primary-700 hover:bg-secondary-50 hover:text-secondary-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center border-2 border-white"
 								>
-									Start Shopping
+									Shop Now
 									<FiArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
 								</Link>
 
 								<div className="flex items-center space-x-6 text-white/90">
 									<div className="text-center">
-										<div className="text-lg font-bold">⭐ 4.9/5</div>
+										<div className="text-lg font-bold">⭐ 4.7/5</div>
 										<div className="text-sm">Customer Rating</div>
 									</div>
 									<div className="text-center">

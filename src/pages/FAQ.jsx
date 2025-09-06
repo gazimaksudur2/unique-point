@@ -12,105 +12,140 @@ const FAQ = () => {
 			category: "Ordering",
 			question: "How do I place an order?",
 			answer:
-				"You can browse our products and add items to your cart. We use WhatsApp for checkout - simply click the WhatsApp button to complete your order with our team.",
+				"Browse our VENTAGE polo t-shirts, add items to your cart, and proceed to checkout. Fill in your shipping details and payment method. The system will generate a WhatsApp message with your order details. Send this message to our WhatsApp number (+8801876658343) to complete your order.",
 		},
 		{
 			id: 2,
 			category: "Ordering",
 			question: "Can I modify or cancel my order?",
 			answer:
-				"Yes, you can modify or cancel your order before it's processed. Contact us immediately through WhatsApp or our customer service number.",
+				"Yes, you can modify or cancel your order before it's processed. Contact us immediately through WhatsApp (+8801876658343) with your order details. Changes are only possible before we start processing your order.",
 		},
 		{
 			id: 3,
 			category: "Shipping",
-			question: "What are your shipping charges?",
+			question: "What are your delivery charges?",
 			answer:
-				"We offer free shipping on orders above ৳999. For orders below ৳999, shipping charges of ৳99 apply across India.",
+				"Delivery charges are calculated based on your location: Dhaka district - ৳60, Outside Dhaka - ৳120. These charges are automatically calculated when you select your district during checkout.",
 		},
 		{
 			id: 4,
 			category: "Shipping",
 			question: "How long does delivery take?",
 			answer:
-				"Delivery typically takes 3-7 business days depending on your location. Metro cities usually receive orders within 3-4 days.",
+				"Delivery times vary by location: Dhaka - 1-3 business days, Outside Dhaka - 2-5 business days. We deliver nationwide across Bangladesh using reliable courier services.",
 		},
 		{
 			id: 5,
 			category: "Shipping",
-			question: "Do you ship internationally?",
+			question: "Do you ship outside Bangladesh?",
 			answer:
-				"Currently, we only ship within India. We are working on expanding our services internationally in the near future.",
+				"Currently, we only deliver within Bangladesh. We are focused on providing excellent service to our local customers first.",
 		},
 		{
 			id: 6,
 			category: "Returns",
 			question: "What is your return policy?",
 			answer:
-				"We offer a 15-day return policy from the date of delivery. Items must be unworn, unwashed, and with original tags intact.",
+				"We offer a 7-day return policy from the date of delivery. Products must be unused, unwashed, and in original packaging with all tags intact. You will need to pay the delivery charges for returns.",
 		},
 		{
 			id: 7,
 			category: "Returns",
 			question: "How do I return an item?",
 			answer:
-				"Contact our customer service team through WhatsApp or phone. We'll arrange for pickup and provide you with a return authorization.",
+				"Contact us through WhatsApp (+8801876658343) within 7 days of delivery. Provide your order details and reason for return. We'll arrange pickup and process your return. Return shipping charges apply.",
 		},
 		{
 			id: 8,
 			category: "Returns",
 			question: "When will I get my refund?",
 			answer:
-				"Refunds are processed within 7-10 business days after we receive and inspect the returned item.",
+				"Refunds are processed within 3-5 business days after we receive and inspect the returned item. The refund will be credited to your original payment method.",
 		},
 		{
 			id: 9,
 			category: "Products",
-			question: "How do I choose the right size?",
+			question: "What sizes are available?",
 			answer:
-				"Please refer to our size guide available on each product page. If you're unsure, our customer service team can help you choose the right size.",
+				"Our VENTAGE polo t-shirts are available in sizes M, L, XL, and XXL. Each product page includes a detailed size guide with measurements in inches. If you're unsure, contact us for size recommendations.",
 		},
 		{
 			id: 10,
 			category: "Products",
-			question: "Are your products suitable for sensitive skin?",
+			question: "What fabric are your polo t-shirts made of?",
 			answer:
-				"Yes, we use premium quality, skin-friendly fabrics. Most of our kids' products are made from organic cotton and hypoallergenic materials.",
+				"Our polo t-shirts are made from 100% Organic PK Fabric with 170 GSM thickness. This premium fabric offers excellent comfort, breathability, and durability with long-lasting color.",
 		},
 		{
 			id: 11,
 			category: "Products",
-			question: "Do you offer customization?",
+			question: "What colors are available?",
 			answer:
-				"We offer limited customization for bulk orders. Please contact our team to discuss your requirements.",
+				"For single pieces, we offer 4 beautiful VENTAGE color variants: Olive, Light Blue, Navy Blue, and Red. Combo packages include assorted colors from our VENTAGE palette.",
 		},
 		{
 			id: 12,
-			category: "Payment",
-			question: "What payment methods do you accept?",
+			category: "Products",
+			question: "What's the difference between combo and single pieces?",
 			answer:
-				"We accept all major payment methods through WhatsApp Pay, UPI, credit/debit cards, and net banking.",
+				"Combo Package: 4 PCS polo t-shirts for ৳1,050 (original price ৳1,650) - Save ৳600. Single Piece: Individual polo t-shirt for ৳350 (original price ৳450) - Save ৳100. Both offer the same premium quality.",
 		},
 		{
 			id: 13,
 			category: "Payment",
-			question: "Is it safe to pay through WhatsApp?",
+			question: "What payment methods do you accept?",
 			answer:
-				"Yes, our WhatsApp checkout process is completely secure. We use encrypted payment gateways and never store your payment information.",
+				"We accept Cash on Delivery (COD) only. No advance payment required - pay when you receive your order. This ensures a secure and convenient shopping experience.",
 		},
 		{
 			id: 14,
-			category: "Care",
-			question: "How should I care for my products?",
+			category: "Payment",
+			question: "Is Cash on Delivery safe?",
 			answer:
-				"Care instructions are provided on each product page and on the product labels. Generally, we recommend gentle machine wash for most items.",
+				"Yes, Cash on Delivery is completely safe. You only pay after receiving and inspecting your order. No advance payment means no risk of losing money if you're not satisfied with the product.",
 		},
 		{
 			id: 15,
 			category: "Care",
-			question: "Can I iron the clothes?",
+			question: "How should I care for my polo t-shirts?",
 			answer:
-				"Yes, most of our products can be ironed on low to medium heat. Check the care label for specific instructions.",
+				"Machine wash cold, do not bleach, tumble dry low, cool iron if needed, and wash dark colors separately. Follow the care instructions on the product label for best results.",
+		},
+		{
+			id: 16,
+			category: "Care",
+			question: "Do you offer wash guarantee?",
+			answer:
+				"Yes, our VENTAGE polo t-shirts come with a wash guarantee. The colors are long-lasting and won't fade easily with proper care. We stand behind the quality of our products.",
+		},
+		{
+			id: 17,
+			category: "Quality",
+			question: "What makes your polo t-shirts special?",
+			answer:
+				"Our VENTAGE polo t-shirts feature 100% Organic PK Fabric, 170 GSM premium quality, wash guarantee, long-lasting colors, and are designed for comfort and style. We focus on quality over quantity.",
+		},
+		{
+			id: 18,
+			category: "Quality",
+			question: "Are your products suitable for sensitive skin?",
+			answer:
+				"Yes, our 100% Organic PK Fabric is gentle on the skin and suitable for sensitive skin. The fabric is breathable and hypoallergenic, making it comfortable for all-day wear.",
+		},
+		{
+			id: 19,
+			category: "Business",
+			question: "Do you offer wholesale prices?",
+			answer:
+				"Yes, we offer special wholesale prices for bulk orders. Contact us through WhatsApp (+8801876658343) to discuss wholesale pricing and minimum order quantities.",
+		},
+		{
+			id: 20,
+			category: "Business",
+			question: "What is your launch promotion?",
+			answer:
+				"We're offering special launch prices: Combo Package (4 PCS) for only ৳1,050 (was ৳1,650) and Single Piece for ৳350 (was ৳450). This promotion is available for the first 100 customers.",
 		},
 	];
 
@@ -122,6 +157,8 @@ const FAQ = () => {
 		"Products",
 		"Payment",
 		"Care",
+		"Quality",
+		"Business",
 	];
 
 	const [selectedCategory, setSelectedCategory] = useState("All");
@@ -157,9 +194,9 @@ const FAQ = () => {
 	return (
 		<>
 			<SEO
-				title="Frequently Asked Questions - UniquePoint"
-				description="Find answers to common questions about ordering, shipping, returns, and our products. Get help with sizing, care instructions, and payment methods."
-				keywords="FAQ, frequently asked questions, help, support, shipping, returns, sizing guide, customer service"
+				title="FAQ - VENTAGE Polo T-Shirts | UniquePoint Bangladesh"
+				description="Find answers to common questions about our VENTAGE polo t-shirts, ordering process, delivery charges, return policy, and Cash on Delivery. Get help with sizing, care instructions, and more."
+				keywords="FAQ, VENTAGE polo t-shirts, delivery charges, return policy, cash on delivery, sizing guide, care instructions, Bangladesh, UniquePoint"
 				ogType="website"
 				ogUrl="https://unique-point.com/faq"
 				structured={structuredData}
@@ -174,9 +211,7 @@ const FAQ = () => {
 							Frequently Asked Questions
 						</h1>
 						<p className="text-lg text-gray-600 max-w-2xl">
-							Find answers to common questions about our products, shipping,
-							returns, and more. Can't find what you're looking for? Contact our
-							support team.
+							Find answers to common questions about our VENTAGE polo t-shirts, ordering process, delivery charges, and more. Can't find what you're looking for? Contact our support team via WhatsApp.
 						</p>
 					</div>
 				</div>

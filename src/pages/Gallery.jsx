@@ -139,14 +139,30 @@ const Gallery = () => {
 									alt={image.alt}
 									className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
 								/>
-								<div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-end">
-									<div className="p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-										<h3 className="font-semibold text-sm">
-											{image.productName}
-										</h3>
-										<p className="text-xs capitalize">{image.category}</p>
+								{/* Enhanced overlay with better visibility */}
+								<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end">
+									<div className="p-4 w-full">
+										<div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+											<h3 className="font-bold text-gray-900 text-sm mb-1 line-clamp-2">
+												{image.productName}
+											</h3>
+											<div className="flex items-center justify-between">
+												<span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">
+													{image.category}
+												</span>
+												<div className="flex items-center space-x-1">
+													<div className="w-2 h-2 bg-green-500 rounded-full"></div>
+													<span className="text-xs text-gray-600 font-medium">
+														Available
+													</span>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
+
+								{/* Subtle border highlight on hover */}
+								<div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-primary-400 transition-all duration-300"></div>
 							</div>
 						))}
 					</div>
