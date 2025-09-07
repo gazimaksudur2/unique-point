@@ -278,49 +278,37 @@ const Footer = () => {
 					{/* Developer Credit */}
 					<div className="mt-8 pt-6 border-t border-gray-700">
 						<div className="text-center">
-							{/* Tagline */}
-							<div className="mb-4">
-								<span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700 border border-primary-200">
-									✨ {DEVELOPER_INFO.TAGLINE}
-								</span>
-							</div>
-
 							{/* Developer Info */}
 							<div className="space-y-3">
-								<div className="flex items-center justify-center space-x-1">
-									<span className="text-gray-300 text-sm">👨‍💻</span>
-									<span className="text-gray-400 text-sm">Developed by</span>
-									<span className="text-gray-300 text-sm">👨‍💻</span>
-								</div>
-
 								<div className="text-white">
-									<h4 className="font-semibold text-sm mb-2">
+									<h4 className="font-semibold text-base mb-1">
 										{DEVELOPER_INFO.NAME}
 									</h4>
+									<p className="text-gray-400 text-sm">
+										{DEVELOPER_INFO.TAGLINE}
+									</p>
 								</div>
 
 								{/* Contact Links */}
-								<div className="flex items-center justify-center space-x-4">
+								<div className="flex items-center justify-center space-x-6">
 									<a
 										href={`mailto:${DEVELOPER_INFO.EMAIL}`}
-										className="flex items-center space-x-1 text-gray-300 hover:text-primary-300 text-xs transition-colors group"
+										className="flex items-center space-x-1 text-gray-400 hover:text-primary-300 text-sm transition-colors group"
 										title="Email Developer"
 									>
-										<FiMail className="h-3 w-3 group-hover:scale-110 transition-transform" />
+										<FiMail className="h-4 w-4 group-hover:scale-110 transition-transform" />
 										<span>Email</span>
 									</a>
-
-									<span className="text-gray-600 text-xs">•</span>
 
 									<a
 										href={DEVELOPER_INFO.LINKEDIN}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="flex items-center space-x-1 text-gray-300 hover:text-primary-300 text-xs transition-colors group"
+										className="flex items-center space-x-1 text-gray-400 hover:text-primary-300 text-sm transition-colors group"
 										title="LinkedIn Profile"
 									>
 										<svg
-											className="h-3 w-3 group-hover:scale-110 transition-transform"
+											className="h-4 w-4 group-hover:scale-110 transition-transform"
 											fill="currentColor"
 											viewBox="0 0 20 20"
 										>
@@ -333,17 +321,15 @@ const Footer = () => {
 										<span>LinkedIn</span>
 									</a>
 
-									<span className="text-gray-600 text-xs">•</span>
-
 									<a
 										href={DEVELOPER_INFO.GITHUB}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="flex items-center space-x-1 text-gray-300 hover:text-primary-300 text-xs transition-colors group"
+										className="flex items-center space-x-1 text-gray-400 hover:text-primary-300 text-sm transition-colors group"
 										title="GitHub Profile"
 									>
 										<svg
-											className="h-3 w-3 group-hover:scale-110 transition-transform"
+											className="h-4 w-4 group-hover:scale-110 transition-transform"
 											fill="currentColor"
 											viewBox="0 0 20 20"
 										>
