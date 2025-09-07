@@ -455,7 +455,7 @@ const ProductDetail = () => {
 									<span className="text-sm text-gray-700">
 										{product.returnPolicy?.returnWindowDays
 											? `${product.returnPolicy.returnWindowDays}-day easy returns`
-											: "15-day easy returns"}
+											: "7-day easy returns"}
 									</span>
 								</div>
 								<div className="flex items-center space-x-3">
@@ -532,55 +532,36 @@ const ProductDetail = () => {
 																		Size
 																	</th>
 																	<th className="text-left py-2 font-semibold text-gray-900">
-																		Chest
+																		Length
 																	</th>
 																	<th className="text-left py-2 font-semibold text-gray-900">
-																		Age
+																		Chest
 																	</th>
 																</tr>
 															</thead>
 															<tbody>
 																<tr className="border-b border-gray-200">
-																	<td className="py-2 font-medium">XS</td>
-																	<td className="py-2">24-26"</td>
-																	<td className="py-2">2-3 yrs</td>
-																</tr>
-																<tr className="border-b border-gray-200">
-																	<td className="py-2 font-medium">S</td>
-																	<td className="py-2">26-28"</td>
-																	<td className="py-2">3-4 yrs</td>
-																</tr>
-																<tr className="border-b border-gray-200">
 																	<td className="py-2 font-medium">M</td>
-																	<td className="py-2">28-30"</td>
-																	<td className="py-2">4-5 yrs</td>
+																	<td className="py-2">27"</td>
+																	<td className="py-2">38"</td>
 																</tr>
 																<tr className="border-b border-gray-200">
 																	<td className="py-2 font-medium">L</td>
-																	<td className="py-2">30-32"</td>
-																	<td className="py-2">5-6 yrs</td>
+																	<td className="py-2">28"</td>
+																	<td className="py-2">40"</td>
+																</tr>
+																<tr className="border-b border-gray-200">
+																	<td className="py-2 font-medium">XL</td>
+																	<td className="py-2">29"</td>
+																	<td className="py-2">42"</td>
 																</tr>
 																<tr>
-																	<td className="py-2 font-medium">XL</td>
-																	<td className="py-2">32-34"</td>
-																	<td className="py-2">6-7 yrs</td>
+																	<td className="py-2 font-medium">XXL</td>
+																	<td className="py-2">30"</td>
+																	<td className="py-2">44"</td>
 																</tr>
 															</tbody>
 														</table>
-													</div>
-													<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-														{product.sizes.map((size) => (
-															<div
-																key={size}
-																className={`text-center py-2 px-3 rounded-md border text-sm font-medium ${
-																	selectedSize === size
-																		? "border-primary-600 bg-primary-50 text-primary-700"
-																		: "border-gray-200 bg-white text-gray-700"
-																}`}
-															>
-																{size}
-															</div>
-														))}
 													</div>
 													<p className="text-xs text-gray-500 mt-3 text-center">
 														* Select your size above for accurate fit
@@ -748,81 +729,36 @@ const ProductDetail = () => {
 												<th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
 													Length (inches)
 												</th>
-												<th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
-													Age Range
-												</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td className="border border-gray-300 px-4 py-3 font-medium">
-													XS
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													24-26
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													18-19
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													2-3 years
-												</td>
-											</tr>
-											<tr className="bg-gray-50">
-												<td className="border border-gray-300 px-4 py-3 font-medium">
-													S
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													26-28
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													19-20
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													3-4 years
-												</td>
-											</tr>
-											<tr>
-												<td className="border border-gray-300 px-4 py-3 font-medium">
 													M
 												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													28-30
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													20-21
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													4-5 years
-												</td>
+												<td className="border border-gray-300 px-4 py-3">38</td>
+												<td className="border border-gray-300 px-4 py-3">27</td>
 											</tr>
 											<tr className="bg-gray-50">
 												<td className="border border-gray-300 px-4 py-3 font-medium">
 													L
 												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													30-32
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													21-22
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													5-6 years
-												</td>
+												<td className="border border-gray-300 px-4 py-3">40</td>
+												<td className="border border-gray-300 px-4 py-3">28</td>
 											</tr>
 											<tr>
 												<td className="border border-gray-300 px-4 py-3 font-medium">
 													XL
 												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													32-34
+												<td className="border border-gray-300 px-4 py-3">42</td>
+												<td className="border border-gray-300 px-4 py-3">29</td>
+											</tr>
+											<tr className="bg-gray-50">
+												<td className="border border-gray-300 px-4 py-3 font-medium">
+													XXL
 												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													22-23
-												</td>
-												<td className="border border-gray-300 px-4 py-3">
-													6-7 years
-												</td>
+												<td className="border border-gray-300 px-4 py-3">44</td>
+												<td className="border border-gray-300 px-4 py-3">30</td>
 											</tr>
 										</tbody>
 									</table>
