@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FiHeart, FiShoppingCart, FiStar } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
+import {
+	FiHeart,
+	FiShoppingCart,
+	FiStar,
+	FiCreditCard,
+} from "react-icons/fi";
 import { useApp } from "../../context/AppContext";
-import Badge from "../ui/Badge";
-import Button from "../ui/Button";
 
 const ProductCard = ({ product, className = "" }) => {
-	const { addToCart, toggleWishlist, isInWishlist } = useApp();
+	const { addToCart, toggleWishlist, isInWishlist, clearCart } = useApp();
+	const navigate = useNavigate();
 
 	const inWishlist = isInWishlist(product.id);
 	const discountPercentage = Math.round(
@@ -46,6 +50,29 @@ const ProductCard = ({ product, className = "" }) => {
 			sizes: product.sizes,
 			colors: product.colors,
 		});
+	};
+
+	const handleOrderNow = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+
+		// Clear current cart and add only this product
+		clearCart();
+
+		const cartItem = {
+			id: product.id,
+			name: product.name,
+			price: product.price,
+			originalPrice: product.originalPrice,
+			images: product.images,
+			brand: product.brand,
+			size: product.sizes?.[0] || "One Size",
+			color: product.colors?.[0] || "Default",
+			quantity: 1,
+		};
+
+		addToCart(cartItem);
+		navigate("/checkout");
 	};
 
 	return (
@@ -99,11 +126,18 @@ const ProductCard = ({ product, className = "" }) => {
 						/>
 					</button>
 
-					{/* Quick Add to Cart - Shows on hover */}
-					<div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+					{/* Quick Actions - Shows on hover */}
+					<div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 space-y-2">
+						<button
+							onClick={handleOrderNow}
+							className="w-full bg-gradient-to-r from-coral to-red-500 hover:from-red-500 hover:to-red-600 text-white font-semibold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center shadow-xl transform hover:scale-105"
+						>
+							<FiCreditCard className="h-4 w-4 mr-2" />
+							Order Now
+						</button>
 						<button
 							onClick={handleAddToCart}
-							className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center shadow-xl transform hover:scale-105"
+							className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-2 px-4 rounded-xl transition-all flex items-center justify-center shadow-xl transform hover:scale-105"
 						>
 							<FiShoppingCart className="h-4 w-4 mr-2" />
 							Quick Add

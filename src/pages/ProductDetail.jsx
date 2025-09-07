@@ -10,6 +10,9 @@ import {
 	FiTruck,
 	FiShield,
 	FiRotateCcw,
+	FiX,
+	FiCreditCard,
+	FiClock,
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
 import products from "../data/products";
@@ -19,7 +22,7 @@ import ProductCard from "../components/product/ProductCard";
 const ProductDetail = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
-	const { addToCart, toggleWishlist, isInWishlist } = useApp();
+	const { addToCart, toggleWishlist, isInWishlist, clearCart } = useApp();
 
 	// Find product by ID
 	const product = products.find((p) => p.id === parseInt(id));
@@ -30,6 +33,7 @@ const ProductDetail = () => {
 	const [selectedColor, setSelectedColor] = useState("");
 	const [quantity, setQuantity] = useState(1);
 	const [showSizeGuide, setShowSizeGuide] = useState(false);
+	const [showImageZoom, setShowImageZoom] = useState(false);
 
 	// If product not found, redirect to products page
 	useEffect(() => {
@@ -88,6 +92,26 @@ const ProductDetail = () => {
 			sizes: product.sizes,
 			colors: product.colors,
 		});
+	};
+
+	const handleOrderNow = () => {
+		// Clear current cart and add only this product
+		clearCart();
+
+		const cartItem = {
+			id: product.id,
+			name: product.name,
+			price: product.price,
+			originalPrice: product.originalPrice,
+			images: product.images,
+			brand: product.brand,
+			size: selectedSize || product.sizes?.[0] || "One Size",
+			color: selectedColor || product.colors?.[0] || "Default",
+			quantity: quantity,
+		};
+
+		addToCart(cartItem);
+		navigate("/checkout");
 	};
 
 	// Structured data for SEO
@@ -172,11 +196,14 @@ const ProductDetail = () => {
 						{/* Product Images */}
 						<div className="space-y-4">
 							{/* Main Image */}
-							<div className="aspect-square bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-md">
+							<div
+								className="relative aspect-square bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-md group cursor-pointer"
+								onClick={() => setShowImageZoom(true)}
+							>
 								<img
 									src={product.images[selectedImage]}
 									alt={product.name}
-									className="w-full h-full object-cover"
+									className="w-full h-full object-cover transition-transform group-hover:scale-105"
 								/>
 							</div>
 
@@ -356,6 +383,14 @@ const ProductDetail = () => {
 							<div className="space-y-3 sm:space-y-4">
 								<div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
 									<button
+										onClick={handleOrderNow}
+										disabled={!selectedSize && product.sizes?.length > 0}
+										className="flex-1 bg-gradient-to-r from-coral to-red-500 hover:from-red-500 hover:to-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all shadow-lg hover:shadow-xl"
+									>
+										<FiCreditCard className="h-5 w-5" />
+										<span>Order Now</span>
+									</button>
+									<button
 										onClick={handleAddToCart}
 										disabled={!selectedSize && product.sizes?.length > 0}
 										className="flex-1 bg-primary-700 hover:bg-primary-800 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center space-x-2 transition-colors"
@@ -400,6 +435,13 @@ const ProductDetail = () => {
 
 							{/* Product Features */}
 							<div className="bg-gray-50 rounded-lg p-4 space-y-3">
+								{/* Fast Delivery Highlight */}
+								<div className="flex items-center space-x-3 bg-green-50 border border-green-200 rounded-lg p-3">
+									<FiClock className="h-5 w-5 text-green-600" />
+									<span className="text-sm font-semibold text-green-800">
+										🚀 Delivery within 1-3 days
+									</span>
+								</div>
 								<div className="flex items-center space-x-3">
 									<FiTruck className="h-5 w-5 text-green-600" />
 									<span className="text-sm text-gray-700">
@@ -471,6 +513,79 @@ const ProductDetail = () => {
 														</li>
 													))}
 												</ul>
+											</div>
+										)}
+
+										{/* Minimal Size Chart */}
+										{product.sizes && product.sizes.length > 0 && (
+											<div className="mt-6">
+												<h4 className="text-md font-semibold text-gray-900 mb-3">
+													Size Chart
+												</h4>
+												<div className="bg-gray-50 rounded-lg p-4">
+													{/* Short Size Chart Table */}
+													<div className="overflow-x-auto mb-3">
+														<table className="w-full text-sm">
+															<thead>
+																<tr className="border-b border-gray-300">
+																	<th className="text-left py-2 font-semibold text-gray-900">
+																		Size
+																	</th>
+																	<th className="text-left py-2 font-semibold text-gray-900">
+																		Chest
+																	</th>
+																	<th className="text-left py-2 font-semibold text-gray-900">
+																		Age
+																	</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr className="border-b border-gray-200">
+																	<td className="py-2 font-medium">XS</td>
+																	<td className="py-2">24-26"</td>
+																	<td className="py-2">2-3 yrs</td>
+																</tr>
+																<tr className="border-b border-gray-200">
+																	<td className="py-2 font-medium">S</td>
+																	<td className="py-2">26-28"</td>
+																	<td className="py-2">3-4 yrs</td>
+																</tr>
+																<tr className="border-b border-gray-200">
+																	<td className="py-2 font-medium">M</td>
+																	<td className="py-2">28-30"</td>
+																	<td className="py-2">4-5 yrs</td>
+																</tr>
+																<tr className="border-b border-gray-200">
+																	<td className="py-2 font-medium">L</td>
+																	<td className="py-2">30-32"</td>
+																	<td className="py-2">5-6 yrs</td>
+																</tr>
+																<tr>
+																	<td className="py-2 font-medium">XL</td>
+																	<td className="py-2">32-34"</td>
+																	<td className="py-2">6-7 yrs</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+													<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+														{product.sizes.map((size) => (
+															<div
+																key={size}
+																className={`text-center py-2 px-3 rounded-md border text-sm font-medium ${
+																	selectedSize === size
+																		? "border-primary-600 bg-primary-50 text-primary-700"
+																		: "border-gray-200 bg-white text-gray-700"
+																}`}
+															>
+																{size}
+															</div>
+														))}
+													</div>
+													<p className="text-xs text-gray-500 mt-3 text-center">
+														* Select your size above for accurate fit
+													</p>
+												</div>
 											</div>
 										)}
 									</div>
@@ -589,6 +704,211 @@ const ProductDetail = () => {
 					)}
 				</div>
 			</div>
+
+			{/* Size Guide Modal */}
+			{showSizeGuide && (
+				<div
+					className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+					onClick={() => setShowSizeGuide(false)}
+				>
+					<div
+						className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-gray-300 shadow-lg shadow-gray-300"
+						onClick={(e) => e.stopPropagation()}
+					>
+						{/* Modal Header */}
+						<div className="flex items-center justify-between p-6 border-b border-gray-200">
+							<h3 className="text-xl font-bold text-gray-900">Size Guide</h3>
+							<button
+								onClick={() => setShowSizeGuide(false)}
+								className="text-gray-400 hover:text-gray-600 transition-colors"
+							>
+								<FiX className="h-6 w-6" />
+							</button>
+						</div>
+
+						{/* Modal Content */}
+						<div className="p-6">
+							{/* Size Chart Table */}
+							<div className="mb-6">
+								<h4 className="text-lg font-semibold text-gray-900 mb-4">
+									{product.name} - Size Chart
+								</h4>
+
+								{/* Generic Size Chart */}
+								<div className="overflow-x-auto">
+									<table className="w-full border-collapse border border-gray-300">
+										<thead>
+											<tr className="bg-gray-50">
+												<th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+													Size
+												</th>
+												<th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+													Chest (inches)
+												</th>
+												<th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+													Length (inches)
+												</th>
+												<th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+													Age Range
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td className="border border-gray-300 px-4 py-3 font-medium">
+													XS
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													24-26
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													18-19
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													2-3 years
+												</td>
+											</tr>
+											<tr className="bg-gray-50">
+												<td className="border border-gray-300 px-4 py-3 font-medium">
+													S
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													26-28
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													19-20
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													3-4 years
+												</td>
+											</tr>
+											<tr>
+												<td className="border border-gray-300 px-4 py-3 font-medium">
+													M
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													28-30
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													20-21
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													4-5 years
+												</td>
+											</tr>
+											<tr className="bg-gray-50">
+												<td className="border border-gray-300 px-4 py-3 font-medium">
+													L
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													30-32
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													21-22
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													5-6 years
+												</td>
+											</tr>
+											<tr>
+												<td className="border border-gray-300 px-4 py-3 font-medium">
+													XL
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													32-34
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													22-23
+												</td>
+												<td className="border border-gray-300 px-4 py-3">
+													6-7 years
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							{/* Measurement Guide */}
+							<div className="mb-6">
+								<h4 className="text-lg font-semibold text-gray-900 mb-4">
+									How to Measure
+								</h4>
+								<div className="grid md:grid-cols-2 gap-4">
+									<div className="bg-gray-50 rounded-lg p-4">
+										<h5 className="font-semibold text-gray-900 mb-2">
+											Chest Measurement
+										</h5>
+										<p className="text-sm text-gray-700">
+											Measure around the fullest part of the chest, keeping the
+											tape measure horizontal.
+										</p>
+									</div>
+									<div className="bg-gray-50 rounded-lg p-4">
+										<h5 className="font-semibold text-gray-900 mb-2">
+											Length Measurement
+										</h5>
+										<p className="text-sm text-gray-700">
+											Measure from the highest point of the shoulder to the
+											bottom hem.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							{/* Size Selection */}
+							<div className="mb-6">
+								<h4 className="text-lg font-semibold text-gray-900 mb-4">
+									Available Sizes
+								</h4>
+								<div className="flex flex-wrap gap-2">
+									{product.sizes?.map((size) => (
+										<button
+											key={size}
+											onClick={() => {
+												setSelectedSize(size);
+												setShowSizeGuide(false);
+											}}
+											className={`px-4 py-2 text-sm font-medium rounded-lg border transition-colors ${
+												selectedSize === size
+													? "border-primary-600 bg-primary-50 text-primary-700"
+													: "border-gray-300 bg-white text-gray-700 hover:border-primary-300 hover:text-primary-600"
+											}`}
+										>
+											{size}
+										</button>
+									))}
+								</div>
+							</div>
+
+							{/* Tips */}
+							<div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+								<h5 className="font-semibold text-blue-900 mb-2">
+									💡 Size Tips
+								</h5>
+								<ul className="text-sm text-blue-800 space-y-1">
+									<li>• If between sizes, we recommend sizing up</li>
+									<li>
+										• Consider your child's growth rate when selecting size
+									</li>
+									<li>• All measurements are in inches</li>
+									<li>• For any sizing questions, contact our support team</li>
+								</ul>
+							</div>
+						</div>
+
+						{/* Modal Footer */}
+						<div className="flex justify-end p-6 border-t border-gray-200">
+							<button
+								onClick={() => setShowSizeGuide(false)}
+								className="px-6 py-2 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+							>
+								Got it!
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
 		</>
 	);
 };
