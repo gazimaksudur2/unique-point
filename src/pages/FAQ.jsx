@@ -43,20 +43,6 @@ const FAQ = () => {
 				"Currently, we only deliver within Bangladesh. We are focused on providing excellent service to our local customers first.",
 		},
 		{
-			id: 6,
-			category: "Returns",
-			question: "What is your return policy?",
-			answer:
-				"We offer a 7-day return policy from the date of delivery. Products must be unused, unwashed, and in original packaging with all tags intact. You will need to pay the delivery charges for returns.",
-		},
-		{
-			id: 7,
-			category: "Returns",
-			question: "How do I return an item?",
-			answer:
-				"Contact us through WhatsApp (+8801876658343) within 7 days of delivery. Provide your order details and reason for return. We'll arrange pickup and process your return. Return shipping charges apply.",
-		},
-		{
 			id: 8,
 			category: "Returns",
 			question: "When will I get my refund?",
@@ -153,7 +139,6 @@ const FAQ = () => {
 		"All",
 		"Ordering",
 		"Shipping",
-		"Returns",
 		"Products",
 		"Payment",
 		"Care",

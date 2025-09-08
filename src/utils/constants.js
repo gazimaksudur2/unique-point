@@ -59,7 +59,11 @@ export const STORAGE_KEYS = {
 	WISHLIST: "uniquepoint_wishlist",
 	USER: "uniquepoint_user",
 	AUTH_TOKEN: "uniquepoint_auth_token",
+	ORDERS: "uniquepoint_orders",
 };
+
+// Payments
+export const PAYMENT_PHONE = "01876658343";
 
 // API endpoints (to be updated when backend is ready)
 export const API_ENDPOINTS = {

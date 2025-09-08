@@ -435,12 +435,17 @@ const ProductDetail = () => {
 
 							{/* Product Features */}
 							<div className="bg-gray-50 rounded-lg p-4 space-y-3">
-								{/* Fast Delivery Highlight */}
-								<div className="flex items-center space-x-3 bg-green-50 border border-green-200 rounded-lg p-3">
-									<FiClock className="h-5 w-5 text-green-600" />
-									<span className="text-sm font-semibold text-green-800">
-										🚀 Delivery within 1-3 days
-									</span>
+								{/* Fast Delivery Highlight (animated) */}
+								<div className="relative overflow-hidden rounded-lg p-3 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white shadow-lg">
+									<div className="absolute inset-0 opacity-30 animate-pulse bg-[radial-gradient(circle_at_top_left,white,transparent_50%)]"></div>
+									<div className="relative flex items-center gap-3">
+										<span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 ring-2 ring-white/50">
+											<FiClock className="h-5 w-5 animate-spin" />
+										</span>
+										<span className="text-sm sm:text-base font-extrabold tracking-wide">
+											🚀 Super Fast Delivery: 1–3 Days
+										</span>
+									</div>
 								</div>
 								<div className="flex items-center space-x-3">
 									<FiTruck className="h-5 w-5 text-green-600" />
@@ -450,14 +455,7 @@ const ProductDetail = () => {
 											: "Free delivery on orders above ৳999"}
 									</span>
 								</div>
-								<div className="flex items-center space-x-3">
-									<FiRotateCcw className="h-5 w-5 text-blue-600" />
-									<span className="text-sm text-gray-700">
-										{product.returnPolicy?.returnWindowDays
-											? `${product.returnPolicy.returnWindowDays}-day easy returns`
-											: "7-day easy returns"}
-									</span>
-								</div>
+								{/* Returns removed as per policy update */}
 								<div className="flex items-center space-x-3">
 									<FiShield className="h-5 w-5 text-purple-600" />
 									<span className="text-sm text-gray-700">

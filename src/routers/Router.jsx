@@ -12,6 +12,7 @@ import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import Checkout from "../pages/Checkout";
 import OrderSuccess from "../pages/OrderSuccess";
+import MyOrders from "../pages/MyOrders";
 import NotFound from "../pages/NotFound";
 import ServerError from "../pages/ServerError";
 import ForbiddenError from "../pages/ForbiddenError";
@@ -110,6 +111,14 @@ const router = createBrowserRouter([
 		element: (
 			<Layout>
 				<OrderSuccess />
+			</Layout>
+		),
+	},
+	{
+		path: "/my-orders",
+		element: (
+			<Layout>
+				<MyOrders />
 			</Layout>
 		),
 	},

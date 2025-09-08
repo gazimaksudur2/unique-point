@@ -12,13 +12,8 @@ import {
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
 import SEO from "../components/common/SEO";
-import { WHATSAPP_NUMBER } from "../utils/constants";
-import {
-	getDivisions,
-	getDistrictsByDivision,
-	getUpazilasByDistrict,
-	getLocationNames,
-} from "../data/bangladeshGeoData";
+import { WHATSAPP_NUMBER, PAYMENT_PHONE } from "../utils/constants";
+// import geographic helpers removed due to simplified address
 
 const Checkout = () => {
 	const navigate = useNavigate();
@@ -27,16 +22,12 @@ const Checkout = () => {
 	// Form state
 	const [formData, setFormData] = useState({
 		// Customer Information
-		firstName: "",
-		lastName: "",
-		email: "",
+		name: "",
 		phone: "",
 
-		// Shipping Address
-		division: "",
-		district: "",
-		upazila: "",
-		streetAddress: "",
+		// Shipping Address (simplified)
+		shippingZone: "",
+		addressDetails: "",
 
 		// Payment Method
 		paymentMethod: "",
@@ -45,10 +36,7 @@ const Checkout = () => {
 		orderNotes: "",
 	});
 
-	// Geographic data state
-	const [divisions] = useState(getDivisions());
-	const [districts, setDistricts] = useState([]);
-	const [upazilas, setUpazilas] = useState([]);
+	// (Removed detailed geo selection)
 
 	// Form validation
 	const [errors, setErrors] = useState({});
@@ -65,36 +53,15 @@ const Checkout = () => {
 		}
 	}, [cart, navigate]);
 
-	// Handle geographic selections
 	useEffect(() => {
-		if (formData.division) {
-			const newDistricts = getDistrictsByDivision(formData.division);
-			setDistricts(newDistricts);
-			setFormData((prev) => ({
-				...prev,
-				district: "",
-				upazila: "",
-			}));
-			setUpazilas([]);
-		}
-	}, [formData.division]);
-
-	useEffect(() => {
-		if (formData.district) {
-			const newUpazilas = getUpazilasByDistrict(formData.district);
-			setUpazilas(newUpazilas);
-			setFormData((prev) => ({ ...prev, upazila: "" }));
-
-			// Calculate delivery charge based on district
-			if (formData.district.toLowerCase() === "dhaka") {
-				setDeliveryCharge(60);
-			} else {
-				setDeliveryCharge(120);
-			}
+		if (formData.shippingZone === "inside") {
+			setDeliveryCharge(60);
+		} else if (formData.shippingZone === "outside") {
+			setDeliveryCharge(120);
 		} else {
 			setDeliveryCharge(0);
 		}
-	}, [formData.district]);
+	}, [formData.shippingZone]);
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
@@ -116,20 +83,12 @@ const Checkout = () => {
 		const newErrors = {};
 
 		// Required fields
-		if (!formData.firstName.trim())
-			newErrors.firstName = "First name is required";
-		if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+		if (!formData.name.trim()) newErrors.name = "Name is required";
 		if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-		if (!formData.division) newErrors.division = "Division is required";
-		if (!formData.district) newErrors.district = "District is required";
-		if (!formData.upazila) newErrors.upazila = "Upazila is required";
+		if (!formData.shippingZone)
+			newErrors.shippingZone = "Please select your delivery zone";
 		if (!formData.paymentMethod)
 			newErrors.paymentMethod = "Payment method is required";
-
-		// Email validation
-		if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
-			newErrors.email = "Please enter a valid email address";
-		}
 
 		// Phone validation (Bangladesh format) - supports 01XXXXXXXX, 8801XXXXXXXX, +8801XXXXXXXX
 		if (formData.phone) {
@@ -146,30 +105,21 @@ const Checkout = () => {
 	};
 
 	const generateWhatsAppMessage = () => {
-		const locationNames = getLocationNames(
-			formData.division,
-			formData.district,
-			formData.upazila
-		);
-
 		let message = "🛍️ *New Order from UniquePoint Website*\n\n";
 
 		// Customer Information
 		message += "👤 *Customer Details:*\n";
-		message += `Name: ${formData.firstName} ${formData.lastName}\n`;
+		message += `Name: ${formData.name}\n`;
 		message += `Phone: ${formData.phone}\n`;
-		if (formData.email) message += `Email: ${formData.email}\n`;
 		message += "\n";
 
-		// Shipping Address
-		message += "📍 *Shipping Address:*\n";
-		if (locationNames) {
-			message += `Division: ${locationNames.division}\n`;
-			message += `District: ${locationNames.district}\n`;
-			message += `Upazila: ${locationNames.upazila}\n`;
-		}
-		if (formData.streetAddress) {
-			message += `Street/House: ${formData.streetAddress}\n`;
+		// Shipping Address (simplified)
+		message += "📍 *Shipping:*\n";
+		message += `Zone: ${
+			formData.shippingZone === "inside" ? "Inside Dhaka" : "Outside Dhaka"
+		}\n`;
+		if (formData.addressDetails) {
+			message += `Address: ${formData.addressDetails}\n`;
 		}
 		message += "\n";
 
@@ -221,6 +171,27 @@ const Checkout = () => {
 			const message = generateWhatsAppMessage();
 			const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
+			// Save order to localStorage
+			const existing = JSON.parse(
+				localStorage.getItem("uniquepoint_orders") || "[]"
+			);
+			const newOrder = {
+				id: Date.now(),
+				items: cart,
+				paymentMethod: formData.paymentMethod,
+				deliveryZone: formData.shippingZone,
+				addressDetails: formData.addressDetails,
+				customer: { name: formData.name, phone: formData.phone },
+				subtotal: cartTotal,
+				deliveryCharge,
+				total: cartTotal + deliveryCharge,
+				createdAt: new Date().toISOString(),
+			};
+			localStorage.setItem(
+				"uniquepoint_orders",
+				JSON.stringify([newOrder, ...existing])
+			);
+
 			// Clear cart after successful order
 			clearCart();
 
@@ -247,8 +218,6 @@ const Checkout = () => {
 		{ value: "bkash", label: "bKash" },
 		{ value: "nagad", label: "Nagad" },
 		{ value: "rocket", label: "Rocket" },
-		{ value: "upay", label: "Upay" },
-		{ value: "bank_transfer", label: "Bank Transfer" },
 	];
 
 	if (cart.length === 0) {
@@ -300,46 +269,23 @@ const Checkout = () => {
 									</div>
 
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-										<div>
+										<div className="md:col-span-2">
 											<label className="block text-sm font-medium text-gray-700 mb-2">
-												First Name *
+												Name *
 											</label>
 											<input
 												type="text"
-												name="firstName"
-												value={formData.firstName}
+												name="name"
+												value={formData.name}
 												onChange={handleInputChange}
 												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.firstName
-														? "border-red-500"
-														: "border-gray-300"
+													errors.name ? "border-red-500" : "border-gray-300"
 												}`}
-												placeholder="Enter your first name"
+												placeholder="Enter your full name"
 											/>
-											{errors.firstName && (
+											{errors.name && (
 												<p className="text-red-500 text-sm mt-1">
-													{errors.firstName}
-												</p>
-											)}
-										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Last Name *
-											</label>
-											<input
-												type="text"
-												name="lastName"
-												value={formData.lastName}
-												onChange={handleInputChange}
-												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.lastName ? "border-red-500" : "border-gray-300"
-												}`}
-												placeholder="Enter your last name"
-											/>
-											{errors.lastName && (
-												<p className="text-red-500 text-sm mt-1">
-													{errors.lastName}
+													{errors.name}
 												</p>
 											)}
 										</div>
@@ -364,27 +310,6 @@ const Checkout = () => {
 												</p>
 											)}
 										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Email Address
-											</label>
-											<input
-												type="email"
-												name="email"
-												value={formData.email}
-												onChange={handleInputChange}
-												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.email ? "border-red-500" : "border-gray-300"
-												}`}
-												placeholder="your@email.com (optional)"
-											/>
-											{errors.email && (
-												<p className="text-red-500 text-sm mt-1">
-													{errors.email}
-												</p>
-											)}
-										</div>
 									</div>
 								</div>
 
@@ -397,100 +322,61 @@ const Checkout = () => {
 										</h2>
 									</div>
 
+									{/* Delivery Zone */}
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Division *
-											</label>
-											<select
-												name="division"
-												value={formData.division}
+										<label
+											className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
+												formData.shippingZone === "inside"
+													? "border-primary-500 bg-primary-50"
+													: "border-gray-200 hover:border-gray-300"
+											}`}
+										>
+											<input
+												type="radio"
+												name="shippingZone"
+												value="inside"
+												checked={formData.shippingZone === "inside"}
 												onChange={handleInputChange}
-												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.division ? "border-red-500" : "border-gray-300"
-												}`}
-											>
-												<option value="">Select Division</option>
-												{divisions.map((division) => (
-													<option key={division.value} value={division.value}>
-														{division.label}
-													</option>
-												))}
-											</select>
-											{errors.division && (
-												<p className="text-red-500 text-sm mt-1">
-													{errors.division}
-												</p>
-											)}
-										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												District *
-											</label>
-											<select
-												name="district"
-												value={formData.district}
+												className="text-primary-600 focus:ring-primary-500"
+											/>
+											<span className="ml-3 font-medium">Inside Dhaka</span>
+										</label>
+										<label
+											className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
+												formData.shippingZone === "outside"
+													? "border-primary-500 bg-primary-50"
+													: "border-gray-200 hover:border-gray-300"
+											}`}
+										>
+											<input
+												type="radio"
+												name="shippingZone"
+												value="outside"
+												checked={formData.shippingZone === "outside"}
 												onChange={handleInputChange}
-												disabled={!formData.division}
-												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.district ? "border-red-500" : "border-gray-300"
-												} ${!formData.division ? "bg-gray-100" : ""}`}
-											>
-												<option value="">Select District</option>
-												{districts.map((district) => (
-													<option key={district.value} value={district.value}>
-														{district.label}
-													</option>
-												))}
-											</select>
-											{errors.district && (
-												<p className="text-red-500 text-sm mt-1">
-													{errors.district}
-												</p>
-											)}
-										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Upazila *
-											</label>
-											<select
-												name="upazila"
-												value={formData.upazila}
-												onChange={handleInputChange}
-												disabled={!formData.district}
-												className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-													errors.upazila ? "border-red-500" : "border-gray-300"
-												} ${!formData.district ? "bg-gray-100" : ""}`}
-											>
-												<option value="">Select Upazila</option>
-												{upazilas.map((upazila) => (
-													<option key={upazila.value} value={upazila.value}>
-														{upazila.label}
-													</option>
-												))}
-											</select>
-											{errors.upazila && (
-												<p className="text-red-500 text-sm mt-1">
-													{errors.upazila}
-												</p>
-											)}
-										</div>
+												className="text-primary-600 focus:ring-primary-500"
+											/>
+											<span className="ml-3 font-medium">Outside Dhaka</span>
+										</label>
 									</div>
+
+									{errors.shippingZone && (
+										<p className="text-red-500 text-sm mt-2">
+											{errors.shippingZone}
+										</p>
+									)}
 
 									<div className="mt-4">
 										<label className="block text-sm font-medium text-gray-700 mb-2">
-											Street Address / House No. (Optional for more detailed
-											address)
+											Address Details *
 										</label>
-										<input
-											type="text"
-											name="streetAddress"
-											value={formData.streetAddress}
+										<textarea
+											name="addressDetails"
+											value={formData.addressDetails}
 											onChange={handleInputChange}
+											rows="3"
 											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-											placeholder="House number, street name, building name, etc."
+											placeholder="Enter Your Address Details"
 										/>
 									</div>
 								</div>
@@ -522,7 +408,43 @@ const Checkout = () => {
 													onChange={handleInputChange}
 													className="text-primary-600 focus:ring-primary-500"
 												/>
-												<span className="ml-3 font-medium">{method.label}</span>
+												<span className="ml-3 flex items-center gap-3 font-medium">
+													{method.value === "cash_on_delivery" && (
+														<img
+															src="https://cdn-icons-png.flaticon.com/128/7875/7875821.png"
+															alt="bKash"
+															className="w-10 h-10 object-cover rounded-lg"
+														/>
+													)}
+													{method.value === "bkash" && (
+														<img
+															src="https://res.cloudinary.com/dim96kvv4/image/upload/v1757358626/bkash_jx53uj.png"
+															alt="bKash"
+															className="w-10 h-10 object-cover rounded-lg"
+														/>
+													)}
+													{method.value === "nagad" && (
+														<img
+															src="https://res.cloudinary.com/dim96kvv4/image/upload/v1757358625/nagad_qa4j1x.jpg"
+															alt="Nagad"
+															className="w-10 h-10 object-cover rounded-lg"
+														/>
+													)}
+													{method.value === "rocket" && (
+														<img
+															src="https://res.cloudinary.com/dim96kvv4/image/upload/v1757358626/rocket_wq7zo9.jpg"
+															alt="Rocket"
+															className="w-10 h-10 object-contain scale-125"
+														/>
+													)}
+													{method.value === "cash_on_delivery" ? (
+														<span>Cash on Delivery</span>
+													) : (
+														<span className="text-gray-800 text-sm font-semibold">
+															{PAYMENT_PHONE}
+														</span>
+													)}
+												</span>
 											</label>
 										))}
 									</div>
@@ -570,7 +492,7 @@ const Checkout = () => {
 											</>
 										) : (
 											<>
-												<span className="text-lg">💬</span>
+												<img src="https://cdn-icons-png.flaticon.com/128/4423/4423697.png" alt="WhatsApp" className="w-5 h-5" />
 												Complete Order via WhatsApp
 											</>
 										)}
@@ -635,7 +557,7 @@ const Checkout = () => {
 									</div>
 									{deliveryCharge > 0 && (
 										<div className="text-sm text-blue-600 bg-blue-50 p-2 rounded">
-											{formData.district.toLowerCase() === "dhaka"
+											{formData.shippingZone === "inside"
 												? "Dhaka delivery: ৳60"
 												: "Outside Dhaka delivery: ৳120"}
 										</div>

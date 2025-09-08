@@ -27,6 +27,17 @@ const Layout = ({ children }) => {
 		<div className="min-h-screen flex flex-col bg-gray-50">
 			<Header />
 			<main className="flex-1">{children}</main>
+			{/* Floating WhatsApp Button */}
+			<a
+				href="https://wa.me/+8801876658343"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="fixed bottom-6 right-6 md:bottom-10 md:right-10 lg:bottom-15 lg:right-15 z-50 rounded-full shadow-xl scale-125 md:scale-150 xl:scale-200"
+				title="Chat on WhatsApp"
+			>
+				{/* <span className="font-semibold">WhatsApp</span> */}
+				<img src="https://cdn-icons-png.flaticon.com/128/4423/4423697.png" alt="WhatsApp" className="w-6 h-6" />
+			</a>
 			<Footer />
 		</div>
 	);

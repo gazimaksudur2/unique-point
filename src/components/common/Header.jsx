@@ -6,9 +6,7 @@ import {
 	FiSearch,
 	FiShoppingCart,
 	FiHeart,
-	FiMapPin,
-	FiChevronDown,
-	FiGlobe,
+	FiShoppingBag,
 } from "react-icons/fi";
 import { useApp } from "../../context/AppContext";
 import { APP_NAME, NAVIGATION_ITEMS } from "../../utils/constants";
@@ -18,8 +16,6 @@ const Header = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
 	const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-	const [selectedLocation, setSelectedLocation] = useState("United States");
-	const [selectedLanguage, setSelectedLanguage] = useState("English (USA)");
 	const { cartItemsCount, wishlistItemsCount } = useApp();
 	const location = useLocation();
 	const userMenuRef = useRef(null);
@@ -176,6 +172,20 @@ const Header = () => {
 								</span>
 							</Link>
 
+							{/* My Orders */}
+							<Link
+								to="/my-orders"
+								className="flex flex-col items-center p-2 text-gray-700 hover:text-primary-600 relative"
+								aria-label="My Orders"
+							>
+								<div className="relative">
+									<FiShoppingBag className="h-5 w-5" />
+								</div>
+								<span className="hidden lg:block text-xs mt-1 font-medium">
+									Orders
+								</span>
+							</Link>
+
 							{/* My Cart */}
 							<Link
 								to="/cart"
@@ -195,16 +205,20 @@ const Header = () => {
 								</span>
 							</Link>
 
-							{/* WhatsApp Contact */}
 							<a
+								className="flex flex-col items-center p-2 text-gray-700 hover:text-coral-600 relative"
 								href="https://wa.me/+8801876658343"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="flex flex-col items-center p-2 text-gray-700 hover:text-green-600"
-								aria-label="WhatsApp Contact"
+								title="Chat on WhatsApp"
 							>
-								<div className="text-green-600">
-									<span className="text-lg">💬</span>
+								<div className="rounded-full shadow-xl">
+									{/* <span className="font-semibold">WhatsApp</span> */}
+									<img
+										src="https://cdn-icons-png.flaticon.com/128/4423/4423697.png"
+										alt="WhatsApp"
+										className="w-6 h-6"
+									/>
 								</div>
 								<span className="hidden lg:block text-xs mt-1 font-medium">
 									WhatsApp
@@ -324,15 +338,6 @@ const Header = () => {
 									</span>
 								)}
 							</Link>
-							<a
-								href="https://wa.me/+8801876658343"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="block px-6 py-4 rounded-xl font-semibold bg-green-600 hover:bg-green-700 text-white text-center mt-3"
-								onClick={() => setIsMobileMenuOpen(false)}
-							>
-								💬 Contact on WhatsApp
-							</a>
 						</div>
 					</nav>
 				</div>
