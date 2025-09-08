@@ -58,13 +58,13 @@ const Home = () => {
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
 							<div className="space-y-4 sm:space-y-6 md:space-y-8">
 								<div className="space-y-3 sm:space-y-4 md:space-y-6">
-									<h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight text-gray-900">
+									<h1 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight text-gray-900">
 										Premium VENTAGE
 										<span className="block bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
 											Polo T-Shirts
 										</span>
 									</h1>
-									<p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-gray-600">
+									<p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-600">
 										Discover premium quality polo t-shirts made with 100%
 										Organic PK Fabric. Perfect for men who value comfort, style,
 										and durability. Available in combo packages and single

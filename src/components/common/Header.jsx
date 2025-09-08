@@ -106,16 +106,11 @@ const Header = () => {
 							</button>
 
 							<Link to="/" className="flex items-center space-x-2 sm:space-x-3">
-								<div className="bg-primary text-white w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl">
-									{/* <img
-										src={logo}
-										alt="Logo"
-										className="w-6 h-6 lg:w-7 lg:h-7 scale-200"
-									/> */}
+								<div className="bg-primary text-white w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl overflow-hidden">
 									<img
 										src={logo}
 										alt="Logo"
-										className="w-full h-full object-fill scale-150"
+										className="w-full h-full object-cover scale-[1.75]"
 									/>
 								</div>
 								<div className="hidden sm:block">

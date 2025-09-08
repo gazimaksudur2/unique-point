@@ -23,11 +23,11 @@ const Footer = () => {
 					{/* Brand Section */}
 					<div className="space-y-3 sm:space-y-4 sm:col-span-2 lg:col-span-1">
 						<Link to="/" className="flex items-center space-x-2 sm:space-x-3">
-							<div className="bg-primary text-white w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center">
+							<div className="bg-primary text-white w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center">
 								<img
 									src={logo}
 									alt="Logo"
-									className="w-full h-full object-cover scale-125"
+									className="w-full h-full object-cover scale-[1.6]"
 								/>
 							</div>
 							<div className="block">
