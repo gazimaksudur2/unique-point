@@ -109,7 +109,7 @@ const ErrorPage = ({
 									</p>
 									<div className="flex flex-col sm:flex-row gap-3 justify-center">
 										<a
-											href="https://wa.me/+8801903219313"
+											href="https://wa.me/+8801876658343"
 											target="_blank"
 											rel="noopener noreferrer"
 											className="inline-flex items-center justify-center px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-colors duration-200"

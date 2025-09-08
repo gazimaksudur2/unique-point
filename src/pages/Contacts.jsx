@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
 	FiPhone,
 	FiMail,
@@ -22,6 +23,7 @@ const Contacts = () => {
 
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitStatus, setSubmitStatus] = useState(null);
+	const [submitError, setSubmitError] = useState("");
 
 	const handleInputChange = (e) => {
 		setFormData({
@@ -33,11 +35,61 @@ const Contacts = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setIsSubmitting(true);
+		setSubmitStatus(null);
+		setSubmitError("");
 
-		// Simulate form submission
-		setTimeout(() => {
-			setSubmitStatus("success");
+		const subjectLabels = {
+			general: "General Inquiry",
+			order: "Order Support",
+			return: "Returns & Exchanges",
+			product: "Product Information",
+			feedback: "Feedback",
+			other: "Other",
+		};
+
+		const now = new Date();
+		const time = now.toLocaleString("en-US", {
+			year: "numeric",
+			month: "short",
+			day: "2-digit",
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: true,
+		});
+
+		const templateParams = {
+			name: formData.name,
+			email: formData.email,
+			reply_to: formData.email,
+			phone: formData.phone || "N/A",
+			subject_label: subjectLabels[formData.subject] || "General Inquiry",
+			subject_code: formData.subject || "general",
+			message: formData.message,
+			time,
+			page_url: typeof window !== "undefined" ? window.location.href : "",
+			user_agent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+			site_name: "UniquePoint",
+		};
+
+		// Read EmailJS configuration from environment variables (trim to avoid stray spaces/BOM)
+		const serviceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID || "").trim();
+		const templateId = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "").trim();
+		const publicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "").trim();
+
+		if (!serviceId || !templateId || !publicKey) {
+			setSubmitStatus("error");
+			setSubmitError(
+				"Email service is not configured. Please contact support or try again later."
+			);
 			setIsSubmitting(false);
+			return;
+		}
+
+		try {
+			// Initialize with public key to ensure correct auth context
+			emailjs.init({ publicKey });
+			await emailjs.send(serviceId, templateId, templateParams, { publicKey });
+			setSubmitStatus("success");
 			setFormData({
 				name: "",
 				email: "",
@@ -45,7 +97,16 @@ const Contacts = () => {
 				subject: "",
 				message: "",
 			});
-		}, 2000);
+		} catch (err) {
+			setSubmitStatus("error");
+			setSubmitError(
+				err?.text ||
+					err?.message ||
+					"Failed to send your message. Please try again."
+			);
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	// Structured data for Contact page
@@ -59,7 +120,7 @@ const Contacts = () => {
 			contactPoint: [
 				{
 					"@type": "ContactPoint",
-					telephone: "+880-1903219313",
+					telephone: "+8801876658343",
 					contactType: "customer service",
 					areaServed: "BD",
 					availableLanguage: ["English", "Bengali"],
@@ -243,6 +304,11 @@ const Contacts = () => {
 								{submitStatus === "success" && (
 									<div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
 										Thank you for your message! We'll get back to you soon.
+									</div>
+								)}
+								{submitStatus === "error" && (
+									<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+										{submitError}
 									</div>
 								)}
 
