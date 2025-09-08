@@ -436,7 +436,7 @@ const ProductDetail = () => {
 							{/* Product Features */}
 							<div className="bg-gray-50 rounded-lg p-4 space-y-3">
 								{/* Fast Delivery Highlight (animated) */}
-								<div className="relative overflow-hidden rounded-lg p-3 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white shadow-lg">
+								<div className="relative overflow-hidden rounded-lg p-3 flow-left-right-green text-white shadow-lg">
 									<div className="absolute inset-0 opacity-30 animate-pulse bg-[radial-gradient(circle_at_top_left,white,transparent_50%)]"></div>
 									<div className="relative flex items-center gap-3">
 										<span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 ring-2 ring-white/50">

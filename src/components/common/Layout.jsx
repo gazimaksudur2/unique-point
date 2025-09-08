@@ -36,7 +36,11 @@ const Layout = ({ children }) => {
 				title="Chat on WhatsApp"
 			>
 				{/* <span className="font-semibold">WhatsApp</span> */}
-				<img src="https://cdn-icons-png.flaticon.com/128/4423/4423697.png" alt="WhatsApp" className="w-6 h-6" />
+				<img
+					src="https://cdn-icons-png.flaticon.com/128/4423/4423697.png"
+					alt="WhatsApp"
+					className="w-6 h-6"
+				/>
 			</a>
 			<Footer />
 		</div>

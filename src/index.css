@@ -274,3 +274,20 @@
 .progress-success {
     @apply [&::-webkit-progress-value]:bg-green-600 [&::-moz-progress-bar]:bg-green-600;
 }
+
+/* Flowing left-to-right gradient for highlight banners */
+@keyframes flowLeftRightGreen {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.flow-left-right-green {
+    background-image: linear-gradient(90deg, #0ea05a, #25D366, #0ea05a);
+    background-size: 200% 100%;
+    animation: flowLeftRightGreen 2.2s linear infinite;
+}
